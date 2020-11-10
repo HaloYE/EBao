@@ -1,4 +1,4 @@
-package com.qr.action;
+package com.qr.actions;
 
 import com.qr.entity.User;
 import com.qr.service.IUserService;
@@ -12,19 +12,18 @@ public class UserAction {
     private IUserService userService;
 
     @RequestMapping("/confirmLogin.action")
-    public String confirmLogin(String account,String password){
+    public int confirmLogin(String account,String password){
         User user=userService.confirmUser(account);
-        String msg="";
-        if (user.getUserID().equals(account)){
-            msg="ok";
+        int m;
+        if (user==null){
+            m=0;
         }else {
-            msg="账号有误";
+            if (user.getPassword().equals(password)){
+                m=1;
+            }else {
+                m=2;
+            }
         }
-        if (user.getPassword().equals(password)){
-            msg="ok";
-        }else {
-            msg="账号有误";
-        }
-        return msg;
+        return m;
     }
 }

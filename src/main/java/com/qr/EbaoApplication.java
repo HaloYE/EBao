@@ -12,5 +12,4 @@ public class EbaoApplication {
     public static void main(String[] args) {
         SpringApplication.run(EbaoApplication.class, args);
     }
-
 }

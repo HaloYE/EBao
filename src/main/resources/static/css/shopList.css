@@ -1,0 +1,138 @@
+.big_container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.container{
+    /*border: 1px solid red;*/
+    width: 1200px;
+    margin: 0 auto;
+    height: 800px;
+}
+.shop_list{
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+.shop{
+    float: left;
+    margin-top: 40px;
+    width: 720px;
+    height: auto;
+    /*border: 1px solid green;*/
+}
+.shop_container{
+    /*border: 1px solid black;*/
+    height: auto;
+    width: 720px;
+}
+.title_container{
+    height: 20px;
+    width: 100%;
+    line-height: 20px;
+}
+.title{
+    list-style-type: none;
+    /*left: 120px;*/
+    width: 60px;
+    color: #000;
+    font-size: 12px;
+}
+.list{
+    height: 190px;
+    width: 95%;
+    background: #F7F7F7;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+.list_container{
+    height: 170px;
+    width: 100%;
+    /*border: 1px solid blueviolet;*/
+    position: relative;
+    top: 10px;
+    float: left;
+}
+.shop_pic{
+    float: left;
+    position: relative;
+    top: 35px;
+    left: 20px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid #E6E6E6;
+}
+.shop_text{
+    position: relative;
+    top: 35px;
+    left: 30px;
+    float: left;
+    height: 120px;
+    width: 420px;
+    /*line-height: 120px;*/
+    /*border: 1px solid blueviolet;*/
+    /*font-size: 12px;*/
+}
+.shop_name{
+    position: relative;
+    top:20px;
+    left: 5px;
+    height: 20px;
+    width: 200px;
+    /*border: 1px solid blueviolet;*/
+    font-size: 12px;
+    font-style: initial;
+}
+.shop_service{
+    position: relative;
+    top:20px;
+    left: 5px;
+    height: 20px;
+    width: 400px;
+    /*border: 1px solid blueviolet;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 6px;
+
+}
+.shop_service1{
+    position: relative;
+    top:20px;
+    left: 5px;
+    height: 30px;
+    width: 400px;
+    /*border: 1px solid blueviolet;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 6px;
+
+}
+.shop_detail{
+    position: relative;
+    top: 80px;
+    left: 65px;
+    float: left;
+    /*border: 1px solid red;*/
+    height: 30px;
+    width: 70px;
+}
+.detail {
+    width: 100%;
+    height: 100%;
+    background-color: #17A4C7;
+    border-radius: 10px;
+    font-size: 8px;
+    color: #ffffff;
+    /*box-shadow: #d0d1d2;*/
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+}
+.select{
+    margin-top: 40px;
+    margin-left:9%;
+    float: left;
+    width: 360px;
+    height: 200px;
+    border: 1px solid #ffc001;
+}

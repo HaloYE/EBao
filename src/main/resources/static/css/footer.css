@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.footer{
+    background-color: #ffc001;
+    height: 200px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+}
+.container{
+    /*width: 1200px;*/
+    /*margin: 0 auto;*/
+}
