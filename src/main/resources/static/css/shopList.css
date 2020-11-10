@@ -1,0 +1,29 @@
+.big_container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.container{
+    border: 1px solid red;
+    width: 1200px;
+    margin: 0 auto;
+    height: auto;
+}
+.shop_list{
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+.title{
+    /*position: absolute;*/
+    /*top: 130px;*/
+    left: 120px;
+    width: 90px;
+    color: #000;
+    font-size: 12px;
+}
+.shop{
+    margin-top: 20px;
+    width: 60%;
+    height: 200px;
+    border: 1px solid green;
+}
