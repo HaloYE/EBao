@@ -22,6 +22,7 @@ body{
     font-size: 32px;
     white-space: nowrap;
     float: left;
+    display: block;
 }
 
         /*分类标签*/
