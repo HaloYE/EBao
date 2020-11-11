@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的位置</title>
+    <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LQq0W9wA7A54GQ2fRd6YgpvDG14nX1K7"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <style type="text/css">
+        *{ margin: 0px; padding: 0px;}
+        body{text-align: center;  height: 100%;overflow:hidden;}
+        #allmap{ width: 100%;height: 100%; position: absolute;}
+    </style>
+</head>
+<body>
+<div id="allmap"></div>
+
+<script type="text/javascript">
+    $(function(){
+        if(supportsGeoLocation()){
+            alert("你的浏览器支持 GeoLocation.");
+        }else{
+            alert("不支持 GeoLocation.")
+        }
+        // 检测浏览器是否支持HTML5
+        function supportsGeoLocation(){
+            return !!navigator.geolocation;
+        }
+        // 单次位置请求执行的函数
+        function getLocation(){
+            navigator.geolocation.getCurrentPosition(mapIt,locationError);
+        }
+        //定位成功时，执行的函数
+        function mapIt(position){
+            var lon = position.coords.longitude;
+            var lat = position.coords.latitude;
+            alert("您位置的经度是："+lon+" 纬度是："+lat);
+            var map = new BMap.Map('allmap');
+            map.enableScrollWheelZoom(true);
+            var point = new BMap.Point(""+lon+"",""+lat+"");
+            map.centerAndZoom(point,19);
+
+/*            var point2 = new BMap.Point(120.591724, 32.363187);
+            var marker1 = new BMap.Marker(point2);
+            map.addOverlay(marker1);*/
+// 创建点标记
+            var marker2 = new BMap.Marker(new BMap.Point(120.591724, 32.363187));
+            var marker3 = new BMap.Marker(new BMap.Point(120.541724, 32.363187));
+            var marker4 = new BMap.Marker(new BMap.Point(120.561724, 32.363187));
+            var marker5 = new BMap.Marker(new BMap.Point(120.581724, 32.363187));
+            var marker6 = new BMap.Marker(new BMap.Point(120.591724, 32.364187));
+            var marker7 = new BMap.Marker(new BMap.Point(120.591724, 32.366187));
+            var marker8 = new BMap.Marker(new BMap.Point(120.591724, 32.368187));
+            var marker9 = new BMap.Marker(new BMap.Point(120.691724, 32.363187));
+            var marker10 = new BMap.Marker(new BMap.Point(120.791724, 32.363187));
+            var marker11 = new BMap.Marker(new BMap.Point(120.891724, 32.363187));
+            var marker12 = new BMap.Marker(new BMap.Point(120.991724, 32.363187));
+            var marker13 = new BMap.Marker(new BMap.Point(120.591724, 32.563187));
+            var marker14 = new BMap.Marker(new BMap.Point(120.591724, 32.663187));
+
+// 在地图上添加点标记
+            map.addOverlay(marker2);
+            map.addOverlay(marker3);
+            map.addOverlay(marker4);
+            map.addOverlay(marker5);
+            map.addOverlay(marker6);
+            map.addOverlay(marker7);
+            map.addOverlay(marker8);
+            map.addOverlay(marker9);
+            map.addOverlay(marker10);
+            map.addOverlay(marker11);
+            map.addOverlay(marker12);
+            map.addOverlay(marker13);
+            map.addOverlay(marker14);
+
+
+            var gc = new BMap.Geocoder();
+            translateCallback = function (point){
+                var marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+
+                map.setCenter(point);
+                var circle = new BMap.Circle(point, 5000, {
+                    strokeColor: 'blue',
+                    strokeWeight: 6,
+                    strokeOpacity: 0.5
+                });
+                map.addOverlay(circle);
+
+                /*var local =  new BMap.LocalSearch(map, {renderOptions: {map: map, autoViewport: false}});
+                local.searchNearby('餐馆',point,5000);*/
+
+                gc.getLocation(point, function(rs){
+                    var addComp = rs.addressComponents;
+                    if(addComp.province!==addComp.city){
+                        var sContent =
+                            "<div><h4 style='margin:0 0 5px 0;padding:0.2em 0'>你当前的位置是：</h4>" +
+                            "<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber+"</p>" +
+                            "</div>";}
+                    else{
+                        var sContent =
+                            "<div><h4 style='margin:0 0 5px 0;padding:0.2em 0'>你当前的位置是：</h4>" +
+                            "<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>"+ addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber+"</p>" +
+                            "</div>";
+                    }
+                    var infoWindow = new BMap.InfoWindow(sContent);
+                    map.openInfoWindow(infoWindow,point);
+                });
+            }
+            BMap.Convertor.translate(point,0,translateCallback);
+        }
+        // 定位失败时，执行的函数
+        function locationError(error)
+        {
+            switch(error.code)
+            {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+        // 页面加载时执行getLocation函数
+        window.onload = getLocation;
+    })
+</script>
+</body>
+</html>
