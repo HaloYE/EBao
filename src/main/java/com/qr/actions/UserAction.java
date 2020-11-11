@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class UserAction {
     @Autowired
@@ -23,6 +25,19 @@ public class UserAction {
             }else {
                 m=2;
             }
+        }
+        return m;
+    }
+
+    @RequestMapping("/confirmRegister.action")
+    public int isRegistre(String account,String password){
+        User user=userService.confirmUser(account);
+        int m;
+        if (user==null){
+            userService.addAcount(account,password);
+            m=1;
+        }else {
+            m=0;
         }
         return m;
     }
