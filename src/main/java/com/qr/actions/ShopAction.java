@@ -1,4 +1,4 @@
-package com.qr.action;
+package com.qr.actions;
 
 
 import com.qr.service.ShopServicce;
