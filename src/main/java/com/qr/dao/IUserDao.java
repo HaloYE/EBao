@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository("userdao")
 public interface IUserDao {
     User confirmLogin(@Param("account") String account);
-    User insertAccount(@Param("account") String account,@Param("password") String password);
+    void insertAccount(@Param("account") String account,@Param("password") String password);
 }
