@@ -18,11 +18,11 @@ public class IUserServiceImpl implements IUserService {
 
     @Override
     public User confirmUser(String account) {
-        User u=userDao.confirmLogin(account);
-        if (u!=null){
-            return u;
-        }else {
-            return null;
-        }
+        return userDao.confirmLogin(account);
+    }
+
+    @Override
+    public User addAcount(String account, String password) {
+        return userDao.insertAccount(account,password);
     }
 }
