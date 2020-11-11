@@ -21,7 +21,7 @@ public class ShopServiceImpl implements ShopServicce {
      * @param businessId
      * @return
      */
-    @Override
+
     public List<Shop> findAllShop(int page, int limit, String businessId) {
         int begin=(page-1)*limit;
         return shopDao.findAllShop(begin,limit,businessId);
@@ -32,7 +32,6 @@ public class ShopServiceImpl implements ShopServicce {
      * @param businessId
      * @return
      */
-    @Override
     public int selectShopNum(String businessId) {
         return shopDao.selectShopNum(businessId);
     }

@@ -5,5 +5,5 @@ import org.apache.ibatis.annotations.Param;
 
 public interface IUserService {
     User confirmUser(String account);
-    User addAcount(String account,String password);
+    void addAcount(String account,String password);
 }
