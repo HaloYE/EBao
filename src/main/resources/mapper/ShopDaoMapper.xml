@@ -8,6 +8,15 @@
         <if test="businessId!=null and businessId!=''">
             and businessId=#{businessId}
         </if>
+        <if test="shopName!=null and shopName!=''">
+            and shopName like "%"#{shopName}"%"
+        </if>
+        <if test="shopId!=null and shopId!=''">
+            and shopId like "%"#{shopId}"%"
+        </if>
+        <if test="address!=null and address!=''">
+            and address like "%"#{address}"%"
+        </if>
         limit ${begin},${limit}
     </select>
 
@@ -16,5 +25,17 @@
         <if test="businessId!=null and businessId!=''">
             and businessId=#{businessId}
         </if>
+        <if test="shopName!=null and shopName!=''">
+            and shopName like "%"#{shopName}"%"
+        </if>
+        <if test="shopId!=null and shopId!=''">
+            and shopId like "%"#{shopId}"%"
+        </if>
+        <if test="address!=null and address!=''">
+            and address like "%"#{address}"%"
+        </if>
     </select>
+    <insert id="addShop">
+        insert into shoptable values (#{shopId},#{shopName},#{businessId},#{address})
+    </insert>
 </mapper>
