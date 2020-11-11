@@ -6,4 +6,8 @@
     <select id="confirmLogin" resultType="com.qr.entity.User">
         select * from usertable where userID=#{account}
     </select>
+
+    <insert id="insertAccount">
+        insert into usertable(userID,password) values (#{account},#{password})
+    </insert>
 </mapper>
