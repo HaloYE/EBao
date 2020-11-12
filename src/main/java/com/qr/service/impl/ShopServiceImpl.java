@@ -35,4 +35,9 @@ public class ShopServiceImpl implements ShopServicce {
     public int selectShopNum(String businessId) {
         return shopDao.selectShopNum(businessId);
     }
+
+    public List<Shop> findShop(){
+        return shopDao.findShop();
+}
+
 }

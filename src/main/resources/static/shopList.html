@@ -11,7 +11,7 @@
 <body>
 <div class="big_container">
 <!--导航栏-->
-<iframe src="navigation.html" width="100%" height="100%" style=" height: 120px" frameborder="0" scrolling="no" name="headFrame"></iframe>
+<iframe src="index/navigation.html" width="100%" height="100%" style=" height: 120px" frameborder="0" scrolling="no" name="headFrame"></iframe>
 <!--主要内容-->
 <div class="container">
     <div class="shop_list">
@@ -27,8 +27,9 @@
                             <img src="images/Reindeer.png" height="100%" width="100%" style="border-radius: 50%"/>
                         </div>
                         <div class="shop_text">
+<!--                                        <table id="test_table">-->
                             <div class="shop_name">
-                                <span style="color:#17A4C7">联动云租车服务</span>
+                                <span id="shop_name" style="color:#17A4C7">${}</span>
                             </div>
                                 <div class="shop_service">
                                     <span style="font-size: 2px">提供：各类汽车租赁，汽车维护，汽车检修...</span>
@@ -36,6 +37,7 @@
                                 <div class="shop_service1">
                                     <span>服务简介：面向广大急需用车的用户推出该租车服务，按照行使时常来进行计费，各种车型可供选择。让您享受便捷出行，让您感受开车乐趣。面向广大急需用车的用户推出该租车服务，按照行使时常来进行计费，各种车型可供选择。让您享受便捷出行，让您感受开车乐趣。</span>
                                 </div>
+<!--                                        </table>-->
                         </div>
                         <div class="shop_detail">
                             <input type="button" class="detail" value="查看详情">
@@ -117,13 +119,26 @@
 
 </div>
 <!--底部栏-->
-<iframe src="footer.html" width="100%"height="100%"frameborder="0"scrolling="no"style="height: 300px;display: block"></iframe>
+<iframe src="index/footer.html" width="100%" height="100%" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>
 </div>
 
 <script>
     var name = $.cookie('name');
     alert(name);
 </script>
-
+<script>
+    function show(){}
+    // var table;
+    // table.render({
+    //     elem:'#test_table',
+    //     url:'../selectShop.action',
+    //     page:'true',
+    //     cols:[[
+    //         {filed:'shopName',title:'店铺名称'}
+    //     ]],
+    //
+    //
+    // });
+</script>
 </body>
 </html>
