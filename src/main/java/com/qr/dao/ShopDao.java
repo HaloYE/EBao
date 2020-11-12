@@ -28,4 +28,37 @@ public interface ShopDao {
      * @param shop
      */
     void addShop(Shop shop);
+
+    /**
+     * 修改商店信息
+     * @param shop
+     */
+    void shopChange(Shop shop);
+
+    /**
+     * 分页查询店铺的所有信息
+     * @param begin
+     * @param limit
+     * @param shopId
+     * @param goodsId
+     * @param goodsName
+     * @return
+     */
+    List findShopGoods(@Param("begin")int begin, @Param("limit")int limit, @Param("shopId")String shopId, @Param("goodsId")String goodsId, @Param("goodsName")String goodsName);
+
+
+    /**
+     * 查询店铺的商品件数
+     * @param shopId
+     * @param goodsId
+     * @param goodsName
+     * @return
+     */
+    int findShopGoodsNum(@Param("shopId") String shopId, @Param("goodsId") String goodsId, @Param("goodsName") String goodsName);
+
+    /**
+     * 删除一个商品
+     * @param goodsId
+     */
+    void deleteOneGoods(String goodsId);
 }

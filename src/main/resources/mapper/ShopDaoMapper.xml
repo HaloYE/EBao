@@ -38,4 +38,39 @@
     <insert id="addShop">
         insert into shoptable values (#{shopId},#{shopName},#{businessId},#{address})
     </insert>
+
+    <update id="shopChange">
+        update shoptable set shopName=#{shopName},address=#{address} where shopId=#{shopId}
+    </update>
+
+    <select id="findShopGoods" resultType="com.qr.entity.Goods">
+        select * from goods where 1=1
+        <if test="shopId!=null and shopId!=''">
+            and shopId=#{shopId}
+        </if>
+        <if test="goodsId!=null and goodsId!=''">
+            and goodsId like "%"#{goodsId}"%"
+        </if>
+        <if test="goodsName!=null and goodsName!=''">
+            and goodsName like "%"#{goodsName}"%"
+        </if>
+        limit ${begin},${limit}
+    </select>
+
+    <select id="findShopGoodsNum" resultType="int">
+        select count(*) from goods where 1=1
+        <if test="shopId!=null and shopId!=''">
+            and shopId=#{shopId}
+        </if>
+        <if test="goodsId!=null and goodsId!=''">
+            and goodsId like "%"#{goodsId}"%"
+        </if>
+        <if test="goodsName!=null and goodsName!=''">
+            and goodsName like "%"#{goodsName}"%"
+        </if>
+    </select>
+
+    <delete id="deleteOneGoods">
+        delete from goods where goodsId=#{goodsId}
+    </delete>
 </mapper>

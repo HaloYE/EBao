@@ -27,4 +27,37 @@ public interface ShopServicce {
      * @param shop
      */
     void addShop(Shop shop);
+
+
+    /**
+     * 修改商店信息
+     * @param shop
+     */
+    void shopChange(Shop shop);
+
+    /**
+     * 分页查询商店的商品信息
+     * @param page
+     * @param limit
+     * @param shopId
+     * @param goodsId
+     * @param goodsName
+     * @return
+     */
+    List findShopGoods(int page, int limit, String shopId, String goodsId, String goodsName);
+
+    /**
+     * 查询店铺的所有商品条数
+     * @param shopId
+     * @param goodsId
+     * @param goodsName
+     * @return
+     */
+    Integer findShopGoodsNum(String shopId, String goodsId, String goodsName);
+
+    /**
+     * 删除一个商品
+     * @param goodsId
+     */
+    void deleteOneGoods(String goodsId);
 }

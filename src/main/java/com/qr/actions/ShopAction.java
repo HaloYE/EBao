@@ -46,4 +46,41 @@ public class ShopAction {
             shopServicce.addShop(shop);
         }
     }
+
+
+
+    @RequestMapping("/shopChange.action")
+    public void shopChange(Shop shop,HttpServletRequest request){
+        HttpSession session=request.getSession();
+        String businessId=(String) session.getAttribute("businessId");
+        if (businessId==""||"".equals(businessId)){
+            System.out.println("请登录");
+        }else {
+            shop.setBusinessId(businessId);
+        }
+        shopServicce.shopChange(shop);
+    }
+
+
+
+    @RequestMapping("/selectShopGoods.action")
+    public Map selectShopGoods(int page, int limit,String shopId,String goodsId,String goodsName){
+        List goodsList=shopServicce.findShopGoods(page,limit,shopId,goodsId,goodsName);
+        Integer goodsNum=shopServicce.findShopGoodsNum(shopId,goodsId,goodsName);
+        Map map=new HashMap();
+        map.put("msg","");
+        map.put("code",0);
+        map.put("data",goodsList);
+        map.put("count",goodsNum);
+        return map;
+    }
+
+    @RequestMapping("/deleteOneGoods.action")
+    public void deleteOneGoods(String goodsId){
+        try {
+            shopServicce.deleteOneGoods(goodsId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
