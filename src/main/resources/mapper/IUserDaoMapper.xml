@@ -12,6 +12,6 @@
     </insert>
 
     <update id="updateAccountInfo">
-        update usertable set userName=#{userName},realName=#{realName},idCardNum=#{idCardNum},sex=#{sex},address=#{address} where userID=#{acount}
+        update usertable set userName=#{userName},realName=#{realName},idCardNum=#{idCardNum},sex=#{sex},address=#{address} where userID=#{account}
     </update>
 </mapper>

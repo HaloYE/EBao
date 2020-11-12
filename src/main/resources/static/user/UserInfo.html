@@ -24,11 +24,6 @@
             margin: auto;
         }
 
-        #main {
-            width: 100%;
-            height: 1000px;
-            margin-top: 5px;
-        }
 
         #main_left, #main_right {
             float: left;
@@ -56,160 +51,148 @@
         #test1 {
             margin-top: 15px;
         }
+
     </style>
     <script src="../layuiadmin/layui/layui.js"></script>
 </head>
 <body>
 <div id="container">
-    <form>
-        <div id="main_left">
-            <div class="layui-upload">
-                <div class="layui-upload-list">
-                    <img class="layui-upload-img" id="demo1" alt="no" src="../images/headimg.jpg" width="200px"
-                         height="200px">
-                    <p id="demoText"></p>
-                    <button type="button" class="layui-btn" id="test1">上传图片</button>
+    <div id="main_left">
+        <div class="layui-upload">
+            <div class="layui-upload-list">
+                <img class="layui-upload-img" id="demo1" alt="no" src="../images/headimg.jpg" width="200px"
+                     height="200px">
+                <p id="demoText"></p>
+                <button class="layui-btn" id="upload">上传图片</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main_right">
+        <div class="layui-form-item">
+            <label class="layui-form-label">账号：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="userID" id="userID" lay-verify="required"
+                       class="layui-input" readonly="readonly" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="userName" id="userName" lay-verify="required" placeholder="请输入"
+                       class="layui-input" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">真实姓名：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="realName" id="realName" lay-verify="required"
+                       class="layui-input" value="" placeholder="请输入">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">身份证号：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="idCardNum" id="idCardNum" lay-verify="required"
+                       class="layui-input" value="" placeholder="请输入">
+            </div>
+        </div>
+
+        <div class="layui-form" lay-filter="test">
+            <!--                    更新 lay-filter="test1" 所在容器内的全部表单状态-->
+            <div class="layui-form-item">
+                <label class="layui-form-label">性别：</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" value="1" id="man"
+                           title="男">
+                    <input type="radio" name="sex" value="0" id="woman"
+                           title="女">
                 </div>
             </div>
         </div>
-        <div id="main_right">
-            <div class="layui-form-item">
-                <label class="layui-form-label">账号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="user_id" id="user_id" lay-verify="required"
-                            class="layui-input" readonly="readonly" value="">
-                </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">详细地址：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="address" id="address" lay-verify="required"
+                       placeholder="请输入" class="layui-input"
+                       value="">
             </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">昵称：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="qname" id="qname" lay-verify="required" placeholder="请输入"
-                           class="layui-input" value="">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">真实姓名：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="realName" id="realName" lay-verify="required"
-                           class="layui-input" value="" placeholder="请输入">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">身份证号：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="idCardNum" id="idCardNum" lay-verify="required"
-                           class="layui-input" value="" placeholder="请输入">
-                </div>
-            </div>
-
-            <div class="layui-form" lay-filter="test">
-                <!--                    更新 lay-filter="test1" 所在容器内的全部表单状态-->
-                <div class="layui-form-item">
-                    <label class="layui-form-label">性别：</label>
-                    <div class="layui-input-block">
-                        <input type="radio" name="sex" value="1" id="man"
-                               title="男" ${(USER.user_sex)=="1"?"checked":""}>
-                        <input type="radio" name="sex" value="0" id="woman"
-                               title="女" ${(USER.user_sex)=="0"?"checked":""}>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">电话：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="utel" id="user_tel" lay-verify="required" placeholder="请输入"
-                          class="layui-input" value="">
-                </div>
-            </div>
-
-            <!--            <div class="layui-form" lay-filter="test1">-->
-            <!--                <div class="layui-form-item">-->
-            <!--                    <label class="layui-form-label">生活状态：</label>-->
-            <!--                    <div class="layui-input-block">-->
-            <!--                        <input type="radio" name="state" value="danshen"-->
-            <!--                               title="单身" ${(USER.life_state)=="danshen"?"checked":""}>-->
-            <!--                        <input type="radio" name="state" value="relian"-->
-            <!--                               title="热恋中" ${(USER.life_state)=="relian"?"checked":""}>-->
-            <!--                        <input type="radio" name="state" value="yihun"-->
-            <!--                               title="已婚" ${(USER.life_state)=="yihun"?"checked":""}>-->
-            <!--                        <input type="radio" name="state" value="fumu"-->
-            <!--                               title="为人父母" ${(USER.life_state)=="fumu"?"checked":""}>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="layui-form" lay-filter="test1">-->
-            <!--                <div class="layui-form-item">-->
-            <!--                    <label class="layui-form-label">兴趣：</label>-->
-            <!--                    <div class="layui-input-block">-->
-            <!--                        <input type="checkbox" name="like[write]" title="写作" value="write" <c:if-->
-            <!--                            test="${USER.hobbies.contains('write')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[read]" title="阅读" value="read" <c:if-->
-            <!--                            test="${USER.hobbies.contains('read')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[daze]" title="发呆" value="daze" <c:if-->
-            <!--                            test="${USER.hobbies.contains('daze')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[food]" title="美食" value="food" <c:if-->
-            <!--                            test="${USER.hobbies.contains('food')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[animals]" title="动物" value="animals" <c:if-->
-            <!--                            test="${USER.hobbies.contains('animals')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[travel]" title="旅游" value="travel" <c:if-->
-            <!--                            test="${USER.hobbies.contains('travel')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[music]" title="音乐" value="music" <c:if-->
-            <!--                            test="${USER.hobbies.contains('music')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[sports]" title="运动" value="sports" <c:if-->
-            <!--                            test="${USER.hobbies.contains('sports')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[science]" title="科技" value="science" <c:if-->
-            <!--                            test="${USER.hobbies.contains('science')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[car]" title="汽车" value="car" <c:if-->
-            <!--                            test="${USER.hobbies.contains('car')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[fashion]" title="时尚" value="fashion" <c:if-->
-            <!--                            test="${USER.hobbies.contains('fashion')}"> checked="checked"</c:if>/>-->
-            <!--                        <input type="checkbox" name="like[camera]" title="摄影" value="camera" <c:if-->
-            <!--                            test="${USER.hobbies.contains('camera')}"> checked="checked"</c:if>/>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <div class="layui-form-item">
-                <label class="layui-form-label">详细地址：</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="person_word" id="person_word" lay-verify="required"
-                           placeholder="请输入" class="layui-input"
-                           value="">
-                </div>
-            </div>
-            <!--            <div class="layui-form-item">-->
-            <!--                <label class="layui-form-label">密保一问：</label>-->
-            <!--                <div class="layui-input-inline">-->
-            <!--                    <input type="text" name="questionone" id="questionone" lay-verify="required"-->
-            <!--                           placeholder="用于密码验证" autocomplete="off" class="layui-input" value="">-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="layui-form-item">-->
-            <!--                <label class="layui-form-label">一问答案：</label>-->
-            <!--                <div class="layui-input-inline">-->
-            <!--                    <input type="text" name="answerone" id="answerone" lay-verify="required"-->
-            <!--                           placeholder="请填写" autocomplete="off" class="layui-input" value="">-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="layui-form-item">-->
-            <!--                <label class="layui-form-label">密保二问：</label>-->
-            <!--                <div class="layui-input-inline">-->
-            <!--                    <input type="text" name="questiontwo" id="questiontwo" lay-verify="required"-->
-            <!--                           placeholder="用于密码验证" autocomplete="off" class="layui-input" value="">-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--            <div class="layui-form-item">-->
-            <!--                <label class="layui-form-label">二问答案：</label>-->
-            <!--                <div class="layui-input-inline">-->
-            <!--                    <input type="text" name="answertwo" id="answertwo" lay-verify="required"-->
-            <!--                           placeholder="请填写" autocomplete="off" class="layui-input" value="">-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <input type="button" class="layui-btn layui-btn-warm" id="personal_submit" value="保存信息"/>
         </div>
-    </form>
+
+        <input type="button" class="layui-btn layui-btn-warm" id="save" value="保存信息"/>
+    </div>
 </div>
-
+<script src="../js/jquery-3.5.1.min.js"></script>
 <script>
+    $(function () {
+        initData()
+    })
+
+    function initData() {
+        // var uname= $.cookie("uname");
+        var userid = localStorage.getItem("userid");
+        var userName = localStorage.getItem("userName");
+        var realName = localStorage.getItem("realName");
+        var idCardNum = localStorage.getItem("idCardNum");
+        var sex = localStorage.getItem("sex");
+        var address = localStorage.getItem("address");
+
+        if (userName== null) {
+            userName == "";
+        }
+        if (realName == null) {
+            realName == "";
+        }
+        if (idCardNum== null) {
+            idCardNum == "";
+        }
+        if (address== null) {
+            address == "";
+        }
+
+        $('#userID').val(userid);
+        $('#userName').val(userName);
+        $('#realName').val(realName);
+        $('#idCardNum').val(idCardNum);
+        $('#sex').val(sex);
+        $('#address').val(address);
+    }
+
+    $(function () {
+        $("#save").click(function () {
+            var userID = $("#userID").val();
+            var userName = $("#userName").val();
+            var realName = $("#realName").val();
+            var idCardNum = $("#idCardNum").val();
+            if ($("#man").val() == 1) {
+                var sex = 1;
+            } else {
+                var sex = 0;
+            }
+            alert(sex);
+            alert(userID)
+            var address = $("#address").val();
+            $.ajax({
+                url: "../confirmUpdate.action",
+                data: {
+                    account: userID,
+                    userName: userName,
+                    realName: realName,
+                    idCardNum: idCardNum,
+                    sex: sex,
+                    address: address
+                },
+                success: function (msg) {
+                    if (msg==1){
+                        alert("修改成功")
+                    }else {
+                        alert("修改失败!")
+                    }
+                }
+            })
+        })
+    })
+
     layui.use('form', function () {
         var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
         form.on('checkbox(filter)', function (data) {
@@ -224,6 +207,7 @@
         });
         form.render(null, "test");
     });
+
     layui.use('laydate', function () {
         var laydate = layui.laydate;
 
@@ -234,12 +218,13 @@
             , trigger: 'click'
         });
     });
+
     layui.use('upload', function () {
         var $ = layui.jquery
             , upload = layui.upload;
         //普通图片上传
         var uploadInst = upload.render({
-            elem: '#test1'
+            elem: '#upload'
             , url: '../image' //改成您自己的上传接口
             , before: function (obj) {
                 //预读本地文件示例，不支持ie8
@@ -264,6 +249,7 @@
             }
         });
     })
+
 </script>
 </body>
 </html>
