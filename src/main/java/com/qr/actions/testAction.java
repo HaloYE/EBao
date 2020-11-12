@@ -27,10 +27,10 @@ public class testAction {
 
     public List findShop(HttpServletRequest request, Model model){
         HttpSession session=request.getSession();
-        String shopName=(String) session.getAttribute("shopName");
+//        String shopName=(String) session.getAttribute("shopName");
         List shoplist=shopServicce.findShop();
 
-        model.addAttribute("shopName",shopName);
+        model.addAttribute("shoplist",shoplist);
         return shoplist;
     }
 
