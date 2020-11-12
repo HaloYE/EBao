@@ -10,4 +10,8 @@
     <insert id="insertAccount">
         insert into usertable(userID,password) values (#{account},#{password})
     </insert>
+
+    <update id="updateAccountInfo">
+        update usertable set userName=#{userName},realName=#{realName},idCardNum=#{idCardNum},sex=#{sex},address=#{address} where userID=#{account}
+    </update>
 </mapper>
