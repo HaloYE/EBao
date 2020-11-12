@@ -10,6 +10,6 @@ public class User {
     private String password;
     private String realName;
     private Integer idCardNum;
-    private String sex;
+    private Integer sex;
     private String address;
 }

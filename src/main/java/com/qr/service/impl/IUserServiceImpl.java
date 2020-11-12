@@ -12,13 +12,15 @@ public class IUserServiceImpl implements IUserService {
     @Resource
     private IUserDao userDao;
 
-
     public User confirmUser(String account) {
         return userDao.confirmLogin(account);
     }
 
-
     public void addAcount(String account, String password) {
         userDao.insertAccount(account,password);
+    }
+
+    public void updateUserInfo(String account, String userName, String realName, int idCardNum, int sex, String address) {
+        userDao.updateAccountInfo(account,userName,realName,idCardNum,sex,address);
     }
 }

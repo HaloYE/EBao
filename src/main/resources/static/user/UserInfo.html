@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E宝交易网--用户登录</title>
+    <link rel="stylesheet" href="../layuiadmin/layui/css/layui.css">
+    <style type="text/css">
+        .Info {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: red;
+            margin-left: 20px;
+        }
+
+        hr {
+            height: 10px;
+            background-color: gainsboro;
+            border: 10px;
+        }
+
+        #container {
+            width: 100%;
+            height: auto;
+            margin: auto;
+        }
+
+
+        #main_left, #main_right {
+            float: left;
+        }
+
+        #main_left {
+            width: 300px;
+            text-align: center;
+        }
+
+        #main_right {
+            width: 430px;
+            height: auto;
+        }
+
+        #personal_submit {
+            width: 150px;
+            font-size: 20px;
+            height: 40px;
+            margin-left: 100px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        #test1 {
+            margin-top: 15px;
+        }
+
+    </style>
+    <script src="../layuiadmin/layui/layui.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="main_left">
+        <div class="layui-upload">
+            <div class="layui-upload-list">
+                <img class="layui-upload-img" id="demo1" alt="no" src="../images/headimg.jpg" width="200px"
+                     height="200px">
+                <p id="demoText"></p>
+                <button class="layui-btn" id="upload">上传图片</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main_right">
+        <div class="layui-form-item">
+            <label class="layui-form-label">账号：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="userID" id="userID" lay-verify="required"
+                       class="layui-input" readonly="readonly" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">昵称：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="userName" id="userName" lay-verify="required" placeholder="请输入"
+                       class="layui-input" value="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">真实姓名：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="realName" id="realName" lay-verify="required"
+                       class="layui-input" value="" placeholder="请输入">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">身份证号：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="idCardNum" id="idCardNum" lay-verify="required"
+                       class="layui-input" value="" placeholder="请输入">
+            </div>
+        </div>
+
+        <div class="layui-form" lay-filter="test">
+            <!--                    更新 lay-filter="test1" 所在容器内的全部表单状态-->
+            <div class="layui-form-item">
+                <label class="layui-form-label">性别：</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" value="1" id="man"
+                           title="男">
+                    <input type="radio" name="sex" value="0" id="woman"
+                           title="女">
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">详细地址：</label>
+            <div class="layui-input-inline">
+                <input type="text" name="address" id="address" lay-verify="required"
+                       placeholder="请输入" class="layui-input"
+                       value="">
+            </div>
+        </div>
+
+        <input type="button" class="layui-btn layui-btn-warm" id="save" value="保存信息"/>
+    </div>
+</div>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+    $(function () {
+        initData()
+    })
+
+    function initData() {
+        // var uname= $.cookie("uname");
+        var userid = localStorage.getItem("userid");
+        var userName = localStorage.getItem("userName");
+        var realName = localStorage.getItem("realName");
+        var idCardNum = localStorage.getItem("idCardNum");
+        var sex = localStorage.getItem("sex");
+        var address = localStorage.getItem("address");
+
+        if (userName== null) {
+            userName == "";
+        }
+        if (realName == null) {
+            realName == "";
+        }
+        if (idCardNum== null) {
+            idCardNum == "";
+        }
+        if (address== null) {
+            address == "";
+        }
+
+        $('#userID').val(userid);
+        $('#userName').val(userName);
+        $('#realName').val(realName);
+        $('#idCardNum').val(idCardNum);
+        $('#sex').val(sex);
+        $('#address').val(address);
+    }
+
+    $(function () {
+        $("#save").click(function () {
+            var userID = $("#userID").val();
+            var userName = $("#userName").val();
+            var realName = $("#realName").val();
+            var idCardNum = $("#idCardNum").val();
+            if ($("#man").val() == 1) {
+                var sex = 1;
+            } else {
+                var sex = 0;
+            }
+            alert(sex);
+            alert(userID)
+            var address = $("#address").val();
+            $.ajax({
+                url: "../confirmUpdate.action",
+                data: {
+                    account: userID,
+                    userName: userName,
+                    realName: realName,
+                    idCardNum: idCardNum,
+                    sex: sex,
+                    address: address
+                },
+                success: function (msg) {
+                    if (msg==1){
+                        alert("修改成功")
+                    }else {
+                        alert("修改失败!")
+                    }
+                }
+            })
+        })
+    })
+
+    layui.use('form', function () {
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+        form.on('checkbox(filter)', function (data) {
+            console.log(data.elem); //得到checkbox原始DOM对象
+            console.log(data.elem.checked); //是否被选中，true或者false
+            console.log(data.value); //复选框value值，也可以通过data.elem.value得到
+            console.log(data.othis); //得到美化后的DOM对象
+        });
+        form.on('radio(filter)', function (data) {
+            console.log(data.elem); //得到radio原始DOM对象
+            console.log(data.value); //被点击的radio的value值
+        });
+        form.render(null, "test");
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //开启公历节日
+        laydate.render({
+            elem: '#calendar'
+            , calendar: true
+            , trigger: 'click'
+        });
+    });
+
+    layui.use('upload', function () {
+        var $ = layui.jquery
+            , upload = layui.upload;
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#upload'
+            , url: '../image' //改成您自己的上传接口
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#demo1').attr('src', result); //图片链接（base64）
+                });
+            }
+            , done: function (res) {
+                //如果上传失败
+                if (res.code > 0) {
+                    return layer.msg('上传失败');
+                }
+                //上传成功
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+        });
+    })
+
+</script>
+</body>
+</html>
