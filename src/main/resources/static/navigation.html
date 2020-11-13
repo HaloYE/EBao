@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <div class="container_header">
-        <div class="container_header_logo">
+        <div class="container_header_logo" onclick="jumpToIndex()">
             E宝租赁网
         </div>
         <div class="container_header_itemcontainer">
@@ -23,9 +23,17 @@
             <div class="container_header_itemSep"></div>
             <div class="container_header_item">更多服务商</div>
         </div>
-        <a href="user/UserLogin.html">
-            <button class="container_header_button" id="login">免费注册登录</button>
-        </a>
+        <button class="container_header_button" id="login" onclick="jumpToLogin()">免费注册登录</button>
     </div>
+</div>
 </body>
+
+<script>
+    function jumpToIndex(){
+        window.open('index.html','_parent');
+    }
+    function jumpToLogin(){
+        window.open('user/UserLogin.html','_parent');
+    }
+</script>
 </html>
