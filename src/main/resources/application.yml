@@ -11,6 +11,14 @@ spring:
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+#    关闭页面缓存，模板编码，页面映射路径，视图后的后缀，模板模式
+    cache: false
+    encoding: utf-8
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+
 
 mybatis:
   mapper-locations: mapper/*.xml
