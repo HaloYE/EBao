@@ -21,4 +21,7 @@ public interface ShopDao {
      * @return
      */
     int selectShopNum(String businessId);
+
+    List<Shop> findShop();
+
 }

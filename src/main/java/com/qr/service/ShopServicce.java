@@ -20,4 +20,7 @@ public interface ShopServicce {
      * @return
      */
     int selectShopNum(String businessId);
+
+
+    List<Shop> findShop();
 }

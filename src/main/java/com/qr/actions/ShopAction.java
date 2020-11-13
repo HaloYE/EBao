@@ -5,6 +5,7 @@ import com.qr.service.ShopServicce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,4 +32,6 @@ public class ShopAction {
         map.put("count",count);
         return map;
     }
+
+
 }
