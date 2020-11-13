@@ -33,9 +33,5 @@ public class ShopAction {
         return map;
     }
 
-    @RequestMapping("/shoplist.action"){
-        public List findshop()
-
-    }
 
 }

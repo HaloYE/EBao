@@ -10,7 +10,17 @@ spring:
     username: root
     password: 111
     driver-class-name: com.mysql.cj.jdbc.Driver
+#  resources:
+#    static-locations: classpath:/static/
+#  mvc:
+#    static-path-pattern: /**
+  thymeleaf:
+    cache: false
+    prefix:
+      classpath: /templates/
+
 
 mybatis:
   mapper-locations: mapper/*.xml
+
 

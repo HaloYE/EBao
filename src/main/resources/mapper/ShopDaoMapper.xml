@@ -17,4 +17,8 @@
             and businessId=#{businessId}
         </if>
     </select>
+
+    <select id="findShop" resultType="com.qr.entity.Shop">
+        select * from shoptable
+    </select>
 </mapper>
