@@ -105,9 +105,9 @@
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
 
-            if(layEvent === 'detail'){ //
+            if(layEvent === 'detail'){ //进店铺
                 localStorage.setItem("shopId",data.shopId);
-                location.href="showShopGoods.html";
+                window.location.href="../eBao/showShopGoods.html"
             } else if(layEvent === 'del'){ //删除
 
 

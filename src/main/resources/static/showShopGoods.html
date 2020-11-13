@@ -40,7 +40,7 @@
                 <i class="layui-icon">&#xe608;</i>添加商品
             </button>
         </xblock>
-        <table class="layui-table" id="demo" lay-filter="demo">
+        <table class="layui-table" id="showGoodsTab" lay-filter="showGoodsTab">
         </table>
         <!--        <script type="text/html" id="barDemo">
                     <a title="编辑" href="javascript:;" onclick="pro_edit('编辑','pro_add.html','2','1000','600')"
@@ -90,30 +90,50 @@
 
         var shopId=localStorage.getItem("shopId");
         table.render({
-            elem:'#demo',
+            elem:'#showGoodsTab',
             url:'../eBao/selectShopGoods.action?shopId='+shopId,
             page:true,
             cols:[[
                 // {type:'checkbox', fixed: 'left'}
-                {field: 'goodsId', title: 'ID',width: 130}
-                ,{field: 'goodsName', title: '商品名称',width: 130}
-                ,{field: 'goodsKind', title: '商品种类',width: 180}
-                ,{field: 'shopsId', title: '所属店铺',width: 130}
-                ,{field: 'goodsPrice', title: '价格',width: 125}
-                ,{field: 'deposit', title: '押金',width: 130}
-                ,{field: 'status', title: '状态',templet:"#Goodsstatus",width: 130}
+                {field: 'goodsId', title: 'ID',width: 110}
+                ,{field: 'goodsName', title: '商品名称',width: 120}
+                ,{field: 'goodsPicture', title: '商品图片',width: 180,templet: function (obj) {
+                        return "<img src='"+obj.goodsPicture+"'>"
+                    }}
+                ,{field: 'goodsKind', title: '商品种类',width: 130}
+                ,{field: 'shopId', title: '所属店铺',width: 130}
+                ,{field: 'goodsPrice', title: '价格',width: 115}
+                ,{field: 'deposit', title: '押金',width: 110}
+                ,{field: 'status', title: '状态',templet:"#Goodsstatus",width: 110}
                 ,{field: 'work', title: '操作', toolbar: '#barDemo',width: 200}
             ]]
         })
-        table.on('tool(demo)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+        table.on('tool(showGoodsTab)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
 
             if(layEvent === 'urge'){ //催一催
-                layer.msg('以提醒顾客，请耐心等待', {icon: 1});
+                layer.msg(
+                    '以提醒顾客，请耐心等待',
+                    {icon: 1}
+                    );
             } else if(layEvent === 'editGoods'){ //修改信息
+                localStorage.setItem("goodsId",data.goodsId);
+                localStorage.setItem("goodsName",data.goodsName);
+                localStorage.setItem("goodsPicture",data.goodsPicture);
+                localStorage.setItem("goodsKind",data.goodsKind);
+                localStorage.setItem("shopId",data.shopId);
+                localStorage.setItem("goodsPrice",data.goodsPrice);
+                localStorage.setItem("deposit",data.deposit);
 
+                layer.open({
+                    title: "修改商品"
+                    ,type:2
+                    ,content: "../eBao/goodsChange.html"
+                    ,area:[800+'px',600+'px']
+                    ,maxmin: true
+                });
 
             } else if(layEvent === 'delGoods'){ //删除信息
                 layer.confirm('确定要删除这个商品吗',function () {
@@ -133,14 +153,14 @@
 
     function searchGoodsBtn(){
         // alert($("#shopName").val())
-        table.reload("demo",{where:
+        table.reload("showGoodsTab",{where:
                 {
                     goodsId: $("#goodsId").val()
                     ,goodsName: $("#goodsName").val()
                 }});
     }
 
-    function shop_add(title,url,width,height){
+    function goods_add(title,url,width,height){
         layer.open({
             title: title
             ,type:2

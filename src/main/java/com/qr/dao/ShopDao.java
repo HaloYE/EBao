@@ -1,5 +1,6 @@
 package com.qr.dao;
 
+import com.qr.entity.Goods;
 import com.qr.entity.Shop;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -61,4 +62,16 @@ public interface ShopDao {
      * @param goodsId
      */
     void deleteOneGoods(String goodsId);
+
+    /**
+     * 店铺添加一个商品
+     * @param goods
+     */
+    void addGoods(Goods goods);
+
+    /**
+     * 修改一个商品
+     * @param goods
+     */
+    void goodsChange(Goods goods);
 }

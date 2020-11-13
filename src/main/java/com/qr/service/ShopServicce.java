@@ -1,5 +1,6 @@
 package com.qr.service;
 
+import com.qr.entity.Goods;
 import com.qr.entity.Shop;
 
 import java.util.List;
@@ -60,4 +61,17 @@ public interface ShopServicce {
      * @param goodsId
      */
     void deleteOneGoods(String goodsId);
+
+
+    /**
+     * 店铺添加一个商品
+     * @param goods
+     */
+    void addGoods(Goods goods);
+
+    /**
+     * 修改一个商品
+     * @param goods
+     */
+    void goodsChange(Goods goods);
 }

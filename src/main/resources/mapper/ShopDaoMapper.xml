@@ -73,4 +73,12 @@
     <delete id="deleteOneGoods">
         delete from goods where goodsId=#{goodsId}
     </delete>
+
+    <insert id="addGoods">
+        insert into goods (goodsId,goodsName,goodsKind,goodsPicture,shopId,goodsPrice,deposit) values (#{goodsId},#{goodsName},#{goodsKind},#{goodsPicture},#{shopId},#{goodsPrice},#{deposit})
+    </insert>
+
+    <update id="goodsChange">
+        update goods set goodsName=#{goodsName},goodsKind=#{goodsKind},goodsPrice=#{goodsPrice},deposit=#{deposit},goodsPicture=#{goodsPicture} where goodsId=#{goodsId}
+    </update>
 </mapper>

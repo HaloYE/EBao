@@ -11,4 +11,5 @@ public class Goods {
     private Integer goodsPrice;
     private Integer deposit;
     private Integer status;
+    private String goodsPicture;
 }

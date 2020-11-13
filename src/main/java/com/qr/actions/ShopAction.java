@@ -1,6 +1,7 @@
 package com.qr.actions;
 
 
+import com.qr.entity.Goods;
 import com.qr.entity.Shop;
 import com.qr.service.ShopServicce;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,4 +84,27 @@ public class ShopAction {
             e.printStackTrace();
         }
     }
+
+
+    @RequestMapping("/shopAddGoods.action")
+    public void shopAddGoods(Goods goods){
+        try {
+            shopServicce.addGoods(goods);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @RequestMapping("goodsChange.action")
+    public void goodsChange(Goods goods){
+        System.out.println(goods);
+        try {
+            shopServicce.goodsChange(goods);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

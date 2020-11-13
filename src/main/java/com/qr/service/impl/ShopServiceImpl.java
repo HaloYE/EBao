@@ -1,6 +1,7 @@
 package com.qr.service.impl;
 
 import com.qr.dao.ShopDao;
+import com.qr.entity.Goods;
 import com.qr.entity.Shop;
 import com.qr.service.ShopServicce;
 import org.springframework.stereotype.Service;
@@ -93,5 +94,25 @@ public class ShopServiceImpl implements ShopServicce {
     @Override
     public void deleteOneGoods(String goodsId) {
         shopDao.deleteOneGoods(goodsId);
+    }
+
+    /**
+     * 店铺添加一个商品
+     * @param goods
+     */
+    @Override
+    public void addGoods(Goods goods) {
+        Date date=new Date();
+        goods.setGoodsId("GD"+date.getTime());
+        shopDao.addGoods(goods);
+    }
+
+    /**
+     * 修改一个商品
+     * @param goods
+     */
+    @Override
+    public void goodsChange(Goods goods) {
+        shopDao.goodsChange(goods);
     }
 }
