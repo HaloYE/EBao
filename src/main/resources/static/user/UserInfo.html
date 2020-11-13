@@ -100,7 +100,6 @@
         </div>
 
         <div class="layui-form" lay-filter="test">
-            <!--                    更新 lay-filter="test1" 所在容器内的全部表单状态-->
             <div class="layui-form-item">
                 <label class="layui-form-label">性别：</label>
                 <div class="layui-input-block">
@@ -128,6 +127,7 @@
     $(function () {
         initData()
     })
+
     function initData() {
         // var uname= $.cookie("uname");
         var userid = localStorage.getItem("userid");
@@ -137,24 +137,28 @@
         var sex = localStorage.getItem("sex");
         var address = localStorage.getItem("address");
 
-        if (userName== null) {
-            userName == "";
+        if (userName == null) {
+            userName = "";
         }
         if (realName == null) {
-            realName == "";
+            realName = "";
         }
-        if (idCardNum== null) {
-            idCardNum == "";
+        if (idCardNum == null) {
+            idCardNum = "";
         }
-        if (address== null) {
-            address == "";
+        if (address == null) {
+            address = "";
         }
 
         $('#userID').val(userid);
         $('#userName').val(userName);
         $('#realName').val(realName);
         $('#idCardNum').val(idCardNum);
-        $('#sex').val(sex);
+        if ($('#sex').val(sex)==1){
+            $("#man").attr('checked','checked')
+        }else{
+            $("#woman").attr('checked','checked')
+        }
         $('#address').val(address);
     }
 
@@ -183,9 +187,15 @@
                     address: address
                 },
                 success: function (msg) {
-                    if (msg==1){
+                    if (msg == 1) {
+                        localStorage.setItem("userid", $('#userID').val());
+                        localStorage.setItem("userName", $('#userName').val());
+                        localStorage.setItem("realName", $("#realName").val());
+                        localStorage.setItem("idCardNum", $('#idCardNum').val());
+                        localStorage.setItem("sex", $('#sex').val());
+                        localStorage.setItem("address", $('#address').val());
                         alert("修改成功")
-                    }else {
+                    } else {
                         alert("修改失败!")
                     }
                 }
