@@ -194,20 +194,47 @@
             </div>
             <div class="container_body_foot_m_line">————————————————</div>
             <div class="container_body_foot_m_more">
-                <a href="#more" id="more">
+                <a href="#ideaForm" id="more">
                     <img src="images/more.png" id="moreIdea">
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+<!--意见和建议表单-->
 <div class="container_body_foot_idea">
-    <div class="container_body_foot_idea_m">
+<!--    <div class="container_body_foot_idea_m">-->
+        <form action="" method="post" class="basic-grey">
+            <div class="container_body_foot_idea_m">
+                <h1>问题和建议
+                    <span>请在下方表单中填写信息</span>
+                </h1>
+                <label>
+                    <span>姓名：</span>
+                    <input id="name" type="text" name="name" placeholder="请填写您的姓名" />
+                </label>
+                <label>
+                    <span>邮箱：</span>
+                    <input id="email" type="email" name="email" placeholder="请填写您的邮箱" />
+                </label>
+                <label>
+                    <span>问题/建议：</span>
+                    <textarea id="message" name="message" placeholder="请输入您的问题/建议"></textarea>
+                </label>
+                <label>
+                    <span>类型：</span><select name="selection">
+                    <option value="Question">问题</option>
+                    <option value="Suggestion">建议</option>
+                </select>
+                </label>
+                <input type="button" class="button" value="提交" />
+            </div>
+        </form>
 
-    </div>
-
+<!--    </div>-->
 </div>
-<iframe src="footer.html" width="100%" height="100%" style="height: 300px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>
+<iframe  id="ideaForm" src="footer.html" width="100%" height="100%" style="height: 300px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>
 
 
 <script>
@@ -216,7 +243,7 @@
         $.cookie('name',name);
 
         // $(obj).children(".container_body_category_pic").removeClass("slideInLeft");
-        $(obj).fadeOut(600);
+        $(obj).fadeOut(800);
         // alert($(obj).children(".container_body_category_pic").attr("class"))
         setTimeout("top.location.href = '" + url + "'",time);
     }

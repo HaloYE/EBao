@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E宝交易网--用户注册</title>
+    <title>E宝租赁网--用户注册</title>
     <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
         #container {
             width: 100%;
             height: auto;
@@ -32,13 +36,9 @@
         /*    font-size: 16px;*/
         /*    color: #009688;*/
         /*}*/
-        #f{
-            margin-top: -90px;
-        }
-
         #middle {
             width: 100%;
-            height: 900px;
+            height: 800px;
             cursor: default;
             background-position: 50% 50%;
             background-repeat: no-repeat;
@@ -47,14 +47,15 @@
             outline: none;
             margin: 0 auto;
             background-size: cover;
-            background-image: url("../images/welcome2.png");
+            background-image: url("../images/userloginBG3.jpg");
+            opacity: .9;
         }
 
         #login_left {
             width: 600px;
             height: 450px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(238, 238, 238, 0.7);
             margin-top: 150px;
         }
         #main_body {
@@ -64,12 +65,6 @@
 
         #main{
             margin: 0 auto;
-        }
-
-        #bottom {
-            height: 50px;
-            width: 100%;
-
         }
 
 
@@ -114,12 +109,6 @@
         name="headFrame"></iframe>
 <body>
 <div id="container">
-    <div id="top">
-        <!--        <div id="top_logo">-->
-        <!--        </div>-->
-        <!--        <div id="logo_word"></div>-->
-    </div>
-    <!--    <hr>-->
     <div id="middle">
         <div id="login_left">
             <div id="main_body">
@@ -133,7 +122,7 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label" style="width: 100px"><i class="layui-icon layui-icon-username"
                                                                        style="font-size: 20px; color: #000000;">创建账号</i></label>
-                                    <div class="layui-input-inline">
+                                    <div class="layui-input-inline" style="width: 210px">
                                         <input type="text" name="userID" id="userID" lay-verify="required"
                                                placeholder="请输入6-10位账号"
                                                autocomplete="off" class="layui-input" style="border-radius: 10px">
@@ -146,7 +135,7 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label" style="width: 100px" ><i class="layui-icon  layui-icon-password"
                                                                        style="font-size: 20px; color: #000000; ">输入密码</i></label>
-                                    <div class="layui-input-inline">
+                                    <div class="layui-input-inline" style="width: 210px">
                                         <label>
                                             <input type="password" name="password" id="password" lay-verify="required"
                                                    placeholder="请输入6-10位密码"
@@ -161,7 +150,7 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label" style="width: 100px"><i class="layui-icon  layui-icon-auz"
                                                                        style="font-size: 20px; color: #000000;">确认密码</i></label>
-                                    <div class="layui-input-inline">
+                                    <div class="layui-input-inline" style="width: 210px">
                                         <label>
                                             <input type="password" name="confirm_password" id="confirm_password"
                                                    lay-verify="required" placeholder="请再次输入"
@@ -196,9 +185,7 @@
         <div id="login_right">
         </div>
     </div>
-    <!--    <hr>-->
-    <div id="bottom">
-    </div>
+
 </div>
 <script src="../js/jquery-3.5.1.min.js"></script>
 <script src="../layuiadmin/layui/layui.js"></script>
@@ -245,6 +232,6 @@
         })
     })
 </script>
-<iframe src="../footer.html" width="100%" height="100%" id="f" frameborder="0" scrolling="no" style="height: 300px;display: block">
+<iframe src="../footer.html" width="100%" height="100%"  frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>
 </body>
 </html>
