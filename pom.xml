@@ -64,11 +64,6 @@
         </dependency>
     </dependencies>
 
-<!--    <dependencies>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-devtools</artifactId>-->
-<!--        <optional>true</optional>-->
-<!--    </dependencies>-->
     <build>
         <plugins>
             <plugin>
