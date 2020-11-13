@@ -40,11 +40,53 @@
             var point = new BMap.Point(""+lon+"",""+lat+"");
             map.centerAndZoom(point,19);
 
+            var scaleCtrl = new BMap.ScaleControl();  // 添加比例尺控件
+            map.addControl(scaleCtrl);
+/*            var zoomCtrl = new BMap.ZoomControl();  // 添加比例尺控件
+            map.addControl(zoomCtrl);*/
+
+            map.enableInertialDragging();
+
+            map.enableContinuousZoom();
+
+            //添加城市列表控件
+            var size = new BMap.Size(10, 20);
+            map.addControl(new BMap.CityListControl({
+                anchor: BMAP_ANCHOR_TOP_LEFT,
+                offset: size,
+                // 切换城市之前事件
+                // onChangeBefore: function(){
+                //    alert('before');
+                // },
+                // 切换城市之后事件
+                // onChangeAfter:function(){
+                //   alert('after');
+                // }
+            }));
+
+            //添加定位控件
+            var geolocationControl = new BMap.GeolocationControl();
+            geolocationControl.addEventListener("locationSuccess", function(e){
+                // 定位成功事件
+                var address = '';
+                address += e.addressComponent.province;
+                address += e.addressComponent.city;
+                address += e.addressComponent.district;
+                address += e.addressComponent.street;
+                address += e.addressComponent.streetNumber;
+                alert("当前定位地址为：" + address);
+            });
+            geolocationControl.addEventListener("locationError",function(e){
+                // 定位失败事件
+                alert(e.message);
+            });
+            map.addControl(geolocationControl);
+
 /*            var point2 = new BMap.Point(120.591724, 32.363187);
             var marker1 = new BMap.Marker(point2);
             map.addOverlay(marker1);*/
 // 创建点标记
-            var marker2 = new BMap.Marker(new BMap.Point(120.591724, 32.363187));
+/*            var marker2 = new BMap.Marker(new BMap.Point(120.591724, 32.363187));
             var marker3 = new BMap.Marker(new BMap.Point(120.541724, 32.363187));
             var marker4 = new BMap.Marker(new BMap.Point(120.561724, 32.363187));
             var marker5 = new BMap.Marker(new BMap.Point(120.581724, 32.363187));
@@ -56,8 +98,35 @@
             var marker11 = new BMap.Marker(new BMap.Point(120.891724, 32.363187));
             var marker12 = new BMap.Marker(new BMap.Point(120.991724, 32.363187));
             var marker13 = new BMap.Marker(new BMap.Point(120.591724, 32.563187));
-            var marker14 = new BMap.Marker(new BMap.Point(120.591724, 32.663187));
+            var marker14 = new BMap.Marker(new BMap.Point(120.591724, 32.663187));*/
 
+            var mapPoints = [
+                {x:120.591724, y:32.363187},
+                {x:120.541724, y:32.363187},
+                {x:120.561724, y:32.363187},
+                {x:120.581724, y:32.363187},
+                {x:120.591724, y:32.364187},
+                {x:120.591724, y:32.366187},
+                {x:120.591724, y:32.368187},
+                {x:120.691724, y:32.363187},
+                {x:120.791724, y:32.363187},
+                {x:120.891724, y:32.363187},
+                {x:120.991724, y:32.363187},
+                {x:120.591724, y:32.363187},
+                {x:120.591724, y:32.563187},
+                {x:120.591724, y:32.663187},
+            ]
+            // 函数 创建多个标注
+            function markerFun (points) {
+                var markers = new BMap.Marker(points);
+                map.addOverlay(markers);
+            }
+            for (var i = 0; i < mapPoints.length; i++) {
+                var points = new BMap.Point(mapPoints[i].x,mapPoints[i].y);//创建坐标点
+                markerFun(points);
+            }
+
+/*
 // 在地图上添加点标记
             map.addOverlay(marker2);
             map.addOverlay(marker3);
@@ -72,6 +141,7 @@
             map.addOverlay(marker12);
             map.addOverlay(marker13);
             map.addOverlay(marker14);
+*/
 
 
             var gc = new BMap.Geocoder();

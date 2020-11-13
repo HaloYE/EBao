@@ -2,30 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>我的位置</title>
+    <title>添加商铺地址</title>
     <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LQq0W9wA7A54GQ2fRd6YgpvDG14nX1K7"></script>
     <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
     <style type="text/css">
         *{ margin: 0px; padding: 0px;}
         body{text-align: center;  height: 100%;overflow:hidden;}
-        #allmap{ width: 100%;height: 100%; position: absolute;}
+        #allmap{ width: 100%;height: 90%;position: absolute;top: 10%}
+        #shopAddresscon{width:100%;height: 10%;position: absolute}
+        #shopAddress{width: 100%; height: 100%;padding-left: 50px;border:none;display: inline-block;font-size: 20px}
     </style>
 </head>
 <body>
+<div id="shopAddresscon">
+    <input type="text" id="shopAddress" placeholder="点击地图后获取的地址信息在这里">
+</div>
 <div id="allmap"></div>
 
 <script type="text/javascript">
     $(function(){
-/*        if(supportsGeoLocation()){
-            alert("你的浏览器支持 GeoLocation.");
-        }else{
-            alert("不支持 GeoLocation.")
-        }
-        // 检测浏览器是否支持HTML5
-        function supportsGeoLocation(){
-            return !!navigator.geolocation;
-        }*/
         // 单次位置请求执行的函数
         function getLocation(){
             navigator.geolocation.getCurrentPosition(mapIt,locationError);
@@ -35,59 +31,114 @@
             var lon = position.coords.longitude;
             var lat = position.coords.latitude;
             // alert("您位置的经度是："+lon+" 纬度是："+lat);
-            var map = new BMap.Map('allmap');
+            var map = new BMap.Map('allmap',{enableMapClick:false});
             map.enableScrollWheelZoom(true);    //开启滚轮缩放地图大小
+            map.enableInertialDragging();  // 开启惯性拖拽效果
+            map.enableContinuousZoom();    // 开启连续缩放效果
+
             var point = new BMap.Point(""+lon+"",""+lat+"");
 
             //地图上移动或点击获取鼠标所处经纬度
-/*            map.addEventListener("mousemove",function(e){
-                console.log(e.point)
-            });*/
+            /*            map.addEventListener("mousemove",function(e){
+                            console.log(e.point)
+                        });*/
+
+
+            var count = 0;
+            var oldlng = "";
+            var oldlat = "";
             map.addEventListener("click",function(e){
-                console.log(e.point);
-                var lng = e.point.lng;
-                var lat = e.point.lat;
-                alert("经度："+ lng + ",纬度：" + lat);
+                if (count == 0){
+                    var lng = e.point.lng;
+                    var lat = e.point.lat;
+                    // alert("经度："+ lng + ",纬度：" + lat);
 
-                var newPoint = new BMap.Point(lng, lat);
-                var newMarker = new BMap.Marker(newPoint);
-                map.addOverlay(newMarker);
+                    var newPoint = new BMap.Point(lng, lat);
+                    var newMarker = new BMap.Marker(newPoint);
+                    map.addOverlay(newMarker);
 
-                var geoc = new BMap.Geocoder();
-                geoc.getLocation(newPoint, function (ad){
-                    var addComp = ad.addressComponents;
-                    var address = "";
-                    address += addComp.province;
-                    address += addComp.city;
-                    address += addComp.district;
-                    address += addComp.street;
-                    address += addComp.streetNumber;
-                    alert(address);
-                })
+                    count++;
+                    oldlng = lng;
+                    oldlat = lat;
 
-                newMarker.addEventListener("rightclick",function(e){
+                    //将坐标信息转化为地址信息
+                    var geoc = new BMap.Geocoder();
+                    geoc.getLocation(newPoint, function (ad){
+                        var addComp = ad.addressComponents;
+                        var address = "";
+                        address += addComp.province;
+                        address += addComp.city;
+                        address += addComp.district;
+                        address += addComp.street;
+                        address += addComp.streetNumber;
+                        // alert(address);
+                        document.getElementById("shopAddress").value = address;
+                    })
+                    //右击消除marker
+                    newMarker.addEventListener("rightclick",function(e){
+                        var allOverlay = map.getOverlays();
+                        for(var i = 0;i<allOverlay.length;i++) {
+                            if(allOverlay[i].toString()=="[object Marker]"){
+                                if (allOverlay[i].getPosition().lng == lng && allOverlay[i].getPosition().lat == lat) {
+                                    map.removeOverlay(allOverlay[i]);
+                                    document.getElementById("shopAddress").value = "";
+                                    count--;
+                                }
+                            }
+                        }
+                    });
+                }else {
                     var allOverlay = map.getOverlays();
                     for(var i = 0;i<allOverlay.length;i++) {
                         if(allOverlay[i].toString()=="[object Marker]"){
-                            if (allOverlay[i].getPosition().lng == lng && allOverlay[i].getPosition().lat == lat) {
+                            if (allOverlay[i].getPosition().lng == oldlng && allOverlay[i].getPosition().lat == oldlat) {
                                 map.removeOverlay(allOverlay[i]);
+                                count--;
                             }
                         }
                     }
-                });
+
+                    var lng = e.point.lng;
+                    var lat = e.point.lat;
+                    // alert("经度："+ lng + ",纬度：" + lat);
+
+                    var newPoint = new BMap.Point(lng, lat);
+                    var newMarker = new BMap.Marker(newPoint);
+                    map.addOverlay(newMarker);
+
+                    count++;
+                    oldlng = lng;
+                    oldlat = lat;
+
+                    //将坐标信息转化为地址信息
+                    var geoc = new BMap.Geocoder();
+                    geoc.getLocation(newPoint, function (ad){
+                        var addComp = ad.addressComponents;
+                        var address = "";
+                        address += addComp.province;
+                        address += addComp.city;
+                        address += addComp.district;
+                        address += addComp.street;
+                        address += addComp.streetNumber;
+                        // alert(address);
+                        document.getElementById("shopAddress").value = address;
+                    })
+                    //右击消除marker
+                    newMarker.addEventListener("rightclick",function(e){
+                        var allOverlay = map.getOverlays();
+                        for(var i = 0;i<allOverlay.length;i++) {
+                            if(allOverlay[i].toString()=="[object Marker]"){
+                                if (allOverlay[i].getPosition().lng == lng && allOverlay[i].getPosition().lat == lat) {
+                                    map.removeOverlay(allOverlay[i]);
+                                    document.getElementById("shopAddress").value = "";
+                                    count--;
+                                }
+                            }
+                        }
+                    });
+                }
+
             });
-
-
-/*            var marker1 = new BMap.Marker(point);
-            map.addOverlay(marker1);*/
-/*
-            var scaleCtrl = new BMap.ScaleControl();  // 添加比例尺控件
-            map.addControl(scaleCtrl);
-            var zoomCtrl = new BMap.ZoomControl();  // 添加比例尺控件
-            map.addControl(zoomCtrl);*/
-
-            map.enableInertialDragging();
-            map.enableContinuousZoom();
 
             //添加城市列表控件
             var size = new BMap.Size(10, 20);
@@ -115,8 +166,8 @@
                 address += e.addressComponent.street;
                 address += e.addressComponent.streetNumber;
                 alert("当前定位地址为：" + address);
-/*                var infoWindow = new BMap.InfoWindow(address);
-                map.openInfoWindow(infoWindow,point);*/
+                /*                var infoWindow = new BMap.InfoWindow(address);
+                                map.openInfoWindow(infoWindow,point);*/
             });
             geolocationControl.addEventListener("locationError",function(e){
                 // 定位失败事件
@@ -124,54 +175,12 @@
             });
             map.addControl(geolocationControl);
 
-            //创建多个标记点
-
-            var data_info = [
-                [116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
-                [116.406605,39.921585,"地址：北京市东城区东华门大街"],
-                [116.412222,39.912345,"地址：北京市东城区正义路甲5号"]
-            ];
-            var opts = {
-                width : 250,     // 信息窗口宽度
-                height: 80,     // 信息窗口高度
-                title : "当前位置：" , // 信息窗口标题
-                enableMessage:true//设置允许信息窗发送短息
-            };
-            for(var i=0;i<data_info.length;i++){
-                var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
-                var content = data_info[i][2];
-                map.addOverlay(marker);               // 将标注添加到地图中
-                addClickHandler(content,marker);
-            }
-            function addClickHandler(content,marker){
-                marker.addEventListener("click",function(e){
-                    openInfo(content,e)}
-                );
-            }
-            function openInfo(content,e){
-                var p = e.target;
-                var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
-                var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
-                map.openInfoWindow(infoWindow,point); //开启信息窗口
-            }
-
-
             //纠正百度地图的偏移，将GPS坐标转换为百度地图坐标
             var gc = new BMap.Geocoder();
             translateCallback = function (point){
                 var marker = new BMap.Marker(point);
                 map.addOverlay(marker);
                 map.centerAndZoom(point,19); //设置地图中心点为自身定位
-
-                //创建一个以自身位置为中心的半径为5km的圆
-                var circle = new BMap.Circle(point, 5000, {
-                    strokeColor: 'blue',
-                    strokeWeight: 6,
-                    strokeOpacity: 0.5
-                });
-                circle.disableMassClear();
-                map.addOverlay(circle);
-
 
                 gc.getLocation(point, function(rs){
                     var addComp = rs.addressComponents;
@@ -229,5 +238,6 @@
         window.onload = getLocation;
     })
 </script>
+
 </body>
 </html>
