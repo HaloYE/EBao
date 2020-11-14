@@ -74,4 +74,19 @@ public interface ShopDao {
      * @param goods
      */
     void goodsChange(Goods goods);
+
+    /**
+     * 删除列表
+     * @param list
+     * @return
+     */
+    boolean deleteShopList(List list);
+
+
+    /**
+     * 查询是否有已经借出东西的商店
+     * @param list
+     * @return
+     */
+    Integer hasleased(List list);
 }

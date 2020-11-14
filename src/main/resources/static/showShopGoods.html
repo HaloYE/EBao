@@ -39,6 +39,12 @@
             <button class="layui-btn" onclick="goods_add('添加商品','goodsAdd.html','1000','600')">
                 <i class="layui-icon">&#xe608;</i>添加商品
             </button>
+            <button class="layui-btn layui-btn-danger" onclick="shop_delete()">
+                <i class="layui-icon">&#xe640;</i>删除该商铺
+            </button>
+            <button class="layui-btn layui-btn-warm" onclick="returnBack()" style="float: right">
+                <i class="layui-icon">&#xe603;</i>返回
+            </button>
         </xblock>
         <table class="layui-table" id="showGoodsTab" lay-filter="showGoodsTab">
         </table>
@@ -96,15 +102,16 @@
             cols:[[
                 // {type:'checkbox', fixed: 'left'}
                 {field: 'goodsId', title: 'ID',width: 110}
-                ,{field: 'goodsName', title: '商品名称',width: 120}
+                ,{field: 'goodsName', title: '商品名称',width: 110}
                 ,{field: 'goodsPicture', title: '商品图片',width: 180,templet: function (obj) {
                         return "<img src='"+obj.goodsPicture+"'>"
                     }}
-                ,{field: 'goodsKind', title: '商品种类',width: 130}
-                ,{field: 'shopId', title: '所属店铺',width: 130}
-                ,{field: 'goodsPrice', title: '价格',width: 115}
-                ,{field: 'deposit', title: '押金',width: 110}
-                ,{field: 'status', title: '状态',templet:"#Goodsstatus",width: 110}
+                ,{field: 'goodsFirstKind', title: '商品一级种类',width: 110}
+                ,{field: 'goodsSecondKind', title: '商品二级种类',width: 110}
+                ,{field: 'shopId', title: '所属店铺',width: 120}
+                ,{field: 'goodsPrice', title: '价格',width: 100}
+                ,{field: 'deposit', title: '押金',width: 80}
+                ,{field: 'status', title: '状态',templet:"#Goodsstatus",width: 100}
                 ,{field: 'work', title: '操作', toolbar: '#barDemo',width: 200}
             ]]
         })
@@ -139,16 +146,23 @@
                 layer.confirm('确定要删除这个商品吗',function () {
                     title: '删除商品'
                     ,$.post(
-                        "../eBao/deleteOneGoods.action?goodsId="+data.goodsId
+                        "../eBao/deleteOneGoods.action?goodsId="+data.goodsId,
+                        function(){
+                            /*layer.open({
+                                title: '删除成功'
+                                ,icon:1
+                                ,content: '删除成功！'
+                            });*/
+                            window.location.reload();
+                        }
                     );
-                    window.parent.table.reload();
+                    // window.location.reload();
+                    // location.reload(true);
                 })
-
-
+                // window.location.reload();
             } else if(layEvent === 'LAYTABLE_TIPS'){
                 layer.alert('Hi，头部工具栏扩展的右侧图标。');
             }
-
         });
     });
 
@@ -169,6 +183,45 @@
             ,area:[width+'px',height+'px']
             ,maxmin: true
         });
+    }
+
+    function returnBack(){
+        window.location.href="../eBao/BusinessMain.html";
+    }
+
+    function shop_delete(){
+        var shopId=localStorage.getItem("shopId");
+
+
+        layer.confirm('确定要删除这些店铺吗',function () {
+            $.ajax({
+                url: "../eBao/deleteShopList.action",
+                data:{shopIds:shopId},
+                success:function (msg){
+                    if (msg){
+                        layer.open({
+                            title: '删除成功'
+                            ,icon:1
+                            ,content: '删除成功！'
+                            , yes:function(index, layero){
+                                window.location.href="../eBao/BusinessMain.html";
+                                layer.close(index);
+                            }
+                        })
+
+                    }else {
+                        layer.open({
+                            title: '错误提示'
+                            ,icon:7
+                            ,content: '所选择的店铺有已经借出的物品，请等待归还后再删除！'
+                        });
+
+                    }
+                }
+            })
+        })
+
+
     }
 </script>
 </html>

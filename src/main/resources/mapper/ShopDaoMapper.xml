@@ -81,4 +81,18 @@
     <update id="goodsChange">
         update goods set goodsName=#{goodsName},goodsKind=#{goodsKind},goodsPrice=#{goodsPrice},deposit=#{deposit},goodsPicture=#{goodsPicture} where goodsId=#{goodsId}
     </update>
+
+    <delete id="deleteShopList">
+        delete from shoptable where shopId in
+        <foreach collection="list" open="(" close=")" separator="," item="shopId">
+            #{shopId}
+        </foreach>
+    </delete>
+
+    <select id="hasleased" resultType="int">
+        select count(*) from goods where status=1 and shopId in
+        <foreach collection="list" open="(" close=")" separator="," item="shopId">
+            #{shopId}
+        </foreach>
+    </select>
 </mapper>

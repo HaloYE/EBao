@@ -70,10 +70,10 @@
                     class="ml-5" style="text-decoration:none" lay-event="detail">
                 <i class="layui-icon">&#xe6c9;</i>进店铺
             </button>
-            <button class="layui-btn layui-btn-xs"
+<!--            <button class="layui-btn layui-btn-xs"
                     class="ml-5" style="text-decoration:none" lay-event="del">
                 <i class="layui-icon">&#xe640;</i>删店铺
-            </button>
+            </button>-->
         </script>
         <div id="page"></div>
     </div>
@@ -108,10 +108,10 @@
             if(layEvent === 'detail'){ //进店铺
                 localStorage.setItem("shopId",data.shopId);
                 window.location.href="../eBao/showShopGoods.html"
-            } else if(layEvent === 'del'){ //删除
+            } /*else if(layEvent === 'del'){ //删除
 
 
-            } else if(layEvent === 'edit'){ //编辑
+            }*/ else if(layEvent === 'edit'){ //编辑
                 //do somehing
                 localStorage.setItem("shopId",data.shopId);
                 localStorage.setItem("shopName",data.shopName);
@@ -143,26 +143,44 @@
                 }});
     }
 
-    /*function delAll(){
+    function delAll(){
         var checkStatus = table.checkStatus('demo')
         var data = checkStatus.data;
         var str =""
         $.each(data,function (i,n){
-            str=str+n.id+","
+            str=str+n.shopId+","
         });
 
-        /!*   $.map(data,function (){
+        console.log(str)
+        /*   $.map(data,function (){
                return this.id;
-           }).join(",")*!/
-        $.ajax({
-            url:"/ssmTest/deleteParking.action",
-            dataType:"json",
-            data:{ids:str},
-            success:function (msg){
-                table.reload('demo');
-            }
+           }).join(",")*/
+
+        layer.confirm('确定要删除这些店铺吗',function () {
+            $.ajax({
+                url:"../eBao/deleteShopList.action",
+                // dataType:"json",
+                data:{shopIds:str},
+                success:function (msg){
+                    if (msg){
+                        layer.open({
+                            title: '删除成功'
+                            ,icon:1
+                            ,content: '删除成功！'
+                        })
+                        table.reload('demo');
+                    }else {
+                        layer.open({
+                            title: '错误提示'
+                            ,icon:7
+                            ,content: '所选择的店铺有已经借出的物品，请等待归还后再删除！'
+                        });
+
+                    }
+                }
+            })
         })
-    }*/
+    }
     function shop_add(title,url,width,height){
         layer.open({
             title: title

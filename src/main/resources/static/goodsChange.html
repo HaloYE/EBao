@@ -95,6 +95,12 @@
 </body>
 <script>
 
+    var rgoodsName=true;
+    var rgoodsKind=true;
+    var rgoodsPrice=true;
+    var rdeposit=true;
+
+
     $(document).ready(function (){
         // var goodsId=localStorage.getItem("goodsId");
         var goodsName=localStorage.getItem("goodsName");
@@ -158,12 +164,20 @@
 
     function checkgoodsName() {
         var goodsName = $("#goodsName").val()
+        var reg_goodsName=/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
+        var flag=reg_goodsName.test(goodsName);
         console.log(goodsName);
         if (goodsName == "") {
+            rgoodsName=false;
             document.getElementById("goodsNamespan").innerHTML = "商品名称不能为空！";
+            return false;
+        }else if (flag==false){
+            rgoodsName=false;
+            document.getElementById("goodsNamespan").innerHTML = "商品名称不能有特殊字符！";
             return false;
         }
         else {
+            rgoodsName=true;
             document.getElementById("goodsNamespan").innerText="";
             return true;
         }
@@ -171,12 +185,20 @@
 
     function checkgoodsKind() {
         var goodsKind = $("#goodsKind").val()
+        var reg_goodsKind=/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
+        var flag=reg_goodsKind.test(goodsKind);
         console.log(goodsKind);
         if (goodsKind == "") {
+            rgoodsKind=false;
             document.getElementById("goodsKindspan").innerHTML = "商品种类不能为空！";
+            return false;
+        }else if (flag==false){
+            rgoodsKind=false;
+            document.getElementById("goodsKindspan").innerHTML = "商品种类不能有特殊字符！";
             return false;
         }
         else {
+            rgoodsKind=true;
             document.getElementById("goodsKindspan").innerText="";
             return true;
         }
@@ -188,12 +210,15 @@
         var flag=reg_goodsPrice.test(goodsPrice);
         console.log(goodsPrice);
         if (goodsPrice == "") {
+            rgoodsPrice=false;
             document.getElementById("goodsPricespan").innerHTML = "商品价格不能为空！";
             return false;
         }else if (flag==false){
+            rgoodsPrice=false;
             document.getElementById("goodsPricespan").innerHTML = "商品价格不能有非数字！";
             return false;
         }else {
+            rgoodsPrice=true;
             document.getElementById("goodsPricespan").innerText="";
             return true;
         }
@@ -205,21 +230,22 @@
         var flag=reg_deposit.test(deposit);
         console.log(deposit);
         if (deposit == "") {
+            rdeposit=false;
             document.getElementById("depositspan").innerHTML = "商品押金不能为空！";
             return false;
         }else if (flag==false){
+            rdeposit=false;
             document.getElementById("depositspan").innerHTML = "商品押金不能有非数字！";
             return false;
         }else {
+            rdeposit=true;
             document.getElementById("depositspan").innerText="";
             return true;
         }
     }
 
     function changeGoods(){
-            // var data=obj.data;
-            // var mydata = data.field;
-            // console.log(mydata+"33")
+        if (rgoodsName&&rgoodsKind&&rgoodsPrice&&rdeposit){
             var goodsId=localStorage.getItem("goodsId");
 
             $.ajax({
@@ -230,13 +256,26 @@
                     // console.log(goodsId+"1")
                     var index = parent.layer.getFrameIndex(window.name);
                     parent.layer.close(index);
+                    parent.layer.open({
+                        title: '修改成功'
+                        ,icon:1
+                        ,content: '修改成功！'
+                    });
                     parent.table.reload('showGoodsTab');
-                    return true; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+
                 },
                 error:function (){
                     // console.log(goodsId+"2")
                 }
             })
+
+            return true; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        }else {
+            alert("请检查输入是否正确!")
+        }
+            // var data=obj.data;
+            // var mydata = data.field;
+            // console.log(mydata+"33")
 
     }
 </script>

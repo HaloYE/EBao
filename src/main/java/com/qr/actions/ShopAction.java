@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +98,7 @@ public class ShopAction {
     }
 
 
-    @RequestMapping("goodsChange.action")
+    @RequestMapping("/goodsChange.action")
     public void goodsChange(Goods goods){
         System.out.println(goods);
         try {
@@ -107,5 +108,17 @@ public class ShopAction {
         }
     }
 
+    @RequestMapping("/deleteShopList.action")
+    public boolean deleteShopList(String shopIds){
+        System.out.println(shopIds);
+        String arr[]=shopIds.split(",");
+        List list = Arrays.asList(arr);
+        System.out.println(list);
+        if (shopServicce.hasleased(list)){
+            return shopServicce.deleteShopList(list);
+        }
+        return false;
+
+    }
 
 }
