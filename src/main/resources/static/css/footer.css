@@ -6,7 +6,7 @@
     background-color: #F7F7F7;
     height: 300px;
     width: 100%;
-    position: relative;
+    /*position: fixed;*/
     bottom:0;
     /*top: 500px;*/
 
@@ -17,8 +17,7 @@
     height:300px;
 }
 .main_container{
-    /*margin-top: 20px;*/
-        /*border: 1px solid red;*/
+    /*border: 1px solid red;*/
     height:200px;
     width: 100%;
 }

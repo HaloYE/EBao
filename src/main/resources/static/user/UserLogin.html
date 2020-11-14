@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>E宝交易网--用户登录</title>
+    <title>E宝租赁网--用户登录</title>
     <style type="text/css">
         #container {
             width: 100%;
-            height: 1000px;
+            height: auto;
             margin: 0 auto;
         }
 
@@ -18,7 +18,7 @@
 
         #middle {
             width: 100%;
-            height: 1000px;
+            height: 800px;
             cursor: default;
             background-position: 50% 50%;
             background-repeat: no-repeat;
@@ -27,14 +27,15 @@
             outline: none;
             margin: 0 auto;
             background-size: cover;
-            background-image: url("../images/welcome2.png");
+            background-image: url("../images/userloginBG3.jpg");
+            opacity: .9;
         }
 
         #login_body {
             width: 600px;
             height: 400px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(238, 238, 238, 0.7);
             margin-top: 150px;
         }
 
@@ -46,11 +47,6 @@
         #main {
             margin: auto;
 
-        }
-
-        #bottom {
-            height: 300px;
-            width: 100%;
         }
 
         .layui-btn-danger {
@@ -88,20 +84,15 @@
             border: 10px;
         }
 
-        #f{
-            margin-top: -90px;
-        }
     </style>
     <script src="../js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="../layuiadmin/layui/css/layui.css">
-    <link rel="icon" href="../images/logo.png" type="image/x-icon">
     <script src="../js/jquery.cookie.js"></script>
 </head>
-<iframe src="../index/navigation.html" width="100%" height="100%" style="height: 120px" frameborder="0" scrolling="no" name="headFrame"></iframe>
 <body>
+<iframe src="../index/navigation.html" width="100%" height="100%" style="height: 120px" frameborder="0" scrolling="no"
+        name="headFrame"></iframe>
 <div id="container">
-    <div id="top">
-    </div>
     <!--    <hr>-->
     <div id="middle">
         <div id="login_body">
@@ -116,7 +107,7 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label"><i class="layui-icon layui-icon-username"
                                                                        style="font-size: 20px; color: #000000;">账号</i></label>
-                                    <div class="layui-input-inline">
+                                    <div class="layui-input-inline" style="width: 210px">
                                         <label>
                                             <input type="text" name="userID" id="account" lay-verify="required"
                                                    placeholder="请输入"
@@ -131,7 +122,7 @@
                                 <div class="layui-form-item">
                                     <label class="layui-form-label"><i class="layui-icon  layui-icon-password"
                                                                        style="font-size: 20px; color: #000000;">密码</i></label>
-                                    <div class="layui-input-inline">
+                                    <div class="layui-input-inline" style="width: 210px">
                                         <label>
                                             <input type="password" name="password" id="password" lay-verify="required"
                                                    placeholder="请输入"
@@ -157,14 +148,7 @@
             </div>
         </div>
     </div>
-    <!--    <hr>-->
-    <div id="bottom">
-        <!--底部栏-->
-        <iframe src="../index/footer.html" width="100%" height="100%" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>
-    </div>
-
 </div>
-<script src="../js/jquery-3.5.1.min.js"></script>
 <script src="../layuiadmin/layui/layui.js"></script>
 <script>
     $(function () {
@@ -185,13 +169,14 @@
                             alert("无此账号")
                         } else if (msg.r == 1) {
                             var user =msg.user;
+                            console.log(user)
                             localStorage.setItem("userid", user.userID);
                             localStorage.setItem("userName", user.userName);
                             localStorage.setItem("realName", user.realName);
                             localStorage.setItem("idCardNum", user.idCardNum);
                             localStorage.setItem("sex", user.sex);
                             localStorage.setItem("address", user.address);
-                            location.href = "../shopList.action";
+                            location.href = "UserInfo.html";
                         } else if (msg.r ==2) {
                             alert("密码有误")
                         }
@@ -201,7 +186,6 @@
         })
     })
 </script>
-<!--<iframe th:src="@{/index/footer.html}" width="100%" height="100%" id="f" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>-->
+<iframe src="../index/footer.html" width="100%" height="100%" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>
 </body>
-
 </html>

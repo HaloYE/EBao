@@ -103,7 +103,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">性别：</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="sex" value="1" id="man"
+                    <input type="radio" name="sex" value="1" id="man" checked="checked"
                            title="男">
                     <input type="radio" name="sex" value="0" id="woman"
                            title="女">
@@ -129,7 +129,6 @@
     })
 
     function initData() {
-        // var uname= $.cookie("uname");
         var userid = localStorage.getItem("userid");
         var userName = localStorage.getItem("userName");
         var realName = localStorage.getItem("realName");
@@ -154,10 +153,13 @@
         $('#userName').val(userName);
         $('#realName').val(realName);
         $('#idCardNum').val(idCardNum);
-        if ($('#sex').val(sex)==1){
-            $("#man").attr('checked','checked')
-        }else{
-            $("#woman").attr('checked','checked')
+        if (sex == 1) {
+            $("#man").prop("checked",true);
+            $("#woman").prop("checked",false);
+        }
+        if (sex == 0) {
+            $("#man").prop("checked",false);
+            $("#woman").prop("checked",true);
         }
         $('#address').val(address);
     }
@@ -168,13 +170,24 @@
             var userName = $("#userName").val();
             var realName = $("#realName").val();
             var idCardNum = $("#idCardNum").val();
-            if ($("#man").val() == 1) {
-                var sex = 1;
-            } else {
-                var sex = 0;
-            }
-            alert(sex);
-            alert(userID)
+
+            //$("#woman").attr("checked"),返回checked
+
+            //取得选中的单选按钮的值
+            var sex=$('input:radio[name="sex"]:checked').val();
+
+            //**********判断单选按钮是否被选中
+            // var s
+            // if ($("#man").is(":checked")) {
+            //     s =$("#man").val();
+            // }
+            // if ($("#woman").is(":checked")) {
+            //     s =$("#woman").val();
+            // }
+            //**********
+
+            // alert(sex);
+            // alert(userID)
             var address = $("#address").val();
             $.ajax({
                 url: "../confirmUpdate.action",
@@ -192,7 +205,12 @@
                         localStorage.setItem("userName", $('#userName').val());
                         localStorage.setItem("realName", $("#realName").val());
                         localStorage.setItem("idCardNum", $('#idCardNum').val());
-                        localStorage.setItem("sex", $('#sex').val());
+                        if ($("#man").attr("checked")) {
+                            localStorage.setItem("sex", $('#man').val());
+                        }
+                        if ($("#woman").attr("checked")) {
+                            localStorage.setItem("sex", $('#woman').val());
+                        }
                         localStorage.setItem("address", $('#address').val());
                         alert("修改成功")
                     } else {
