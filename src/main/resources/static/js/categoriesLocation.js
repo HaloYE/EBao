@@ -21,7 +21,6 @@ $(function(){
         var point = new BMap.Point(""+lon+"",""+lat+"");
         var gc = new BMap.Geocoder();
         translateCallback = function (point){
-            map.centerAndZoom(point,19);
             gc.getLocation(point, function(rs){
                 var addComp = rs.addressComponents;
                 if(addComp.province!==addComp.city){
@@ -57,5 +56,5 @@ $(function(){
         }
     }
     // 页面加载时执行getLocation函数
-    window.onload = getLocation;
+    window.onload = getLocation();
 })

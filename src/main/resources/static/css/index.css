@@ -2,6 +2,9 @@ body{
     margin: 0;
     padding: 0;
 }
+img{
+    -webkit-user-drag: none;
+}
 
 .container{
     width: 1200px;
@@ -27,7 +30,7 @@ body{
     overflow: hidden;
     display: block;
     outline: none;
-    margin: 0px auto;
+    margin: 0 auto;
     background-size: cover;
     background-image: url("../images/welcomepic.jpg");
 }
@@ -153,7 +156,12 @@ body{
     height: 180px;
     background-color: #f6f7f8;
     float: left;
+    transition: all 0.25s;
 }
+.container_body_category_pic:hover{
+    box-shadow: 2px 2px 10px #d0d1d2;
+}
+
 .container_body_category_pic_img{
     margin-top: 45px;
 }
@@ -199,7 +207,7 @@ body{
 }
 .container_body_foot_m_text{
     font-size: 22px;
-    line-height: 46px;
+    line-height: 50px;
     color: white;
 }
 .container_body_foot_m_line{
@@ -207,4 +215,126 @@ body{
     line-height: 46px;
     color: rgb(208,204,198);
     /*margin-bottom: 10px;*/
+}
+.container_body_foot_m_more{
+    margin: 0 auto;
+    width: 75px;
+    height: 60px;
+}
+.container_body_foot_m_more img{
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    object-fit: contain;
+}
+.container_body_foot_idea{
+    width: 100%;
+    display: none;
+}
+.container_body_foot_idea_m{
+    margin: 0 auto;
+    width: 1200px;
+    text-align: center;
+    /*height: 800px;*/
+    /*background-color: #ffc001;*/
+}
+
+        /*首页表单css样式*/
+.basic-grey {
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 100%;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4;
+}
+
+.basic-grey h1 {
+    font-size: 25px;
+    /*padding: 0px 0px 10px 40px;*/
+    display: block;
+    border-bottom:1px solid #E4E4E4;
+    /*margin: -10px -15px 30px -10px;*/
+    padding-bottom: 20px;
+    color: #888;
+}
+
+.basic-grey h1>span {
+    display: block;
+    font-size: 11px;
+
+}
+
+.basic-grey label {
+    display: block;
+    margin: 0px;
+}
+
+.basic-grey label>span {
+    float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+    margin-top: 10px;
+    color: #888;
+}
+
+.basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey textarea, .basic-grey select {
+    border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 70%;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+
+.basic-grey textarea{
+    font-weight: 500;
+    padding: 5px 3px 3px 5px;
+}
+
+.basic-grey select {
+
+/*    background: #FFF url('') no-repeat right;
+    background: #FFF url('') no-repeat right);*/
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    text-indent: 2px;
+    text-overflow: '';
+    width: 70%;
+    height: 35px;
+    line-height: 25px;
+
+}
+
+.basic-grey textarea{
+    height:100px;
+}
+
+.basic-grey .button {
+    width: 200px;
+    background: #E27575;
+    outline: 0;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+}
+
+.basic-grey .button:hover {
+    background: #CF7A7A
 }
