@@ -3,7 +3,6 @@ package com.qr.actions;
 import com.qr.entity.User;
 import com.qr.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +15,7 @@ import java.util.Map;
 public class UserAction {
     @Autowired
     private IUserService userService;
+    User user;
 
 //    @RequestMapping("/userLogin")
 //    public String userLogin(){
@@ -23,10 +23,8 @@ public class UserAction {
 //    }
 
     @RequestMapping("/confirmLogin.action")
-    public Map confirmLogin(String account, String password, HttpServletRequest req){
-        User user=userService.confirmUser(account);
-        HttpSession session=req.getSession();
-        session.setAttribute("User",user);
+    public Map confirmLogin(String account, String password){
+        user=userService.confirmUser(account);
         int m;
         Map map =new HashMap();
         if (user==null){
@@ -57,13 +55,9 @@ public class UserAction {
     }
 
     @RequestMapping("/confirmUpdate.action")
-    public int isUpdate(String account, String userName, String realName, int idCardNum, int sex, String address){
+    public int isUpdate(String account, String userName, String realName, String idCardNum, int sex, String address){
+        user=userService.confirmUser(account);
         userService.updateUserInfo(account,userName,realName,idCardNum,sex,address);
         return 1;
-    }
-
-    @RequestMapping("UserLogin")
-    public String show(){
-        return "UserLogin.html";
     }
 }

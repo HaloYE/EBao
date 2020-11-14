@@ -32,6 +32,4 @@ public class ShopAction {
         map.put("count",count);
         return map;
     }
-
-
 }

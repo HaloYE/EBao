@@ -20,7 +20,7 @@ public class IUserServiceImpl implements IUserService {
         userdao.insertAccount(account,password);
     }
 
-    public void updateUserInfo(String account, String userName, String realName, int idCardNum, int sex, String address) {
+    public void updateUserInfo(String account, String userName, String realName, String idCardNum, int sex, String address) {
         userdao.updateAccountInfo(account,userName,realName,idCardNum,sex,address);
     }
 }
