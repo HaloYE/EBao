@@ -28,6 +28,5 @@ public class ShopListAction {
         model.addAttribute("shoplist",shoplist);
         return shoplist;
     }
-
 }
 
