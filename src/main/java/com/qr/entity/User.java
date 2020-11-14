@@ -9,7 +9,7 @@ public class User {
     private String userName;
     private String password;
     private String realName;
-    private Integer idCardNum;
+    private String idCardNum;
     private Integer sex;
     private String address;
 }

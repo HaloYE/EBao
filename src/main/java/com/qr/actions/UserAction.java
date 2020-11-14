@@ -55,7 +55,7 @@ public class UserAction {
     }
 
     @RequestMapping("/confirmUpdate.action")
-    public int isUpdate(String account, String userName, String realName, int idCardNum, int sex, String address){
+    public int isUpdate(String account, String userName, String realName, String idCardNum, int sex, String address){
         user=userService.confirmUser(account);
         userService.updateUserInfo(account,userName,realName,idCardNum,sex,address);
         return 1;
