@@ -170,14 +170,22 @@
             var userName = $("#userName").val();
             var realName = $("#realName").val();
             var idCardNum = $("#idCardNum").val();
-            var s
-            if ($("#man").is(":checked")) {
-                s =$("#man").val();
-            }
-            //$("#woman").attr("checked")
-            if ($("#woman").is(":checked")) {
-                s =$("#woman").val();
-            }
+
+            //$("#woman").attr("checked"),返回checked
+
+            //取得选中的单选按钮的值
+            var sex=$('input:radio[name="sex"]:checked').val();
+
+            //**********判断单选按钮是否被选中
+            // var s
+            // if ($("#man").is(":checked")) {
+            //     s =$("#man").val();
+            // }
+            // if ($("#woman").is(":checked")) {
+            //     s =$("#woman").val();
+            // }
+            //**********
+
             // alert(sex);
             // alert(userID)
             var address = $("#address").val();
@@ -188,7 +196,7 @@
                     userName: userName,
                     realName: realName,
                     idCardNum: idCardNum,
-                    sex: s,
+                    sex: sex,
                     address: address
                 },
                 success: function (msg) {
