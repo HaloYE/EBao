@@ -93,7 +93,6 @@
             var lon = position.coords.longitude;
             var lat = position.coords.latitude;
             // alert("您位置的经度是："+lon+" 纬度是："+lat);
-            var map = new BMap.Map("allmap");
             var point = new BMap.Point(""+lon+"",""+lat+"");
             var gc = new BMap.Geocoder();
             translateCallback = function (point){
@@ -138,8 +137,8 @@
 </script>
 
 <script>
-    // var name = $.cookie('name');
-    // alert(name);
+/*    var name = $.cookie('name');
+    alert(name);*/
 
 </script>
 </body>
