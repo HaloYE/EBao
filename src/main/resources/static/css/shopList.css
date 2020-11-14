@@ -143,9 +143,9 @@ body{
 }
 .select{
     margin-top: 40px;
-    margin-left:9%;
+    /*margin-left:9%;*/
     float: left;
-    width: 360px;
+    width: 400px;
     height: 800px;
     border: 1px solid #ffc001;
 }

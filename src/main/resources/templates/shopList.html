@@ -14,10 +14,18 @@
 <body>
 <div class="big_container">
 <!--导航栏-->
-<iframe th:src="@{/index/navigation.html}" width="100%" height="100%" style=" height: 120px" frameborder="0" scrolling="no" name="headFrame"></iframe>
+<iframe th:src="@{/index/navigation.html}" width="50%" height="100%" style=" height: 120px" frameborder="0" scrolling="no" name="headFrame"></iframe>
 <!--主要内容-->
 <div class="container">
     <div class="shop_list">
+<!--分类查看-->
+        <div class="select">
+            <div class="title">
+                <span >分类查看：</span>
+                <iframe th:src="@{/index/menuTest.html}"width="100%"height="100%"frameborder="0"scrolling="no"style="height:800px;display: block"></iframe>
+            </div>
+        </div>
+<!--商家列表-->
         <div class="shop">
             <div class="shop_container">
                 <div class="title_container" >
@@ -55,11 +63,7 @@
 
             </div>
         </div>
-        <div class="select">
-            <div class="title">
-                <span >分类查看：</span>
-            </div>
-        </div>
+
     </div>
 </div>
 
