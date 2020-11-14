@@ -116,8 +116,5 @@ public class ShopServiceImpl implements ShopServicce {
         shopDao.goodsChange(goods);
     }
 
-    public List<Shop> findShop(){
-        return shopDao.findShop();
-}
 
 }
