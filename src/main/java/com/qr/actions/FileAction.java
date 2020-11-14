@@ -23,7 +23,7 @@ public class FileAction {
 //        如何获取服务器路径
         String path=getUploadPath();
 
-//        System.out.println(path);
+        System.out.println(path);
 
 //        文件的原始名称
         String fileName=file.getOriginalFilename();
@@ -32,7 +32,7 @@ public class FileAction {
         long time=date.getTime();
         String newfileName=time+fileName;
 
-//        System.out.println(newfileName);
+        System.out.println(newfileName);
 
 //      获取服务器upload文件夹的路径
 //        File f=new File(path);
