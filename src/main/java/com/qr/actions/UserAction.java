@@ -15,12 +15,16 @@ import java.util.Map;
 public class UserAction {
     @Autowired
     private IUserService userService;
+    User user;
+
+//    @RequestMapping("/userLogin")
+//    public String userLogin(){
+//        return "userLogin"
+//    }
 
     @RequestMapping("/confirmLogin.action")
-    public Map confirmLogin(String account, String password, HttpServletRequest req){
-        User user=userService.confirmUser(account);
-        HttpSession session=req.getSession();
-        session.setAttribute("User",user);
+    public Map confirmLogin(String account, String password){
+        user=userService.confirmUser(account);
         int m;
         Map map =new HashMap();
         if (user==null){
@@ -52,6 +56,7 @@ public class UserAction {
 
     @RequestMapping("/confirmUpdate.action")
     public int isUpdate(String account, String userName, String realName, int idCardNum, int sex, String address){
+        user=userService.confirmUser(account);
         userService.updateUserInfo(account,userName,realName,idCardNum,sex,address);
         return 1;
     }

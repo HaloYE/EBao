@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>E宝交易网--用户登录</title>
     <style type="text/css">
         #container {
             width: 100%;
-            height: auto;
+            height: 1000px;
             margin: 0 auto;
         }
 
@@ -18,7 +18,7 @@
 
         #middle {
             width: 100%;
-            height: 900px;
+            height: 1000px;
             cursor: default;
             background-position: 50% 50%;
             background-repeat: no-repeat;
@@ -49,7 +49,7 @@
         }
 
         #bottom {
-            height: 50px;
+            height: 300px;
             width: 100%;
         }
 
@@ -94,11 +94,11 @@
     </style>
     <script src="../js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="../layuiadmin/layui/css/layui.css">
+    <link rel="icon" href="../images/logo.png" type="image/x-icon">
     <script src="../js/jquery.cookie.js"></script>
 </head>
+<iframe src="../index/navigation.html" width="100%" height="100%" style="height: 120px" frameborder="0" scrolling="no" name="headFrame"></iframe>
 <body>
-<iframe src="../navigation.html" width="100%" height="100%" style="height: 120px" frameborder="0" scrolling="no"
-        name="headFrame"></iframe>
 <div id="container">
     <div id="top">
     </div>
@@ -159,8 +159,12 @@
     </div>
     <!--    <hr>-->
     <div id="bottom">
+        <!--底部栏-->
+        <iframe src="../index/footer.html" width="100%" height="100%" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>
     </div>
+
 </div>
+<script src="../js/jquery-3.5.1.min.js"></script>
 <script src="../layuiadmin/layui/layui.js"></script>
 <script>
     $(function () {
@@ -181,14 +185,13 @@
                             alert("无此账号")
                         } else if (msg.r == 1) {
                             var user =msg.user;
-                            console.log(user)
                             localStorage.setItem("userid", user.userID);
                             localStorage.setItem("userName", user.userName);
                             localStorage.setItem("realName", user.realName);
                             localStorage.setItem("idCardNum", user.idCardNum);
                             localStorage.setItem("sex", user.sex);
                             localStorage.setItem("address", user.address);
-                            location.href = "UserInfo.html";
+                            location.href = "../shopList.action";
                         } else if (msg.r ==2) {
                             alert("密码有误")
                         }
@@ -198,6 +201,7 @@
         })
     })
 </script>
-<iframe src="../footer.html" width="100%" height="100%" id="f" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>
+<!--<iframe th:src="@{/index/footer.html}" width="100%" height="100%" id="f" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>-->
 </body>
+
 </html>
