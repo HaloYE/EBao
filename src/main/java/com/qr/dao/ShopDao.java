@@ -91,5 +91,11 @@ public interface ShopDao {
      */
     Integer hasleased(List list);
 
+    /**
+     * 查询所有商铺的所有字段
+     * @return
+     */
     List findShop();
+
+
 }

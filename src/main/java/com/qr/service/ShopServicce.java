@@ -1,5 +1,6 @@
 package com.qr.service;
 
+import com.github.pagehelper.PageInfo;
 import com.qr.entity.Goods;
 import com.qr.entity.Shop;
 
@@ -90,5 +91,7 @@ public interface ShopServicce {
      */
     boolean hasleased(List list);
 
-    List findShop();
+    PageInfo<Shop> findShop(Integer pageNum, Integer pageSize);
+
+
 }

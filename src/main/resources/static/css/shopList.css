@@ -1,49 +1,52 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
-.big_container{
+
+.big_container {
     width: 1200px;
     margin: 0 auto;
 }
-.container{
-    /*border: 1px solid red;*/
+
+.container {
     width: 1200px;
     margin: 0 auto;
-    height:500px;
+    height: 500px;
 }
-.shop_list{
+
+.shop_list {
     width: 1200px;
     margin: 0 auto;
     height: 100%;
 }
-.shop{
+
+.shop {
     float: left;
     margin-top: 40px;
     margin-left: 200px;
-    width: 720px;
+    width: 800px;
     height: auto;
-    /*border: 1px solid green;*/
 }
-.shop_container{
-    /*border: 1px solid red;*/
+
+.shop_container {
     height: auto;
-    width: 720px;
+    width: 800px;
     float: left;
 }
-.title_container{
+
+.title_container {
     height: 20px;
     width: 100%;
     line-height: 20px;
 }
-.title{
+
+.title {
     list-style-type: none;
-    /*left: 120px;*/
-    /*width: 60px;*/
     color: #000;
     font-size: 12px;
 }
-.list{
+
+.list {
     height: 190px;
     width: 700px;
     background: #F7F7F7;
@@ -52,36 +55,38 @@ body{
     overflow: auto;
     transition: all 0.25s;
 }
-.list_container{
+
+.list_container {
     height: 170px;
     width: 600px;
-    /*border: 1px solid blueviolet;*/
     position: relative;
     top: 10px;
     float: left;
 }
-.list_cover{
-    /*position: absolute;*/
+
+.list_cover {
     width: 0px;
     height: 190px;
 
-    transition:width 0.5s;
-    background-image: linear-gradient(to right, #F7F7F7 , #9F9F9F);
-    background-color: rgba(0,0,0,0.5);
+    transition: width 0.5s;
+    background-image: linear-gradient(to right, #F7F7F7, #9F9F9F);
+    background-color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
     float: right;
 
 }
-.list:hover{
+
+.list:hover {
     box-shadow: 2px 2px 10px #d0d1d2;
 }
-.list:hover .list_cover{
+
+.list:hover .list_cover {
     width: 100px;
     transition: width 0.5s;
 }
 
 
-.shop_pic{
+.shop_pic {
     float: left;
     margin-top: 35px;
     margin-left: 20px;
@@ -90,54 +95,53 @@ body{
     border-radius: 50%;
     border: 1px solid #E6E6E6;
 }
-.shop_text{
+
+.shop_text {
     position: relative;
     top: 35px;
     left: 30px;
     float: left;
     height: 120px;
     width: 400px;
-    /*line-height: 120px;*/
-    /*border: 1px solid blueviolet;*/
-    /*font-size: 12px;*/
 }
-.shop_name{
+
+.shop_name {
     position: relative;
-    top:20px;
+    top: 20px;
     left: 5px;
     height: 20px;
     width: 200px;
-    /*border: 1px solid blueviolet;*/
     font-size: 15px;
     font-style: initial;
     font-weight: bolder;
 }
-.shop_service{
+
+.shop_service {
     position: relative;
-    top:20px;
+    top: 20px;
     left: 5px;
     height: 20px;
     width: 400px;
-    /*border: 1px solid blueviolet;*/
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 6px;
 
 }
-.shop_service1{
+
+.shop_service1 {
     position: relative;
-    top:20px;
+    top: 20px;
     left: 5px;
     height: 30px;
     width: 400px;
-    /*border: 1px solid blueviolet;*/
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 6px;
 
 }
-.shop_detail{
-    margin: 80px 0 80px 15px ;
+
+.shop_detail {
+    margin: 80px 0 80px 15px;
     height: 30px;
     width: 70px;
 }
@@ -149,7 +153,6 @@ body{
     border-radius: 10px;
     font-size: 8px;
     color: gray;
-    /*box-shadow: #d0d1d2;*/
     display: inline-block;
     outline: 0;
     cursor: pointer;
@@ -164,13 +167,41 @@ body{
     color: white;
 }
 
+.page {
+    height: 30px;
+    width: 100%;
+    float: right;
+    position: relative;
+    top: -5px;
+    left: 520px;
+    bottom: 20px;
+}
+
+.page_text {
+    text-decoration: inherit;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    font-family: 华文仿宋;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.page_context {
+
+    text-align: center;
+    height: 30px;
+    width: 100px;
+    border: 1px solid #d0d1d2;
+    float: left;
+
+}
+
 .select {
     margin-top: 40px;
-    /*margin-left:9%;*/
     float: left;
     width: 200px;
     height: 800px;
-    /*border: 1px solid #ffc001;*/
 }
 
 a:hover, a:focus {

@@ -142,13 +142,13 @@ public class ShopServiceImpl implements ShopServicce {
         return true;
     }
 
-    public List<Shop> findShop(){
+    public PageInfo<Shop> findShop(Integer pageNum, Integer pageSize){
 
         //PageHelpe分页
-        PageHelper.startPage(1,4);
+        PageHelper.startPage(pageNum,pageSize);
         List<Shop> list=shopDao.findShop();
-        PageInfo<Shop> pageInfo=new PageInfo<Shop>(list);
-        return pageInfo.getList();
+        PageInfo<Shop> pageInfo=new PageInfo<Shop>(list,pageSize);
+        return  pageInfo;
 
     }
 

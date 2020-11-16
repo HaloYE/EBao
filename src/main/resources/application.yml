@@ -18,6 +18,7 @@ spring:
       classpath: /templates/,/static/
     encoding: utf-8
     suffix: .html
+    mode: HTML5
 mybatis:
   mapper-locations: mapper/*.xml
 
