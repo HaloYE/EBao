@@ -92,6 +92,7 @@
         </foreach>
     </delete>
 
+
     <select id="hasleased" resultType="int">
         select count(*) from goods where status=1 and shopId in
         <foreach collection="list" open="(" close=")" separator="," item="shopId">

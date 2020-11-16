@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>商家主界面</title>
-    <script src="layuiadmin/layui/layui.js"></script>
     <link rel="stylesheet" href="layuiadmin/layui/css/layui.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="js/x-layui.js"></script>
     <link rel="stylesheet" href="css/Business.css">
+    <script src="js/x-layui.js"></script>
+    <script src="layuiadmin/layui/layui.js"></script>
     <script src="js/jquery-3.5.1.min.js"></script>
+    <style>
+        .layui-table-cell{
+            height: auto;
+            width: auto;
+        }
+    </style>
+
+
 </head>
 <body>
 <div class="container1"></div>
 <div class="container2">
     <div class="x-body">
-        <form class="layui-form x-center" style="width:800px;margin-left: 20%">
+        <form class="layui-form x-center" style="width:800px;margin-left: 25%">
             <div class="layui-form-pane" style="margin-top: 15px">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">日期范围</label>
                     <div class="layui-input-inline">
-                        <input class="layui-input" placeholder="开始日" id="LAY_demorange_s">
+                        <input type="text" name="shopId" id="shopId" placeholder="店铺id模糊查询" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-input-inline">
-                        <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
+                        <input type="text" name="shopName" id="shopName" placeholder="店铺名称模糊查询" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-input-inline">
-                        <input type="text" name="username"  placeholder="标题" autocomplete="off" class="layui-input">
+                        <input type="text" name="address" id="address" placeholder="店铺地址模糊查询" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-input-inline" style="width:80px">
-                        <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                        <button class="layui-btn" type="button" onclick="searchBtn()"><i class="layui-icon">&#xe615;</i></button>
                     </div>
                 </div>
             </div>
@@ -37,17 +44,15 @@
             <button class="layui-btn layui-btn-danger" onclick="delAll()">
                 <i class="layui-icon">&#xe640;</i>批量删除店铺
             </button>
-            <button class="layui-btn" onclick="park_add('添加车位','park_add.html','1000','600')">
+            <button class="layui-btn" onclick="shop_add('添加店铺','shopAdd.html','800','600')">
                 <i class="layui-icon">&#xe608;</i>添加新店铺
             </button>
-            <button class="layui-btn" onclick="park_add('添加车位','park_add.html','1000','600')">
-                <i class="layui-icon">&#xe608;</i>添加租赁商品
-            </button>
+
             <!--        <span class="x-right" style="line-height:40px">共有数据：<span class="layui-badge">4</span> 条</span>-->
         </xblock>
-        <table class="layui-table" id="demo">
+        <table class="layui-table" id="demo" lay-filter="demo">
         </table>
-        <script type="text/html" id="barDemo">
+<!--        <script type="text/html" id="barDemo">
             <a title="编辑" href="javascript:;" onclick="pro_edit('编辑','pro_add.html','2','1000','600')"
                class="ml-5" style="text-decoration:none">
                 <i class="layui-icon">&#xe642;</i>
@@ -56,6 +61,20 @@
                style="text-decoration:none">
                 <i class="layui-icon">&#xe640;</i>
             </a>
+        </script>-->
+        <script type="text/html" id="barDemo">
+            <button class="layui-btn layui-btn-xs"
+                    class="ml-5" style="text-decoration:none" lay-event="edit">
+                <i class="layui-icon">&#xe642;</i>改店铺
+            </button>
+            <button class="layui-btn layui-btn-xs"
+                    class="ml-5" style="text-decoration:none" lay-event="detail">
+                <i class="layui-icon">&#xe6c9;</i>进店铺
+            </button>
+<!--            <button class="layui-btn layui-btn-xs"
+                    class="ml-5" style="text-decoration:none" lay-event="del">
+                <i class="layui-icon">&#xe640;</i>删店铺
+            </button>-->
         </script>
         <div id="page"></div>
     </div>
@@ -63,46 +82,107 @@
 <div class="container3"></div>
 
 <script>
+    var $;
     var table;
-    layui.use('table', function(){
+    layui.use(['table','jquery'], function(){
         table = layui.table;
+        $=layui.jquery;
         table.render({
             elem:'#demo',
-            url:'../selectShop.action',
+            url:'../eBao/selectShop.action',
             page:true,
             cols:[[
                 {type:'checkbox', fixed: 'left'}
                 ,{field: 'shopId', title: '店铺ID', }
                 ,{field: 'shopName', title: '店铺名称'}
                 ,{field: 'address', title: '地址'}
-                ,{field: 'work', title: '操作', toolbar: '#barDemo'}
+                ,{field: 'work', title: '操作',toolbar: '#barDemo'}
             ]],
             // data: [{"shopId":"sp001","shopName":"巫家小店","address":"常州工学院"}]
         })
+
+        table.on('tool(demo)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
+
+            if(layEvent === 'detail'){ //进店铺
+                localStorage.setItem("shopId",data.shopId);
+                window.location.href="../eBao/showShopGoods.html"
+            } /*else if(layEvent === 'del'){ //删除
+
+
+            }*/ else if(layEvent === 'edit'){ //编辑
+                //do somehing
+                localStorage.setItem("shopId",data.shopId);
+                localStorage.setItem("shopName",data.shopName);
+                localStorage.setItem("address",data.address);
+
+
+                layer.open({
+                    title: "修改店铺"
+                    ,type:2
+                    ,content: "../eBao/shopChange.html"
+                    ,area:[800+'px',600+'px']
+                    ,maxmin: true
+                });
+            } else if(layEvent === 'LAYTABLE_TIPS'){
+                layer.alert('Hi，头部工具栏扩展的右侧图标。');
+            }
+        });
     });
 </script>
 <script>
+
+    function searchBtn(){
+        // alert($("#shopName").val())
+        table.reload("demo",{where:
+                {
+                    shopName: $("#shopName").val()
+                    ,shopId: $("#shopId").val()
+                    ,address: $("#address").val()
+                }});
+    }
+
     function delAll(){
         var checkStatus = table.checkStatus('demo')
         var data = checkStatus.data;
         var str =""
         $.each(data,function (i,n){
-            str=str+n.id+","
+            str=str+n.shopId+","
         });
 
+        console.log(str)
         /*   $.map(data,function (){
                return this.id;
            }).join(",")*/
-        $.ajax({
-            url:"/ssmTest/deleteParking.action",
-            dataType:"json",
-            data:{ids:str},
-            success:function (msg){
-                table.reload('demo');
-            }
+
+        layer.confirm('确定要删除这些店铺吗',function () {
+            $.ajax({
+                url:"../eBao/deleteShopList.action",
+                // dataType:"json",
+                data:{shopIds:str},
+                success:function (msg){
+                    if (msg){
+                        layer.open({
+                            title: '删除成功'
+                            ,icon:1
+                            ,content: '删除成功！'
+                        })
+                        table.reload('demo');
+                    }else {
+                        layer.open({
+                            title: '错误提示'
+                            ,icon:7
+                            ,content: '所选择的店铺有已经借出的物品，请等待归还后再删除！'
+                        });
+
+                    }
+                }
+            })
         })
     }
-    function park_add(title,url,width,height){
+    function shop_add(title,url,width,height){
         layer.open({
             title: title
             ,type:2
@@ -111,7 +191,24 @@
             ,maxmin: true
         });
     }
-    $("#x-body").on("click", ".Parkingstatus", function () {
+
+
+
+/*    function shop_change(title,url,type,width,height){
+        var child=$(this).parents("tr").children();
+        var shopId=child.eq(1).text();
+        alert("shopId")
+        alert(shopId)
+        $.session.set('shopId',shopId)
+        layer.open({
+            title: title
+            ,type: type
+            ,url: url
+            ,area:[width+'px',height+'px']
+            ,maxmin: true
+        });
+    }*/
+    /*$("#x-body").on("click", ".Parkingstatus", function () {
         if ($(this).text() === "使用中") {
             var child=$(this).parents("tr").children();
             var id=child.eq(2).text();
@@ -127,7 +224,7 @@
             $(this).removeClass("layui-btn-normal");
             $(this).addClass("layui-btn-danger");
         }
-    });
+    });*/
 </script>
 </body>
 </html>

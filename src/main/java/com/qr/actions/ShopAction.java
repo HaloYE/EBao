@@ -108,6 +108,7 @@ public class ShopAction {
         }
     }
 
+
     @RequestMapping("/deleteShopList.action")
     public boolean deleteShopList(String shopIds){
         System.out.println(shopIds);
