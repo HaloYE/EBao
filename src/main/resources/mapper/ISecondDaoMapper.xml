@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qr.dao.ISecondDao">
+    <select id="findSecondGoodsInfo" resultType="com.qr.entity.Goods">
+        select * from goods where shopId=#{shopId} and goodsSecondKind=#{goodsSecondKind}
+    </select>
+</mapper>
