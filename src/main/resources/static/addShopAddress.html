@@ -26,12 +26,12 @@
     </div>
     <div id="shoploc">
         <span class="shoplocaddresstext">经度：</span>
-        <input type="text" class="shoplocaddress" id="getClicklng" placeholder="点击地图后获取的经度信息在这里">
+        <input type="text" class="shoplocaddress" id="getClicklng" placeholder="点击地图获取">
         <span class="shoplocaddresstext">纬度：</span>
-        <input type="text" class="shoplocaddress" id="getClicklat" placeholder="点击地图后获取的纬度信息在这里">
+        <input type="text" class="shoplocaddress" id="getClicklat" placeholder="点击地图获取">
     </div>
     <div id="buttoncon">
-        <button id="buttonconfirm">确认</button>
+        <button id="buttonconfirm" onclick="confirm_address()">确认</button>
     </div>
 </div>
 <div id="allmap"></div>
@@ -91,6 +91,16 @@
                         document.getElementById("shopAddress").value = address;
                         document.getElementById("getClicklng").value = lng;
                         document.getElementById("getClicklat").value = lat;
+
+                        localStorage.setItem("address",address);
+                        localStorage.setItem("longitude",lng);
+                        localStorage.setItem("latitude",lat);
+
+                        console.log(address);
+                        console.log(lng);
+                        console.log(lat);
+
+
                     })
                     //右击消除marker
                     newMarker.addEventListener("rightclick",function(e){
@@ -144,6 +154,14 @@
                         document.getElementById("shopAddress").value = address;
                         document.getElementById("getClicklng").value = lng;
                         document.getElementById("getClicklat").value = lat;
+
+                        localStorage.setItem("address",address);
+                        localStorage.setItem("longitude",lng);
+                        localStorage.setItem("latitude",lat);
+
+                        console.log(address);
+                        console.log(lng);
+                        console.log(lat);
                     })
                     //右击消除marker
                     newMarker.addEventListener("rightclick",function(e){
@@ -212,7 +230,7 @@
                         var sContent =addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
                     }
                     else{
-                        var sContent =addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+                        var sContent = addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
                     }
 
                     var opts = {
@@ -262,6 +280,12 @@
         window.onload = getLocation;
     })
 </script>
-
+<script>
+    function confirm_address() {
+        var index = parent.layer.getFrameIndex(window.name);
+        parent.layer.close(index);
+        parent.location.reload();
+    }
+</script>
 </body>
 </html>

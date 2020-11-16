@@ -43,9 +43,19 @@
                                 <span style="color: red">*</span>店铺地址
                             </label>
                             <div class="layui-input-block">
-                                <input type="text" name="address" id="address" autocomplete="off" placeholder="输入店铺地址"
-                                       class="layui-input">
-                                <span id="addressspan" style="color: red"></span>
+                                <div class="layui-inline">
+                                    <input type="text" name="address" id="address" autocomplete="off" placeholder="输入店铺地址"
+                                           class="layui-input" value="" disabled="disabled" style="width: 500px">
+                                    <input type="text" name="longitude" class="layui-input layui-hide" id="longitude">
+                                    <input type="text" name="latitude" class="layui-input layui-hide" id="latitude">
+                                </div>
+                                <div class="layui-inline">
+                                    <button type="button" class="layui-btn" id="addShopAddress" onclick="shopAddress_change('添加店铺地址','addShopAddress.html','1200','600')">
+                                        <i class="layui-icon">&#xe615;</i>选择地址
+                                    </button>
+                                </div>
+                                <span id="showLongitude" style="color: red"></span>
+                                <span id="showLatitude" style="color: red"></span>
                             </div>
                         </div>
                         <div class="layui-form-item">
@@ -68,11 +78,23 @@
         var shopId=localStorage.getItem("shopId");
         var shopName=localStorage.getItem("shopName");
         var address=localStorage.getItem("address");
+        var longitude=localStorage.getItem("longitude");
+        var latitude=localStorage.getItem("latitude");
+
 
         $("#shopId").val(shopId);
         $("#shopName").val(shopName);
         $("#address").val(address);
+        $("#longitude").val(longitude);
+        $("#latitude").val(latitude);
+        document.getElementById("showLongitude").innerHTML = "商铺经度为:"+longitude;
+        document.getElementById("showLatitude").innerHTML = "商铺纬度为:"+latitude;
+
+        console.log(address);
+        console.log(longitude);
+        console.log(latitude);
     });
+
 
 
     layui.use(['form','jquery'], function(){
@@ -98,5 +120,15 @@
             return false;
         });
     })
+
+    function shopAddress_change(title,url,width,height){
+        layer.open({
+            title: title
+            ,type:2
+            ,content: url
+            ,area:[width+'px',height+'px']
+            ,maxmin: true
+        });
+    }
 </script>
 </html>

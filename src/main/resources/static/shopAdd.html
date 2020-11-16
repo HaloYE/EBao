@@ -25,7 +25,7 @@
                             </label>
                             <div class="layui-input-block">
                                 <input type="text" name="shopName" id="shopName" autocomplete="off" placeholder="输入店铺名称"
-                                       class="layui-input" value="">
+                                       class="layui-input" value="" onblur="checkshopName()">
                                 <span id="shopNamespan" style="color: red"></span>
                             </div>
                         </div>
@@ -34,9 +34,19 @@
                                 <span style="color: red">*</span>店铺地址
                             </label>
                             <div class="layui-input-block">
-                                <input type="text" name="address" id="address" autocomplete="off" placeholder="输入店铺地址"
-                                       class="layui-input" value="">
-                                <span id="addressspan" style="color: red"></span>
+                                <div class="layui-inline">
+                                    <input type="text" name="address" id="address" autocomplete="off" placeholder="输入店铺地址"
+                                           class="layui-input" value="" disabled="disabled" style="width: 500px">
+                                    <input type="text" name="longitude" class="layui-input layui-hide" id="longitude">
+                                    <input type="text" name="latitude" class="layui-input layui-hide" id="latitude">
+                                </div>
+                                <div class="layui-inline">
+                                    <button type="button" class="layui-btn" id="addShopAddress" onclick="shopAddress_add('添加店铺地址','addShopAddress.html','1200','600')">
+                                        <i class="layui-icon">&#xe615;</i>选择地址
+                                    </button>
+                                </div>
+                                <span id="showLongitude" style="color: red"></span>
+                                <span id="showLatitude" style="color: red"></span>
                             </div>
                         </div>
                         <div class="layui-form-item">
@@ -54,30 +64,84 @@
 </div>
 <div class="container3"></div>
 <script>
+    var rshopName=false;
+
     layui.use(['form','jquery'], function(){
         var form =layui.form;
         var $=layui.$;
 
 
+        //提交时间
         form.on('submit(addShopBtn)', function(data){
-            var mydata = data.field;
-            $.ajax({
-                url:"../eBao/addShop.action",
-                data:mydata,
-                success:function (msg){
-                    var index = parent.layer.getFrameIndex(window.name);
-                    parent.layer.close(index);
-                    parent.layer.open({
-                        title: '添加成功'
-                        ,icon:1
-                        ,content: '添加成功！'
-                    });
-                    parent.table.reload('demo');
-                }
-            })
+            if (rshopName){
+                var mydata = data.field;
+                $.ajax({
+                    url:"../eBao/addShop.action",
+                    data:mydata,
+                    success:function (msg){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                        parent.layer.open({
+                            title: '添加成功'
+                            ,icon:1
+                            ,content: '添加成功！'
+                        });
+                        parent.table.reload('demo');
+                    }
+                })
+            }else {
+                alert("请检查输入格式是否正确!")
+            }
             return false;
         });
+
+
+        var address=localStorage.getItem("address");
+        var longitude=localStorage.getItem("longitude");
+        var latitude=localStorage.getItem("latitude");
+
+        $("#address").val(address);
+        $("#longitude").val(longitude);
+        $("#latitude").val(latitude);
+        document.getElementById("showLongitude").innerHTML = "商铺经度为:"+longitude;
+        document.getElementById("showLatitude").innerHTML = "商铺纬度为:"+latitude;
+
+        console.log(address);
+        console.log(longitude);
+        console.log(latitude);
+
+
     })
+
+    function checkshopName(){
+        var shopName = $("#shopName").val()
+        var reg_shopName=/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
+        var flag=reg_shopName.test(shopName);
+        if (shopName == "") {
+            rshopName=false;
+            document.getElementById("shopNamespan").innerHTML = "商店名称不能为空！";
+            return false;
+        }else if (flag==false){
+            rshopName=false;
+            document.getElementById("shopNamespan").innerHTML = "商店名称不能有特殊字符！";
+            return false;
+        }
+        else {
+            rshopName=true;
+            document.getElementById("shopNamespan").innerText="";
+            return true;
+        }
+    }
+    function shopAddress_add(title,url,width,height){
+        layer.open({
+            title: title
+            ,type:2
+            ,content: url
+            ,area:[width+'px',height+'px']
+            ,maxmin: true
+        });
+    }
 </script>
+
 </body>
 </html>
