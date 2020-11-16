@@ -50,7 +50,6 @@
                 console.log(e.point)
             });*/
 
-
 /*            var marker1 = new BMap.Marker(point);
             map.addOverlay(marker1);*/
 /*
@@ -97,7 +96,6 @@
             });
             map.addControl(geolocationControl);
 
-
 /*            var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
                 '<img src="../img/baidu.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
                 '地址：北京市海淀区上地十街10号<br/>电话：(010)59928888<br/>简介：百度大厦位于北京市海淀区西二旗地铁站附近，为百度公司综合研发及办公总部。' +
@@ -122,7 +120,6 @@
                 searchInfoWindow.open(marker);
             })
             map.addOverlay(marker); //在地图中添加marker*/
-
 
             //创建多个标记点
 
@@ -155,7 +152,6 @@
                 map.openInfoWindow(infoWindow,point); //开启信息窗口
             }
 
-
             //纠正百度地图的偏移，将GPS坐标转换为百度地图坐标
             var gc = new BMap.Geocoder();
             translateCallback = function (point){
@@ -171,7 +167,6 @@
                 });
                 circle.disableMassClear();
                 map.addOverlay(circle);
-
 
                 gc.getLocation(point, function(rs){
                     var addComp = rs.addressComponents;
@@ -212,7 +207,6 @@
                     })
                     searchInfoWindow.open(marker);
 
-
                     var count = 0;
                     var oldlng = "";
                     var oldlat = "";
@@ -247,7 +241,6 @@
                             var newPoint = new BMap.Point(lng, lat);
                             var newMarker = new BMap.Marker(newPoint);
                             map.addOverlay(newMarker);
-
 
                             count++;
                             oldlng = lng;
