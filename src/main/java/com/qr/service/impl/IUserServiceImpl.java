@@ -17,10 +17,10 @@ public class IUserServiceImpl implements IUserService {
     }
 
     public void addAcount(String account, String password) {
-        userdao.insertAccount(account,password);
+        userdao.insertAccount(account, password);
     }
 
-    public void updateUserInfo(String account, String userName, String realName, String idCardNum, int sex, String address) {
-        userdao.updateAccountInfo(account,userName,realName,idCardNum,sex,address);
+    public void updateUserInfo(String userImage, String account, String userName, String realName, String idCardNum, int sex, String userTel, String address) {
+        userdao.updateAccountInfo(userImage, account, userName, realName, idCardNum, sex, userTel, address);
     }
 }
