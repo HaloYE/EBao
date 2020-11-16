@@ -72,6 +72,7 @@
 
     <select id="findShop" resultType="com.qr.entity.Shop">
         select * from shoptable limit 4
+    </select>
     <delete id="deleteOneGoods">
         delete from goods where goodsId=#{goodsId}
     </delete>

@@ -89,4 +89,6 @@ public interface ShopDao {
      * @return
      */
     Integer hasleased(List list);
+
+    List findShop();
 }

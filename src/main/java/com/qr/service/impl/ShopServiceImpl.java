@@ -140,5 +140,8 @@ public class ShopServiceImpl implements ShopServicce {
         return true;
     }
 
+    public List findShop(){
+        return shopDao.findShop();
+    }
 
 }

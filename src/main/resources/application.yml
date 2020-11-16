@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/ebao?serverTimezone=UTC
     username: root
-    password: 1234
+    password: 123wswj,
     driver-class-name: com.mysql.cj.jdbc.Driver
 #  resources:
 #    static-locations: classpath:/templates/,/classpath:/static/
