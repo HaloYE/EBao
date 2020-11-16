@@ -102,7 +102,7 @@
             cols:[[
                 // {type:'checkbox', fixed: 'left'}
                 {field: 'goodsId', title: 'ID',width: 110}
-                ,{field: 'goodsName', title: '商品名称',width: 110}
+                ,{field: 'goodsName', title: '商品名称',width: 95}
                 ,{field: 'goodsPicture', title: '商品图片',width: 180,templet: function (obj) {
                         return "<img src='"+obj.goodsPicture+"'>"
                     }}
@@ -129,7 +129,8 @@
                 localStorage.setItem("goodsId",data.goodsId);
                 localStorage.setItem("goodsName",data.goodsName);
                 localStorage.setItem("goodsPicture",data.goodsPicture);
-                localStorage.setItem("goodsKind",data.goodsKind);
+                localStorage.setItem("goodsFirstKind",data.goodsFirstKind);
+                localStorage.setItem("goodsSecondKind",data.goodsSecondKind);
                 localStorage.setItem("shopId",data.shopId);
                 localStorage.setItem("goodsPrice",data.goodsPrice);
                 localStorage.setItem("deposit",data.deposit);

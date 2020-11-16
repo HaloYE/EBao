@@ -75,7 +75,7 @@
     </delete>
 
     <insert id="addGoods">
-        insert into goods (goodsId,goodsName,goodsKind,goodsPicture,shopId,goodsPrice,deposit) values (#{goodsId},#{goodsName},#{goodsKind},#{goodsPicture},#{shopId},#{goodsPrice},#{deposit})
+        insert into goods (goodsId,goodsName,goodsFirstKind,goodsSecondKind,goodsPicture,shopId,goodsPrice,deposit) values (#{goodsId},#{goodsName},#{goodsFirstKind},#{goodsSecondKind},#{goodsPicture},#{shopId},#{goodsPrice},#{deposit})
     </insert>
 
     <update id="goodsChange">
