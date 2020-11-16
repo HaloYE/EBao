@@ -75,6 +75,7 @@ public interface ShopDao {
      */
     void goodsChange(Goods goods);
 
+
     /**
      * 删除列表
      * @param list

@@ -9,13 +9,30 @@
         *{ margin: 0px; padding: 0px;}
         body{text-align: center;  height: 100%;overflow:hidden;}
         #allmap{ width: 100%;height: 90%;position: absolute;top: 10%}
-        #shopAddresscon{width:100%;height: 10%;position: absolute}
-        #shopAddress{width: 100%; height: 100%;padding-left: 50px;border:none;display: inline-block;font-size: 20px}
+        #addresscon{width:100%;height: 10%}
+        #shopAddresscon{width:40%;height: 10%;position: absolute;}
+        .shopAddress{width: 100%; height: 100%;padding-left: 50px;border:none;display: inline-block;font-size: 20px}
+        #shoploc{width:50%;height: 10%;position: absolute;left: 40%;display: table}
+        .shoplocaddresstext{width: 10%;height: 100%;font-size: 20px;display:table-cell; vertical-align:middle;}
+        .shoplocaddress{width: 40%; height: 100%;/*padding-left: 20px;*/border:none;display: inline-block;/*font-size: 20px;*/float: left}
+        #buttoncon{width: 10%;height: 10%;position: absolute;left: 90%}
+        #buttonconfirm{width: 100%;height: 100%;font-size: 20px}
     </style>
 </head>
 <body>
-<div id="shopAddresscon">
-    <input type="text" id="shopAddress" placeholder="点击地图后获取的地址信息在这里">
+<div id="addresscon">
+    <div id="shopAddresscon">
+        <input type="text" class="shopAddress" id="shopAddress" placeholder="点击地图后获取的地址信息在这里">
+    </div>
+    <div id="shoploc">
+        <span class="shoplocaddresstext">经度：</span>
+        <input type="text" class="shoplocaddress" id="getClicklng" placeholder="点击地图后获取的经度信息在这里">
+        <span class="shoplocaddresstext">纬度：</span>
+        <input type="text" class="shoplocaddress" id="getClicklat" placeholder="点击地图后获取的纬度信息在这里">
+    </div>
+    <div id="buttoncon">
+        <button id="buttonconfirm">确认</button>
+    </div>
 </div>
 <div id="allmap"></div>
 
@@ -72,6 +89,8 @@
                         address += addComp.streetNumber;
                         // alert(address);
                         document.getElementById("shopAddress").value = address;
+                        document.getElementById("getClicklng").value = lng;
+                        document.getElementById("getClicklat").value = lat;
                     })
                     //右击消除marker
                     newMarker.addEventListener("rightclick",function(e){
@@ -81,6 +100,8 @@
                                 if (allOverlay[i].getPosition().lng == lng && allOverlay[i].getPosition().lat == lat) {
                                     map.removeOverlay(allOverlay[i]);
                                     document.getElementById("shopAddress").value = "";
+                                    document.getElementById("getClicklng").value = "";
+                                    document.getElementById("getClicklat").value = "";
                                     count--;
                                 }
                             }
@@ -121,6 +142,8 @@
                         address += addComp.streetNumber;
                         // alert(address);
                         document.getElementById("shopAddress").value = address;
+                        document.getElementById("getClicklng").value = lng;
+                        document.getElementById("getClicklat").value = lat;
                     })
                     //右击消除marker
                     newMarker.addEventListener("rightclick",function(e){
@@ -130,6 +153,8 @@
                                 if (allOverlay[i].getPosition().lng == lng && allOverlay[i].getPosition().lat == lat) {
                                     map.removeOverlay(allOverlay[i]);
                                     document.getElementById("shopAddress").value = "";
+                                    document.getElementById("getClicklng").value = "";
+                                    document.getElementById("getClicklat").value = "";
                                     count--;
                                 }
                             }
