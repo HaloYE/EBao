@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://jrain.oscitas.netdna-cdn.com/tutorial/css/fontawesome-all.min.css">
+    <script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        a:hover,a:focus{
+            text-decoration: none;
+            outline: none;
+        }
+        .vertical-tab{
+            font-family: 'Chivo', sans-serif;
+            display: table;
+        }
+        .vertical-tab .nav-tabs{
+            display: table-cell;
+            width: 28%;
+            min-width: 28%;
+            vertical-align: top;
+            border: none;
+            border-right: 3px solid #e7e7e7;
+        }
+        .vertical-tab .nav-tabs li{
+            float: none;
+            vertical-align: top;
+        }
+        .vertical-tab .nav-tabs li a{
+            color: #444;
+            background: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            margin: 0 0 1px 0;
+            border: none;
+            transition: all 0.3s ease 0s;
+        }
+        .vertical-tab .nav-tabs li a:hover,
+        .vertical-tab .nav-tabs li.active a,
+        .vertical-tab .nav-tabs li.active a:hover{
+            color: #198df8;
+            background: #fff;
+            border: none;
+        }
+        .vertical-tab .nav-tabs li a:before,
+        .vertical-tab .nav-tabs li a:after{
+            content: "\f054";
+            color: #198df8;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 18px;
+            opacity: 0;
+            transform: translateY(-50%);
+            position: absolute;
+            top: 50%;
+            right: -4px;
+            z-index: 1;
+            transition: all 0.3s ease 0.1s;
+        }
+        .vertical-tab .nav-tabs li a:after{
+            content: "";
+            background: #198df8;
+            width: 3px;
+            height: 100%;
+            transform: translateY(0);
+            top: 0;
+            right: 8px;
+            transition: all 0.3s ease 0s;
+        }
+        .vertical-tab .nav-tabs li a:hover:before,
+        .vertical-tab .nav-tabs li.active a:before{
+            opacity: 1;
+            right: -17px;
+        }
+        .vertical-tab .nav-tabs li a:hover:after,
+        .vertical-tab .nav-tabs li.active a:after{
+            opacity: 1;
+            right: -3px;
+        }
+        .vertical-tab .tab-content{
+            color: #555;
+            background-color: #fff;
+            font-size: 15px;
+            letter-spacing: 1px;
+            line-height: 23px;
+            padding: 10px 15px 10px 25px;
+            display: table-cell;
+            position: relative;
+        }
+        .vertical-tab .tab-content h3{
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+        }
+        @media only screen and (max-width: 479px){
+            .vertical-tab .nav-tabs{
+                display: block;
+                width: 100%;
+                border-right: none;
+            }
+            .vertical-tab .nav-tabs li a{
+                padding: 7px 7px;
+                margin: 0 0 18px 0;
+            }
+            .vertical-tab .nav-tabs li a:before,
+            .vertical-tab .nav-tabs li a:after{
+                transform: translateY(0) translateX(50%) rotate(90deg);
+                right: 50%;
+                top: auto;
+                bottom:0;
+            }
+            .vertical-tab .nav-tabs li a:after{
+                width: 50%;
+                height: 3px;
+                transform: translateY(0) translateX(50%) rotate(0);
+            }
+            .vertical-tab .nav-tabs li a:hover:before,
+            .vertical-tab .nav-tabs li.active a:before{
+                bottom: -22px;
+                right: 50%;
+            }
+            .vertical-tab .nav-tabs li a:hover:after,
+            .vertical-tab .nav-tabs li.active a:after{
+                bottom: -2px;
+                right: 50%;
+            }
+            .vertical-tab .tab-content{
+                border-top: 3px solid #e7e7e7;
+                display: block;
+                padding: 20px 15px 10px;
+            }
+            .vertical-tab .tab-content h3{ font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+<div class="menu_container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="vertical-tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">住房服务</a></li>
+                    <li role="presentation"><a href="#Section2" aria-controls="profile" role="traffic" data-toggle="tab">交通工具</a></li>
+                    <li role="presentation"><a href="#Section3" aria-controls="messages" role="family" data-toggle="tab">居家生活</a></li>
+                    <li role="presentation"><a href="#Section4" aria-controls="messages" role="equiment" data-toggle="tab">设备仪器</a></li>
+                    <li role="presentation"><a href="#Section5" aria-controls="messages" role="machine" data-toggle="tab">机械设备</a></li>
+                    <li role="presentation"><a href="#Section6" aria-controls="messages" role="" data-toggle="tab">建材物资</a></li>
+                    <li role="presentation"><a href="#Section7" aria-controls="messages" role="tab" data-toggle="tab">文体用品</a></li>
+                    <li role="presentation"><a href="#Section8" aria-controls="messages" role="tab" data-toggle="tab">办公用品</a></li>
+                    <li role="presentation"><a href="#Section9" aria-controls="messages" role="tab" data-toggle="tab">电子产品</a></li>
+                    <li role="presentation"><a href="#Section10" aria-controls="messages" role="tab" data-toggle="tab">婚庆用品</a></li>
+                    <li role="presentation"><a href="#Section11" aria-controls="messages" role="tab" data-toggle="tab">节日用品</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -24,9 +24,8 @@ body{
 }
         /*logo*/
 .container_header_logo{
-
     position: relative;
-    top: 40px;
+    top: 35px;
     cursor: pointer;
     min-height: 40px;
     min-width: 160px;

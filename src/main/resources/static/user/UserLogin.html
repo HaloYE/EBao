@@ -58,9 +58,10 @@
         }
 
         #login_word {
-            margin-left: 2px;
+            margin-left: 0;
             margin-bottom: 30px;
-            width: 200px;
+            width: 270px;
+            text-align: center;
         }
 
         .layui-input {
@@ -138,7 +139,7 @@
                         </tr>
                         <tr>
                             <td><input type="button" name="login" class="layui-btn layui-btn-danger"
-                                       id="login" value="登录"/></td>
+                                       id="login" value="登录" style="border-radius: 10px"/></td>
                         </tr>
                         <tr>
                             <td>还没有账号？<a href="UserRegister.html">免费注册</a></td>
@@ -156,9 +157,9 @@
             var account = $("#account").val();
             var password = $("#password").val();
             // console.log(account.length)
-            if (account.length === 0) {
+            if (!account) {
                 alert("账号不能为空")
-            } else if (password.length === 0) {
+            } else if (!password) {
                 alert("密码不能为空")
             } else {
                 $.ajax({
@@ -170,11 +171,13 @@
                         } else if (msg.r == 1) {
                             var user =msg.user;
                             console.log(user)
+                            localStorage.setItem("userImage", user.userImage);
                             localStorage.setItem("userid", user.userID);
                             localStorage.setItem("userName", user.userName);
                             localStorage.setItem("realName", user.realName);
                             localStorage.setItem("idCardNum", user.idCardNum);
                             localStorage.setItem("sex", user.sex);
+                            localStorage.setItem("userTel", user.userTel);
                             localStorage.setItem("address", user.address);
                             location.href = "UserInfo.html";
                         } else if (msg.r ==2) {

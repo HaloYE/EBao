@@ -24,7 +24,7 @@ public class FileAction {
         String path=getUploadPath();
 
 //        System.out.println(path);
-//
+
 //        文件的原始名称
         String fileName=file.getOriginalFilename();
 //        加上时间戳，防止覆盖图片的发生
