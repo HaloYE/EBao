@@ -43,36 +43,53 @@ body{
 }
 .list{
     height: 190px;
-    width: 95%;
+    width: 700px;
     background: #F7F7F7;
     border-radius: 10px;
     margin: 10px auto;
+    overflow: auto;
 }
 .list_container{
     height: 170px;
-    width: 100%;
+    width: 600px;
     /*border: 1px solid blueviolet;*/
     position: relative;
     top: 10px;
     float: left;
 }
+.list_cover{
+    /*position: absolute;*/
+    width: 0px;
+    height: 190px;
+
+    transition:width 0.5s;
+    background-image: linear-gradient(to right, #F7F7F7 , #9F9F9F);
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    float: right;
+
+}
+.list:hover .list_cover{
+    width: 100px;
+    transition: width 0.5s;
+}
+
+
 .shop_pic{
     float: left;
-    position: relative;
-    top: 35px;
-    left: 20px;
+    margin-top: 35px;
+    margin-left: 20px;
     height: 100px;
     width: 100px;
     border-radius: 50%;
     border: 1px solid #E6E6E6;
 }
 .shop_text{
-    position: relative;
-    top: 35px;
-    left: 30px;
+    margin-top: 35px;
+    margin-left: 30px;
     float: left;
     height: 120px;
-    width: 420px;
+    width: 400px;
     /*line-height: 120px;*/
     /*border: 1px solid blueviolet;*/
     /*font-size: 12px;*/
@@ -113,11 +130,7 @@ body{
 
 }
 .shop_detail{
-    position: relative;
-    top: 80px;
-    left: 65px;
-    float: left;
-    /*border: 1px solid red;*/
+    margin: 80px 0 80px 0 ;
     height: 30px;
     width: 70px;
 }

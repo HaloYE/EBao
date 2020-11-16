@@ -28,29 +28,31 @@
                 <table th:each="shop:${shoplist}">
                     <tr>
                         <div class="list">
-                    <div class="list_container">
-                        <div class="shop_pic" >
-                            <img th:src="@{/images/Reindeer.png}" height="100%" width="100%" style="border-radius: 50%"/>
-                        </div>
-                        <div class="shop_text">
-                            <div class="shop_name">
-<!--商店名称-->
-                                <span style="color:#17A4C7" th:text="${shop.shopName}"></span>
+                            <div class="list_container">
+                                <div class="shop_pic" >
+                                    <img th:src="@{/images/Reindeer.png}" height="100%" width="100%" style="border-radius: 50%"/>
+                                </div>
+                                <div class="shop_text">
+                                    <div class="shop_name">
+        <!--商店名称-->
+                                        <span style="color:#17A4C7" th:text="${shop.shopName}"></span>
+                                    </div>
+                                    <div class="shop_service">
+    <!--服务范围-->
+                                        <span style="font-size: 2px"th:text="${shop.businessId}"></span>
+                                    </div>
+                                    <div class="shop_service1">
+    <!--服务简介-->
+                                        <span th:text="${shop.address}"></span>
+                                    </div>
+                                </div>
                             </div>
-                                <div class="shop_service">
-<!--服务范围-->
-                                    <span style="font-size: 2px"th:text="${shop.businessId}"></span>
+                            <div class="list_cover">
+                                <div class="shop_detail">
+                                    <input type="button" class="detail" value="查看详情">
                                 </div>
-                                <div class="shop_service1">
-<!--服务简介-->
-                                    <span th:text="${shop.address}"></span>
-                                </div>
+                            </div>
                         </div>
-                        <div class="shop_detail">
-                            <input type="button" class="detail" value="查看详情">
-                        </div>
-                    </div>
-                </div>
                     </tr>
                 </table>
 
