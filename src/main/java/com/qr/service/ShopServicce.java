@@ -88,4 +88,6 @@ public interface ShopServicce {
      * @return
      */
     boolean hasleased(List list);
+
+    List findShop();
 }
