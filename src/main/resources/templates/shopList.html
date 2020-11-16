@@ -5,11 +5,15 @@
     <title>E宝交易网</title>
     <link rel="icon" th:href="@{/images/logo.png}" th:type="@{/image/x-icon}">
     <link rel="stylesheet" th:href="@{/css/shopList.css}">
-<!--    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.min.js}" th:inline="javascript"></script>-->
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.min.js}" th:inline="javascript"></script>
     <script type="text/javascript" th:src="@{http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{http://api.map.baidu.com/api?v=2.0&ak=LQq0W9wA7A54GQ2fRd6YgpvDG14nX1K7}"></script>
     <script type="text/javascript" th:src="@{http://developer.baidu.com/map/jsdemo/demo/convertor.js}"></script>
     <script type="text/javascript" th:src="@{/js/jquery.cookie.js}"></script>
+    <script th:src="@{../static/js/jquery-1.11.0.min.js}"></script>
+    <link rel="stylesheet" th:href="@{https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{http://jrain.oscitas.netdna-cdn.com/tutorial/css/fontawesome-all.min.css}">
+    <script th:src="@{https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 </head>
 
 <body>
@@ -25,35 +29,26 @@
                 <div class="title">
                     <span>分类查看：</span>
                     <div class="menu_container">
-                        <div class="vertical-tab" role="tabpanel">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation"><a href="#Section1" aria-controls="home" role="tab"
-                                                           data-toggle="tab">住房服务</a></li>
-                                <li role="presentation"><a href="#Section2" aria-controls="traffic" role="tab"
-                                                           data-toggle="tab">交通工具</a></li>
-                                <li role="presentation"><a href="#Section3" aria-controls="furniture" role="tab"
-                                                           data-toggle="tab">居家生活</a></li>
-                                <li role="presentation"><a href="#Section4" aria-controls="equipment" role="tab"
-                                                           data-toggle="tab">设备仪器</a></li>
-                                <li role="presentation"><a href="#Section5" aria-controls="mechanics" role="tab"
-                                                           data-toggle="tab">机械设备</a></li>
-                                <li role="presentation"><a href="#Section6" aria-controls="material" role="tab"
-                                                           data-toggle="tab">建材物资</a></li>
-                                <li role="presentation"><a href="#Section7" aria-controls="sporting" role="tab"
-                                                           data-toggle="tab">文体用品</a></li>
-                                <li role="presentation"><a href="#Section8" aria-controls="office" role="tab"
-                                                           data-toggle="tab">办公用品</a></li>
-                                <li role="presentation"><a href="#Section9" aria-controls="electronic" role="tab"
-                                                           data-toggle="tab">电子产品</a></li>
-                                <li role="presentation"><a href="#Section10" aria-controls="wedding" role="tab"
-                                                           data-toggle="tab">婚庆用品</a></li>
-                                <li role="presentation"><a href="#Section11" aria-controls="festival" role="tab"
-                                                           data-toggle="tab">节日用品</a></li>
-                            </ul>
+                        <div class="row">
+                                <div class="vertical-tab" role="tabpanel">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab">住房服务</a></li>
+                                        <li role="presentation"><a href="#Section2" aria-controls="profile" role="traffic" data-toggle="tab">交通工具</a></li>
+                                        <li role="presentation"><a href="#Section3" aria-controls="messages" role="family" data-toggle="tab">居家生活</a></li>
+                                        <li role="presentation"><a href="#Section4" aria-controls="messages" role="equiment" data-toggle="tab">设备仪器</a></li>
+                                        <li role="presentation"><a href="#Section5" aria-controls="messages" role="machine" data-toggle="tab">机械设备</a></li>
+                                        <li role="presentation"><a href="#Section6" aria-controls="messages" role="" data-toggle="tab">建材物资</a></li>
+                                        <li role="presentation"><a href="#Section7" aria-controls="messages" role="tab" data-toggle="tab">文体用品</a></li>
+                                        <li role="presentation"><a href="#Section8" aria-controls="messages" role="tab" data-toggle="tab">办公用品</a></li>
+                                        <li role="presentation"><a href="#Section9" aria-controls="messages" role="tab" data-toggle="tab">电子产品</a></li>
+                                        <li role="presentation"><a href="#Section10" aria-controls="messages" role="tab" data-toggle="tab">婚庆用品</a></li>
+                                        <li role="presentation"><a href="#Section11" aria-controls="messages" role="tab" data-toggle="tab">节日用品</a></li>
+                                    </ul>
+                                </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <!--商家列表-->
             <div class="shop">
@@ -93,9 +88,10 @@
                             </div>
                         </tr>
                     </table>
-
                 </div>
             </div>
+        </div>
+
         </div>
     </div>
 </div>

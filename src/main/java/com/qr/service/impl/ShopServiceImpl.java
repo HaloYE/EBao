@@ -1,5 +1,7 @@
 package com.qr.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.qr.dao.ShopDao;
 import com.qr.entity.Goods;
 import com.qr.entity.Shop;
@@ -75,7 +77,6 @@ public class ShopServiceImpl implements ShopServicce {
     }
 
 
-
     /**
      * 查询商店的商品件数
      * @param shopId
@@ -141,8 +142,15 @@ public class ShopServiceImpl implements ShopServicce {
         return true;
     }
 
-    public List findShop(){
-        return shopDao.findShop();
+    public List<Shop> findShop(){
+
+        //PageHelpe分页
+        PageHelper.startPage(1,4);
+        List<Shop> list=shopDao.findShop();
+        PageInfo<Shop> pageInfo=new PageInfo<Shop>(list);
+        return pageInfo.getList();
+
     }
+
 
 }

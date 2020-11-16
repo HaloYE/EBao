@@ -26,9 +26,10 @@ body{
     /*border: 1px solid green;*/
 }
 .shop_container{
-    /*border: 1px solid black;*/
+    /*border: 1px solid red;*/
     height: auto;
     width: 720px;
+    float: left;
 }
 .title_container{
     height: 20px;
