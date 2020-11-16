@@ -75,6 +75,7 @@ public class ShopServiceImpl implements ShopServicce {
     }
 
 
+
     /**
      * 查询商店的商品件数
      * @param shopId

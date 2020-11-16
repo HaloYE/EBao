@@ -15,6 +15,7 @@ public interface ShopServicce {
      */
     List<Shop> findAllShop(int page, int limit, String businessId,String shopName,String shopId,String address);
 
+
     /**
      * 找到对应商家的商铺数
      * @param businessId
