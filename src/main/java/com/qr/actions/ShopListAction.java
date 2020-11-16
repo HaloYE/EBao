@@ -29,7 +29,7 @@ public class ShopListAction {
     public String  findShop(HttpServletRequest request, Model model){
         Integer pageNo=request.getParameter("pageNo")==null?1:Integer.valueOf(request.getParameter("pageNo"));
         PageInfo<Shop> pageInfo= (PageInfo<Shop>) shopServicce.findShop(pageNo,4);
-        model.addAttribute("shoplist",pageInfo.getList());
+            model.addAttribute("shoplist",pageInfo.getList());
         model.addAttribute("pages",pageInfo.getPages());
         model.addAttribute("pageNo",pageInfo.getPageNum());
         model.addAttribute("pageSize",pageInfo.getPageSize());
