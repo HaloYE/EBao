@@ -1,5 +1,7 @@
 package com.qr.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.qr.dao.ShopDao;
 import com.qr.entity.Goods;
 import com.qr.entity.Shop;
@@ -23,7 +25,6 @@ public class ShopServiceImpl implements ShopServicce {
      * @param businessId
      * @return
      */
-    @Override
     public List<Shop> findAllShop(int page, int limit, String businessId,String shopName,String shopId,String address) {
         int begin=(page-1)*limit;
         return shopDao.findAllShop(begin,limit,businessId,shopName,shopId,address);
@@ -34,7 +35,6 @@ public class ShopServiceImpl implements ShopServicce {
      * @param businessId
      * @return
      */
-    @Override
     public int selectShopNum(String businessId,String shopName,String shopId,String address) {
         return shopDao.selectShopNum(businessId,shopName,shopId,address);
     }
@@ -43,7 +43,6 @@ public class ShopServiceImpl implements ShopServicce {
      * 添加商店
      * @param shop
      */
-    @Override
     public void addShop(Shop shop) {
         Date date=new Date();
         shop.setShopId("SP"+date.getTime());
@@ -54,7 +53,6 @@ public class ShopServiceImpl implements ShopServicce {
      * 修改商店信息
      * @param shop
      */
-    @Override
     public void shopChange(Shop shop) {
         shopDao.shopChange(shop);
     }
@@ -68,12 +66,10 @@ public class ShopServiceImpl implements ShopServicce {
      * @param goodsName
      * @return
      */
-    @Override
     public List findShopGoods(int page, int limit, String shopId, String goodsId, String goodsName) {
         int begin=(page-1)*limit;
         return shopDao.findShopGoods(begin,limit, shopId, goodsId, goodsName);
     }
-
 
 
     /**
@@ -83,7 +79,6 @@ public class ShopServiceImpl implements ShopServicce {
      * @param goodsName
      * @return
      */
-    @Override
     public Integer findShopGoodsNum(String shopId, String goodsId, String goodsName) {
         return shopDao.findShopGoodsNum(shopId, goodsId, goodsName);
     }
@@ -92,7 +87,6 @@ public class ShopServiceImpl implements ShopServicce {
      * 删除一个商品
      * @param goodsId
      */
-    @Override
     public void deleteOneGoods(String goodsId) {
         shopDao.deleteOneGoods(goodsId);
     }
@@ -101,7 +95,6 @@ public class ShopServiceImpl implements ShopServicce {
      * 店铺添加一个商品
      * @param goods
      */
-    @Override
     public void addGoods(Goods goods) {
         Date date=new Date();
         goods.setGoodsId("GD"+date.getTime());
@@ -112,7 +105,6 @@ public class ShopServiceImpl implements ShopServicce {
      * 修改一个商品
      * @param goods
      */
-    @Override
     public void goodsChange(Goods goods) {
         shopDao.goodsChange(goods);
     }
@@ -122,7 +114,7 @@ public class ShopServiceImpl implements ShopServicce {
      * @param list
      * @return
      */
-    @Override
+
     public boolean deleteShopList(List list) {
         return  shopDao.deleteShopList(list);
     }
@@ -133,7 +125,7 @@ public class ShopServiceImpl implements ShopServicce {
      * @param list
      * @return
      */
-    @Override
+
     public boolean hasleased(List list) {
         if(shopDao.hasleased(list)>0){
             return false;
@@ -141,8 +133,15 @@ public class ShopServiceImpl implements ShopServicce {
         return true;
     }
 
-    public List findShop(){
-        return shopDao.findShop();
+    public List<Shop> findShop(){
+
+        //PageHelpe分页
+        PageHelper.startPage(1,4);
+        List<Shop> list=shopDao.findShop();
+        PageInfo<Shop> pageInfo=new PageInfo<Shop>(list);
+        return pageInfo.getList();
+
     }
+
 
 }
