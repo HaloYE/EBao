@@ -1,14 +1,18 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
 .animate {
     font-size: 40px;
     margin: 100px 0 0;
 }
-
 .animate span {
     display: inline-block;
 }
 
 .box span {
-    color: #fff;
+    color: #000;
     opacity: 0;
     transform: translate(-150px, 0) scale(.5);
     animation: leftRight 1s forwards;
@@ -21,14 +25,66 @@
         color: #000;
     }
     60% {
-        color: #fff;
+        color: #000;
     }
     80% {
-        transform: translate(0) scale(2);
-        opacity: 0;
+        transform: translate(0) scale(1.1);
+        opacity: 1;
     }
     100% {
         transform: translate(0) scale(1);
         opacity: 1;
     }
 }
+
+.testshopdiv{
+    width: 400px;
+    height: 180px;
+    background: #ffc001;
+}
+
+.testshopdiv_cover1{
+    width: 100px;
+    height: 180px;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 1s;
+    float: right;
+}
+.testshopdiv:hover .testshopdiv_cover1{
+    opacity: 1;
+    transition: opacity 1s;
+}
+@keyframes rightin {
+/*    40% {
+        transform: translate(0, 0) scale(.7);
+        opacity: 1;
+        color: #000;
+    }
+    60% {
+        color: #000;
+    }
+    80% {
+        transform: translate(0) scale(1.1);
+        opacity: 1;
+    }*/
+    100% {
+        /*transform: translate(0) scale(1);*/
+        opacity: 1;
+    }
+}
+
+.testshopdiv_cover2{
+    width: 0px;
+    transition:width 1s;
+    height: 180px;
+    background-image: linear-gradient(to right, yellow , black);
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    float: right;
+}
+.testshopdiv:hover .testshopdiv_cover2{
+    width: 100px;
+    transition: width 1s;
+}
+

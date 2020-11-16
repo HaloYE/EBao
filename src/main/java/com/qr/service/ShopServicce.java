@@ -15,6 +15,7 @@ public interface ShopServicce {
      */
     List<Shop> findAllShop(int page, int limit, String businessId,String shopName,String shopId,String address);
 
+
     /**
      * 找到对应商家的商铺数
      * @param businessId
@@ -74,4 +75,18 @@ public interface ShopServicce {
      * @param goods
      */
     void goodsChange(Goods goods);
+
+    /**
+     * 删除商店列表
+     * @param list
+     * @return
+     */
+    boolean deleteShopList(List list);
+
+    /**
+     * 查询是否有已经借出东西的商店
+     * @param list
+     * @return
+     */
+    boolean hasleased(List list);
 }

@@ -75,6 +75,7 @@ public class ShopServiceImpl implements ShopServicce {
     }
 
 
+
     /**
      * 查询商店的商品件数
      * @param shopId
@@ -114,6 +115,30 @@ public class ShopServiceImpl implements ShopServicce {
     @Override
     public void goodsChange(Goods goods) {
         shopDao.goodsChange(goods);
+    }
+
+    /**
+     * 删除商店列表
+     * @param list
+     * @return
+     */
+    @Override
+    public boolean deleteShopList(List list) {
+        return  shopDao.deleteShopList(list);
+    }
+
+
+    /**
+     * 查询是否有已经借出东西的商店
+     * @param list
+     * @return
+     */
+    @Override
+    public boolean hasleased(List list) {
+        if(shopDao.hasleased(list)>0){
+            return false;
+        }
+        return true;
     }
 
 

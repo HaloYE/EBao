@@ -70,15 +70,32 @@
         </if>
     </select>
 
+    <select id="findShop" resultType="com.qr.entity.Shop">
+        select * from shoptable limit 4
     <delete id="deleteOneGoods">
         delete from goods where goodsId=#{goodsId}
     </delete>
 
     <insert id="addGoods">
-        insert into goods (goodsId,goodsName,goodsKind,goodsPicture,shopId,goodsPrice,deposit) values (#{goodsId},#{goodsName},#{goodsKind},#{goodsPicture},#{shopId},#{goodsPrice},#{deposit})
+        insert into goods (goodsId,goodsName,goodsFirstKind,goodsSecondKind,goodsPicture,shopId,goodsPrice,deposit) values (#{goodsId},#{goodsName},#{goodsFirstKind},#{goodsSecondKind},#{goodsPicture},#{shopId},#{goodsPrice},#{deposit})
     </insert>
 
     <update id="goodsChange">
         update goods set goodsName=#{goodsName},goodsKind=#{goodsKind},goodsPrice=#{goodsPrice},deposit=#{deposit},goodsPicture=#{goodsPicture} where goodsId=#{goodsId}
     </update>
+
+    <delete id="deleteShopList">
+        delete from shoptable where shopId in
+        <foreach collection="list" open="(" close=")" separator="," item="shopId">
+            #{shopId}
+        </foreach>
+    </delete>
+
+
+    <select id="hasleased" resultType="int">
+        select count(*) from goods where status=1 and shopId in
+        <foreach collection="list" open="(" close=")" separator="," item="shopId">
+            #{shopId}
+        </foreach>
+    </select>
 </mapper>

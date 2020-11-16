@@ -58,6 +58,7 @@
         var form =layui.form;
         var $=layui.$;
 
+
         form.on('submit(addShopBtn)', function(data){
             var mydata = data.field;
             $.ajax({
@@ -66,6 +67,11 @@
                 success:function (msg){
                     var index = parent.layer.getFrameIndex(window.name);
                     parent.layer.close(index);
+                    parent.layer.open({
+                        title: '添加成功'
+                        ,icon:1
+                        ,content: '添加成功！'
+                    });
                     parent.table.reload('demo');
                 }
             })
