@@ -28,8 +28,8 @@ public class ShopListAction {
 //        HttpSession session=request.getSession();
 //        HttpCookxie cookie =request.getCookies();
 //        String shopName=(String) session.getAttribute("shopName");
-        List<Shop> shoplist=shopServicce.findShop();
-        model.addAttribute("shoplist",shoplist);
+//        List<Shop> shoplist=shopServicce.findShop();
+//        model.addAttribute("shoplist",shoplist);
         return "shopList";
     }
 }
