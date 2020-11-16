@@ -8,6 +8,15 @@
         <if test="businessId!=null and businessId!=''">
             and businessId=#{businessId}
         </if>
+        <if test="shopName!=null and shopName!=''">
+            and shopName like "%"#{shopName}"%"
+        </if>
+        <if test="shopId!=null and shopId!=''">
+            and shopId like "%"#{shopId}"%"
+        </if>
+        <if test="address!=null and address!=''">
+            and address like "%"#{address}"%"
+        </if>
         limit ${begin},${limit}
     </select>
 
@@ -16,9 +25,74 @@
         <if test="businessId!=null and businessId!=''">
             and businessId=#{businessId}
         </if>
+        <if test="shopName!=null and shopName!=''">
+            and shopName like "%"#{shopName}"%"
+        </if>
+        <if test="shopId!=null and shopId!=''">
+            and shopId like "%"#{shopId}"%"
+        </if>
+        <if test="address!=null and address!=''">
+            and address like "%"#{address}"%"
+        </if>
+    </select>
+    <insert id="addShop">
+        insert into shoptable values (#{shopId},#{shopName},#{businessId},#{address})
+    </insert>
+
+    <update id="shopChange">
+        update shoptable set shopName=#{shopName},address=#{address} where shopId=#{shopId}
+    </update>
+
+    <select id="findShopGoods" resultType="com.qr.entity.Goods">
+        select * from goods where 1=1
+        <if test="shopId!=null and shopId!=''">
+            and shopId=#{shopId}
+        </if>
+        <if test="goodsId!=null and goodsId!=''">
+            and goodsId like "%"#{goodsId}"%"
+        </if>
+        <if test="goodsName!=null and goodsName!=''">
+            and goodsName like "%"#{goodsName}"%"
+        </if>
+        limit ${begin},${limit}
     </select>
 
-    <select id="findShop" resultType="com.qr.entity.Shop">
-        select * from shoptable
+    <select id="findShopGoodsNum" resultType="int">
+        select count(*) from goods where 1=1
+        <if test="shopId!=null and shopId!=''">
+            and shopId=#{shopId}
+        </if>
+        <if test="goodsId!=null and goodsId!=''">
+            and goodsId like "%"#{goodsId}"%"
+        </if>
+        <if test="goodsName!=null and goodsName!=''">
+            and goodsName like "%"#{goodsName}"%"
+        </if>
+    </select>
+
+    <delete id="deleteOneGoods">
+        delete from goods where goodsId=#{goodsId}
+    </delete>
+
+    <insert id="addGoods">
+        insert into goods (goodsId,goodsName,goodsFirstKind,goodsSecondKind,goodsPicture,shopId,goodsPrice,deposit) values (#{goodsId},#{goodsName},#{goodsFirstKind},#{goodsSecondKind},#{goodsPicture},#{shopId},#{goodsPrice},#{deposit})
+    </insert>
+
+    <update id="goodsChange">
+        update goods set goodsName=#{goodsName},goodsKind=#{goodsKind},goodsPrice=#{goodsPrice},deposit=#{deposit},goodsPicture=#{goodsPicture} where goodsId=#{goodsId}
+    </update>
+
+    <delete id="deleteShopList">
+        delete from shoptable where shopId in
+        <foreach collection="list" open="(" close=")" separator="," item="shopId">
+            #{shopId}
+        </foreach>
+    </delete>
+
+    <select id="hasleased" resultType="int">
+        select count(*) from goods where status=1 and shopId in
+        <foreach collection="list" open="(" close=")" separator="," item="shopId">
+            #{shopId}
+        </foreach>
     </select>
 </mapper>

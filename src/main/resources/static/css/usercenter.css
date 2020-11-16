@@ -37,3 +37,14 @@ li{
     margin: 20px auto;
     text-align: center;
 }
+
+#con2{
+    border: #0C0C0C 1px solid;
+    margin: auto;
+}
+
+#con2_ifr{
+    padding-left: 300px;
+    padding-top: 100px;
+}
+

@@ -181,13 +181,18 @@
             var account = $("#userID").val();
             var password = $("#password").val();
             var conform_password=$("#confirm_password").val();
-            if(account.length===0){
+            var input  = /^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
+            if(!account){
                 alert("请创建账号哦！")
-            }else if (account.length<6 || account.length>10) {
+            }else if (!input.test(account)){
+                alert("账号只能包含数字或字母！")
+            } else if (account.length<6 || account.length>10) {
                 alert("账号长度不符合要求，请输入6-10位账号!");
-            }else if(password.length===0){
+            }else if(!password){
                 alert("请输入密码哦！")
-            }else if (password.length<6 || password.length>10) {
+            }else if (!input.test(password)){
+                alert("密码只能包含数字或字母！")
+            } else if (password.length<6 || password.length>10) {
                 alert("密码长度不符合要求，请输入6-10位密码!");
             }else if(conform_password.length===0){
                 alert("请确认密码哦！")
@@ -206,7 +211,6 @@
                         }
                     }
                 })
-
             }
         })
     })

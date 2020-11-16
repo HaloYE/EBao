@@ -1,11 +1,13 @@
 package com.qr.service.impl;
 
 import com.qr.dao.ShopDao;
+import com.qr.entity.Goods;
 import com.qr.entity.Shop;
 import com.qr.service.ShopServicce;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service("shopservice")
@@ -21,10 +23,10 @@ public class ShopServiceImpl implements ShopServicce {
      * @param businessId
      * @return
      */
-
-    public List<Shop> findAllShop(int page, int limit, String businessId) {
+    @Override
+    public List<Shop> findAllShop(int page, int limit, String businessId,String shopName,String shopId,String address) {
         int begin=(page-1)*limit;
-        return shopDao.findAllShop(begin,limit,businessId);
+        return shopDao.findAllShop(begin,limit,businessId,shopName,shopId,address);
     }
 
     /**
@@ -32,12 +34,111 @@ public class ShopServiceImpl implements ShopServicce {
      * @param businessId
      * @return
      */
-    public int selectShopNum(String businessId) {
-        return shopDao.selectShopNum(businessId);
+    @Override
+    public int selectShopNum(String businessId,String shopName,String shopId,String address) {
+        return shopDao.selectShopNum(businessId,shopName,shopId,address);
     }
 
-    public List<Shop> findShop(){
-        return shopDao.findShop();
-}
+    /**
+     * 添加商店
+     * @param shop
+     */
+    @Override
+    public void addShop(Shop shop) {
+        Date date=new Date();
+        shop.setShopId("SP"+date.getTime());
+        shopDao.addShop(shop);
+    }
+
+    /**
+     * 修改商店信息
+     * @param shop
+     */
+    @Override
+    public void shopChange(Shop shop) {
+        shopDao.shopChange(shop);
+    }
+
+    /**
+     * 分页查询商店的商品信息
+     * @param page
+     * @param limit
+     * @param shopId
+     * @param goodsId
+     * @param goodsName
+     * @return
+     */
+    @Override
+    public List findShopGoods(int page, int limit, String shopId, String goodsId, String goodsName) {
+        int begin=(page-1)*limit;
+        return shopDao.findShopGoods(begin,limit, shopId, goodsId, goodsName);
+    }
+
+
+    /**
+     * 查询商店的商品件数
+     * @param shopId
+     * @param goodsId
+     * @param goodsName
+     * @return
+     */
+    @Override
+    public Integer findShopGoodsNum(String shopId, String goodsId, String goodsName) {
+        return shopDao.findShopGoodsNum(shopId, goodsId, goodsName);
+    }
+
+    /**
+     * 删除一个商品
+     * @param goodsId
+     */
+    @Override
+    public void deleteOneGoods(String goodsId) {
+        shopDao.deleteOneGoods(goodsId);
+    }
+
+    /**
+     * 店铺添加一个商品
+     * @param goods
+     */
+    @Override
+    public void addGoods(Goods goods) {
+        Date date=new Date();
+        goods.setGoodsId("GD"+date.getTime());
+        shopDao.addGoods(goods);
+    }
+
+    /**
+     * 修改一个商品
+     * @param goods
+     */
+    @Override
+    public void goodsChange(Goods goods) {
+        shopDao.goodsChange(goods);
+    }
+
+    /**
+     * 删除商店列表
+     * @param list
+     * @return
+     */
+    @Override
+    public boolean deleteShopList(List list) {
+        return  shopDao.deleteShopList(list);
+    }
+
+
+    /**
+     * 查询是否有已经借出东西的商店
+     * @param list
+     * @return
+     */
+    @Override
+    public boolean hasleased(List list) {
+        if(shopDao.hasleased(list)>0){
+            return false;
+        }
+        return true;
+    }
+
 
 }
