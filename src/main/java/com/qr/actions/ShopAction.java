@@ -122,9 +122,13 @@ public class ShopAction {
     }
 
     @RequestMapping("/searchAllShopPoint.action")
-    public List<Shop> searchAllShopPoint(){
-        List<Shop> shops=shopServicce.searchAllShop();
-//        System.out.println(shops);
+    public List<Shop> searchAllShopPoint(String goodsFirstKind){
+        System.out.println(goodsFirstKind);
+//        str.replaceAll(" ", ""); //去掉所有空格，包括首尾、中间
+        String newGoodsFirstKind=goodsFirstKind.replaceAll(" ","");
+        System.out.println(newGoodsFirstKind);
+        List<Shop> shops=shopServicce.searchAllShop(newGoodsFirstKind);
+        System.out.println(shops);
         return shops;
     }
 }
