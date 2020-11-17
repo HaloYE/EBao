@@ -40,7 +40,7 @@
     </insert>
 
     <update id="shopChange">
-        update shoptable set shopName=#{shopName},address=#{address},longitude+#{longitude},latitude=#{latitude} where shopId=#{shopId}
+        update shoptable set shopName=#{shopName},address=#{address},longitude=#{longitude},latitude=#{latitude} where shopId=#{shopId}
     </update>
 
     <select id="findShopGoods" resultType="com.qr.entity.Goods">

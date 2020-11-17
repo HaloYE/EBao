@@ -79,6 +79,7 @@
                     url:"../eBao/addShop.action",
                     data:mydata,
                     success:function (msg){
+                        localStorage.setItem("shopName","")
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
                         parent.layer.open({
@@ -90,16 +91,19 @@
                     }
                 })
             }else {
+                localStorage.setItem("shopName","");
                 alert("请检查输入格式是否正确!")
             }
             return false;
         });
 
-
+        var shopName=localStorage.getItem("shopName");
         var address=localStorage.getItem("address");
         var longitude=localStorage.getItem("longitude");
         var latitude=localStorage.getItem("latitude");
 
+
+        $("#shopName").val(shopName);
         $("#address").val(address);
         $("#longitude").val(longitude);
         $("#latitude").val(latitude);
@@ -127,7 +131,7 @@
             return false;
         }
         else {
-            // localStorage.setItem("shopName",$("#shopName").val())
+            localStorage.setItem("shopName",$("#shopName").val());
             rshopName=true;
             document.getElementById("shopNamespan").innerText="";
             return true;
