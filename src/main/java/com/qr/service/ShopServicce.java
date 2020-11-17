@@ -91,7 +91,9 @@ public interface ShopServicce {
      */
     boolean hasleased(List list);
 
-    PageInfo<Shop> findShop(Integer pageNum, Integer pageSize);
+    PageInfo<Shop> findShop(Integer pageNum, Integer pageSize,String goodsFirstKind);
+
+    List<Shop> findAllShopType();
 
 
 }

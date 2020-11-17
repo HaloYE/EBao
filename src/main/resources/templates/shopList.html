@@ -35,32 +35,32 @@
                                 <!-- Nav tabs -->
 
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <table th:each="shop:${shoplist}">
-                                            <tr>
-                                        <li role="presentation"><a href="#Section1" aria-controls="home" role="tab"
-                                                                   data-toggle="tab" th:text="${shop.shopType}">住房服务</a></li>
-<!--                                        <li role="presentation"><a href="#Section2" aria-controls="profile" role="traffic"-->
-<!--                                                                   data-toggle="tab">交通工具</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section3" aria-controls="messages" role="family"-->
-<!--                                                                   data-toggle="tab">居家生活</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section4" aria-controls="messages" role="equiment"-->
-<!--                                                                   data-toggle="tab">设备仪器</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section5" aria-controls="messages" role="machine"-->
-<!--                                                                   data-toggle="tab">机械设备</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section6" aria-controls="messages" role=""-->
-<!--                                                                   data-toggle="tab">建材物资</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section7" aria-controls="messages" role="tab"-->
-<!--                                                                   data-toggle="tab">文体用品</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section8" aria-controls="messages" role="tab"-->
-<!--                                                                   data-toggle="tab">办公用品</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section9" aria-controls="messages" role="tab"-->
-<!--                                                                   data-toggle="tab">电子产品</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section10" aria-controls="messages" role="tab"-->
-<!--                                                                   data-toggle="tab">婚庆用品</a></li>-->
-<!--                                        <li role="presentation"><a href="#Section11" aria-controls="messages" role="tab"-->
-<!--                                                                   data-toggle="tab">节日用品</a></li>-->
-                                            </tr>
-                                        </table>
+<!--                                        <table th:each="shop:${shoplist}">-->
+<!--                                            <tr>-->
+<!--                                                th:href="@{/shoplist?&shopType=${shop.shopType}}"-->
+                                        <li value="1" class="shopType" role="presentation" >
+                                            <a aria-controls="home" role="tab" data-toggle="tab" >住房服务</a>                                            </a>
+                                        </li>
+                                        <li value="2" class="shopType" role="presentation"><a aria-controls="profile" role="traffic"
+                                                                   data-toggle="tab">交通工具</a></li>
+                                        <li value="3" class="shopType" role="presentation"><a  aria-controls="messages" role="family"
+                                                                   data-toggle="tab">居家生活</a></li>
+                                        <li value="4" class="shopType" role="presentation"><a  aria-controls="messages" role="equiment"
+                                                                   data-toggle="tab">设备仪器</a></li>
+                                        <li value="5" class="shopType" role="presentation"><a  aria-controls="messages" role="machine"
+                                                                   data-toggle="tab">机械设备</a></li>
+                                        <li value="6" class="shopType" role="presentation"><a  aria-controls="messages" role=""
+                                                                   data-toggle="tab">建材物资</a></li>
+                                        <li value="7" class="shopType" role="presentation"><a  aria-controls="messages" role="tab"
+                                                                   data-toggle="tab">文体用品</a></li>
+                                        <li value="8" class="shopType" role="presentation"><a aria-controls="messages" role="tab"
+                                                                   data-toggle="tab">办公用品</a></li>
+                                        <li value="9" class="shopType" role="presentation"><a  aria-controls="messages" role="tab"
+                                                                   data-toggle="tab">婚庆用品</a></li>
+                                        <li value="10" class="shopType" role="presentation"><a aria-controls="messages" role="tab"
+                                                                   data-toggle="tab">节日用品</a></li>
+<!--                                            </tr>-->
+<!--                                        </table>-->
                                     </ul>
                             </div>
                         </div>
@@ -215,36 +215,56 @@
     })
 
 </script>
+<script>
+    $(function () {
+        $(".shopType").click(function () {
+            var shopType = $(this).attr("value");
+            console.log(shopType)
+            if (shopType==1) {
+                // alert(shopType)
+                var goodsFirstKind="住房服务"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==2){
+                // alert(shopType)
+                var goodsFirstKind="交通工具"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==3){
+                // alert(shopType)
+                var goodsFirstKind="居家生活"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==4){
+                // alert(shopType)
+                var goodsFirstKind="设备仪器"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==5){
+                // alert(shopType)
+                var goodsFirstKind="机械设备"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==6){
+                // alert(shopType)
+                var goodsFirstKind="建材物资"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==7){
+                // alert(shopType)
+                var goodsFirstKind="文体用品"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==8){
+                // alert(shopType)
+                var goodsFirstKind="办公用品"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==9){
+                // alert(shopType)
+                var goodsFirstKind="婚庆用品"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            } else if (shopType==10){
+                // alert(shopType)
+                var goodsFirstKind="节日用品"
+                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+            }
+        })
 
-<!--<script language="javaScript" th:inline="javascript">-->
-<!--    $(function () {-->
-<!--        $("#login").click(function () {-->
-<!--            var shopType = [[${shopList.shopTypr}]];-->
-<!--            // var password = $("#password").val();-->
-<!--            // console.log(account.length)-->
-<!--            if (!shopType) {-->
-<!--                alert("Error！未获取Type")-->
-<!--            } else {-->
-<!--                $.ajax({-->
-<!--                    url: "/shopList",-->
-<!--                    data: {shopType: shopType},-->
-<!--                    success: function (msg) {-->
-<!--                        if (msg.r ==0) {-->
-<!--                            alert("无此账号")-->
-<!--                        } else if (msg.r == 1) {-->
-<!--                            var user =msg.shop;-->
-<!--                            console.log(shop)-->
-<!--                            localStorage.setItem("shopType", shop.shopType);-->
-<!--                            location.href = "shopList";-->
-<!--                        } else if (msg.r ==2) {-->
-<!--                            alert("密码有误")-->
-<!--                        }-->
-<!--                    }-->
-<!--                })-->
-<!--            }-->
-<!--        })-->
-<!--    })-->
-<!--</script>-->
+    })
+</script>
 
 <script>
     // var name = $.cookie('name');

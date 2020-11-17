@@ -97,5 +97,6 @@ public interface ShopDao {
      */
     List findShop();
 
+    List findAllShopType();
 
 }

@@ -3,6 +3,7 @@ package com.qr.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.qr.dao.ShopDao;
+import com.qr.dao.TypeDao;
 import com.qr.entity.Goods;
 import com.qr.entity.Shop;
 import com.qr.service.ShopServicce;
@@ -17,7 +18,8 @@ public class ShopServiceImpl implements ShopServicce {
 
     @Resource
     private ShopDao shopDao;
-
+    @Resource
+    private TypeDao typeDao;
     /**
      * 找到对应商家的商铺列表
      * @param page
@@ -133,14 +135,19 @@ public class ShopServiceImpl implements ShopServicce {
         return true;
     }
 
-    public PageInfo<Shop> findShop(Integer pageNum, Integer pageSize){
+    public PageInfo<Shop> findShop(Integer pageNum, Integer pageSize,String goodsFirstKind){
 
         //PageHelpe分页
         PageHelper.startPage(pageNum,pageSize);
-        List<Shop> list=shopDao.findShop();
+        List<Shop> list=typeDao.findAllType(goodsFirstKind);
         PageInfo<Shop> pageInfo=new PageInfo<Shop>(list,pageSize);
         return  pageInfo;
 
+    }
+
+    public List<Shop> findAllShopType(){
+        List<Shop> list=shopDao.findAllShopType();
+        return list;
     }
 
 
