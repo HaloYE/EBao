@@ -98,4 +98,6 @@
             #{shopId}
         </foreach>
     </select>
+
+
 </mapper>
