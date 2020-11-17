@@ -35,8 +35,6 @@
                                 <!-- Nav tabs -->
 
                                     <ul class="nav nav-tabs" role="tablist">
-<!--                                        <table th:each="shop:${shoplist}">-->
-<!--                                            <tr>-->
 <!--                                                th:href="@{/shoplist?&shopType=${shop.shopType}}"-->
                                         <li value="1" class="shopType" role="presentation" >
                                             <a aria-controls="home" role="tab" data-toggle="tab" >住房服务</a>                                            </a>
@@ -59,8 +57,6 @@
                                                                    data-toggle="tab">婚庆用品</a></li>
                                         <li value="10" class="shopType" role="presentation"><a aria-controls="messages" role="tab"
                                                                    data-toggle="tab">节日用品</a></li>
-<!--                                            </tr>-->
-<!--                                        </table>-->
                                     </ul>
                             </div>
                         </div>
@@ -102,7 +98,9 @@
                                 </div>
                                 <div class="list_cover">
                                     <div class="shop_detail">
-                                        <input type="button" class="detail" value="查看详情">
+                                        <input type="button" class="detail" value="查看详情" th:data-id="${shop.shopId}" onclick="toSecondKind(this.getAttribute('data-id'))">
+<!--&lt;!&ndash;                                        th:data-id="${user.username}" onclick="goUserinfo(this.getAttribute('data-id'))"-->
+<!--                                        th:onclick="|javascript:toSecondKind('${shop.shopId}')|"-->
                                     </div>
                                 </div>
                             </div>
@@ -273,7 +271,22 @@
             }
         })
 
+
     })
+
+    function toSecondKind(shopId){
+        var goodsFirstKind= localStorage.getItem("TheShopFirstKind");
+        var theGoodsFirstKind=$.trim(goodsFirstKind);
+        localStorage.setItem("theShopId",shopId)
+        console.log(shopId);
+        console.log(goodsFirstKind);
+        console.log(theGoodsFirstKind);
+        switch (theGoodsFirstKind){
+            case "交通工具":
+                location.href = "../eBao/shopindex/carshopindex.html";
+                break;
+        }
+    }
 </script>
 
 <script>
