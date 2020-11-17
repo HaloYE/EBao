@@ -82,7 +82,7 @@
     </insert>
 
     <update id="goodsChange">
-        update goods set goodsName=#{goodsName},goodsKind=#{goodsKind},goodsPrice=#{goodsPrice},deposit=#{deposit},goodsPicture=#{goodsPicture} where goodsId=#{goodsId}
+        update goods set goodsName=#{goodsName},goodsFirstKind=#{goodsFirstKind},goodsSecondKind=#{goodsSecondKind},goodsPrice=#{goodsPrice},deposit=#{deposit},goodsPicture=#{goodsPicture} where goodsId=#{goodsId}
     </update>
 
     <delete id="deleteShopList">
