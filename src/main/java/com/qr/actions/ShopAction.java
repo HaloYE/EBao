@@ -119,7 +119,6 @@ public class ShopAction {
             return shopServicce.deleteShopList(list);
         }
         return false;
-
     }
 
 }

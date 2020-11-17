@@ -15,11 +15,6 @@ public class UserAction {
     private IUserService userService;
     User user;
 
-//    @RequestMapping("/userLogin")
-//    public String userLogin(){
-//        return "userLogin"
-//    }
-
     @RequestMapping("/confirmLogin.action")
     public Map confirmLogin(String account, String password){
         user=userService.confirmUser(account);

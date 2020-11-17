@@ -8,5 +8,6 @@ public class Shop {
     private String shopName;
     private String businessId;
     private String address;
-    private String shopType;
+    private double longitude;
+    private double latitude;
 }
