@@ -261,6 +261,15 @@
 </script>
 
 <script>
+    $(function(){
+        $('#more').click(function(){
+            //根据a标签的href转换为id选择器，获取id元素所处的位置，并高度减90px（这里根据需要自由设置）
+            $('html,body').animate({scrollTop: ($($(this).attr('href')).offset().top -90 )},900);
+        });
+    });
+</script>
+
+<script>
     new WOW().init();
 </script>
 </body>
