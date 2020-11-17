@@ -124,6 +124,7 @@ public class ShopAction {
     @RequestMapping("/searchAllShopPoint.action")
     public List<Shop> searchAllShopPoint(){
         List<Shop> shops=shopServicce.searchAllShop();
+//        System.out.println(shops);
         return shops;
     }
 }
