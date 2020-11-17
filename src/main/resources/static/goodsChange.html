@@ -373,7 +373,7 @@
             $.ajax({
                 url:"../eBao/goodsChange.action",
                 // type:"post",
-                data: {"goodsId":goodsId,"goodsName":$("#goodsName").val(),"goodsFirstKind":$("#goodsFirstKind").val(),"goodsSecondKind":$("#goodsSecondKind").val(),"goodsPicture":$("#goodsPicture").val(),"goodsPrice":$("#goodsPrice").val(),"deposit":$("#goodsPrice").val()},
+                data: {"goodsId":goodsId,"goodsName":$("#goodsName").val(),"goodsFirstKind":$("#goodsFirstKind").val(),"goodsSecondKind":$("#goodsSecondKind").val(),"goodsPicture":$("#goodsPicture").val(),"goodsPrice":$("#goodsPrice").val(),"deposit":$("#deposit").val()},
                 success:function (msg){
                     // console.log(goodsId+"1")
                     var index = parent.layer.getFrameIndex(window.name);

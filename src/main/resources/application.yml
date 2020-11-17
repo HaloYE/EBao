@@ -16,8 +16,13 @@ spring:
     cache: false
     prefix:
       classpath: /templates/,/static/
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
     encoding: utf-8
     suffix: .html
+    mode: HTML5
 mybatis:
   mapper-locations: mapper/*.xml
 

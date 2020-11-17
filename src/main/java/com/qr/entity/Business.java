@@ -1,8 +1,10 @@
 package com.qr.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class Business {
     private String businessId;
     private String businessUserName;
