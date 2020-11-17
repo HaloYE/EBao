@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.eBaoIcon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container_header{
+    width: 100%;
+    height: 120px;
+}
+/*logo*/
+.container_header_logo{
+    position: relative;
+    top: 35px;
+    cursor: pointer;
+    min-height: 40px;
+    min-width: 160px;
+    font-size: 32px;
+    white-space: nowrap;
+    float: left;
+    display: block;
+}
+
+/*分类标签*/
+.container_header_itemcontainer{
+    position: relative;
+    top: 35px;
+    left: 100px;
+    float: left;
+}
+.container_header_item{
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    width: 120px;
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    text-align: center;
+    border-style: solid;
+    border-bottom-width: 2px;
+    border-color: transparent;
+    cursor: pointer;
+    float: left;
+    /*border: 1px solid red;*/
+    position: relative;
+    left:20px;
+
+}
+.container_header_item:hover{
+    border-style: solid;
+    border-bottom-color: #ffc001;
+    color: #ffc001;
+}
+/*.container_header_itemSep{*/
+/*    position: relative;*/
+/*    top: 19px;*/
+/*    width: 1px;*/
+/*    height: 15px;*/
+/*    background: #dbdbdb;*/
+/*    float: left;*/
+/*    left: 185px;*/
+/*}*/
+
+/*免费注册登录按钮*/
+.container_header_button{
+    position: relative;
+    top: 45px;
+    right: 10px;
+    font-family: 黑体;
+    font-size: 14px;
+    width: 120px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    padding: 7px 16px;
+    text-align: center;
+    background-color: white;
+    color: gray;
+    border: 2px solid #ffc001;
+    border-radius:50px;
+    box-shadow: 2px 2px 10px #d0d1d2;
+    outline: none;
+    cursor: pointer;
+    float: right;
+}
+.container_header_button:hover{
+    background-color: #ffc001;
+    color: white;
+}
