@@ -96,4 +96,10 @@ public interface ShopServicce {
     List<Shop> findAllShopType();
 
 
+    /**
+     * 查询所有商铺的信息，用来生成点
+     * @return
+     */
+    List<Shop> searchAllShop();
+
 }
