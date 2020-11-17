@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,8 +18,10 @@ public class UserAction {
     User user;
 
     @RequestMapping("/confirmLogin.action")
-    public Map confirmLogin(String account, String password){
+    public Map confirmLogin(String account, String password, HttpServletRequest req){
         user=userService.confirmUser(account);
+        HttpSession session=req.getSession();
+        session.setAttribute("U",user);
         int m;
         Map map =new HashMap();
         if (user==null){
