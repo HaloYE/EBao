@@ -112,7 +112,7 @@
                     url:"../eBao/shopChange.action",
                     data:mydata,
                     success:function (msg){
-                        localStorage.setItem("shopName","")
+                        // localStorage.setItem("shopName","")
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
                         parent.layer.open({
@@ -124,7 +124,7 @@
                     }
                 })
             }else {
-                localStorage.setItem("shopName","")
+                // localStorage.setItem("shopName","")
                 alert("请检查输入格式是否正确!")
             }
             return false;
