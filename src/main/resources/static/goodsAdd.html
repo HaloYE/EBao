@@ -345,7 +345,7 @@
             $.ajax({
                 url:"../eBao/shopAddGoods.action",
                 // type:"post",
-                data: {"goodsName":$("#goodsName").val(),"goodsFirstKind":$("#goodsFirstKind").val(),"goodsSecondKind":$("#goodsSecondKind").val(),"goodsPicture":$("#goodsPicture").val(),"goodsPrice":$("#goodsPrice").val(),"deposit":$("#goodsPrice").val(),"shopId":shopId},
+                data: {"goodsName":$("#goodsName").val(),"goodsFirstKind":$("#goodsFirstKind").val(),"goodsSecondKind":$("#goodsSecondKind").val(),"goodsPicture":$("#goodsPicture").val(),"goodsPrice":$("#goodsPrice").val(),"deposit":$("#deposit").val(),"shopId":shopId},
                 success:function (msg){
                     // console.log(shopId+"1")
                     var index = parent.layer.getFrameIndex(window.name);
@@ -381,25 +381,5 @@
     });*/
 
 
-    function firstSel(){
-        var goodsFirstKind=$("#goodsFirstKind").val();
-        console.log(goodsFirstKind)
-        $("#goodsSecondKind").show();
-        if (goodsFirstKind=="住房"){
-            var sec = document.getElementById('goodsSecondKind');
-            sec.innerHTML = "<option value='住宅' selected=''>住宅</option>" +
-                            "<option value='商铺'>商铺</option>"+
-                            "<option value='仓库'>仓库</option>"+
-                            "<option value='写字楼'>写字楼</option>"+
-                            "<option value='厂房'>厂房</option>";
-        }else if (goodsFirstKind=="交通工具"){
-            var sec = document.getElementById('goodsSecondKind');
-            sec.innerHTML = "<option value='轿车' selected=''>轿车</option>" +
-                "<option value='货车'>货车</option>"+
-                "<option value='机车'>机车</option>"+
-                "<option value='电动车'>电动车</option>"+
-                "<option value='自行车'>自行车</option>";
-        }
-    }
 </script>
 </html>
