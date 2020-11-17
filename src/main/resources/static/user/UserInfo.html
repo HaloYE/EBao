@@ -39,19 +39,6 @@
             height: auto;
         }
 
-        #personal_submit {
-            width: 150px;
-            font-size: 20px;
-            height: 40px;
-            margin-left: 100px;
-            margin-top: 20px;
-            margin-bottom: 5px;
-        }
-
-        #test1 {
-            margin-top: 15px;
-        }
-
     </style>
     <script src="../layuiadmin/layui/layui.js"></script>
     <link rel="icon" href="../images/logo.png" type="image/x-icon">
@@ -128,11 +115,6 @@
                 <input type="text" name="address" id="address" lay-verify="required"
                        placeholder="请输入" class="layui-input"
                        value="">
-<!--                <div data-toggle="distpicker">-->
-<!--                    <select id="eprovinceName" data-province="浙江省" name="provinceName"></select>-->
-<!--                    <select id="ecityName" data-city="杭州市" name="cityName"></select>-->
-<!--                    <select id="edistrictName" data-district="西湖区" name="districtName"></select>-->
-<!--                </div>-->
             </div>
         </div>
 
@@ -225,17 +207,17 @@
             var regIdNo = /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
 
             if (!realName) {
-                alert('请填写真实姓名');
+                layer.tips('请填写真实姓名！', '#realName',{tips: [2,"#090909"]});
             } else if (!userTel) {
-                alert('请填写手机号码');
+                layer.tips('请填写手机号码！', '#userTel',{tips: [2,"#090909"]});
             } else if (!mobilereg1.test(userTel) && !mobilereg2.test(userTel)) {
-                alert('请填写正确的手机号码');
+                layer.tips('请填写正确的手机号码！', '#userTel',{tips: [2,"#ff3300"]});
             } else if (!idCardNum) {
-                alert('请填写身份证号码！')
+                layer.tips('请填写身份证号码！', '#idCardNum',{tips: [2,"#090909"]});
             } else if (!regIdNo.test(idCardNum)) {
-                alert('请填写正确的身份证号码！')
+                layer.tips('请填写正确的身份证号码！', '#idCardNum',{tips: [2,"#ff3300"]});
             } else if (!address) {
-                alert('请填写收货地址！')
+                layer.tips('请填写收货地址！', '#address',{tips: [2,"#090909"]});
             } else {
                 $.ajax({
                     url: "../confirmUpdate.action",
@@ -264,9 +246,9 @@
                             }
                             localStorage.setItem("userTel", $('#userTel').val());
                             localStorage.setItem("address", $('#address').val());
-                            alert("修改成功")
+                            layer.msg('修改成功！')
                         } else {
-                            alert("修改失败!")
+                            layer.msg('修改失败！')
                         }
                     }
                 })
