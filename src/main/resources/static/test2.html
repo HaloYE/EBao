@@ -118,25 +118,40 @@
             })
             map.addOverlay(marker); //在地图中添加marker*/
 
-            //创建多个标记点
 
+            $.ajax({
+                url:"../eBao/searchAllShopPoint.action",
+                success:function (msg){
+                    for (const msgElement of msg) {
+                        var marker = new BMap.Marker(new BMap.Point(msgElement.longitude,msgElement.latitude));  // 创建标注
+                        // console.log(msgElement.longitude+"+"+msgElement.latitude)
+                        // console.log(msgElement.address)
+                        var content = msgElement.address;
+                        map.addOverlay(marker);               // 将标注添加到地图中
+                        addClickHandler(content,marker);
+                    }
+                }
+            })
+
+
+          /*  //创建多个标记点
             var data_info = [
                 [116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
                 [116.406605,39.921585,"地址：北京市东城区东华门大街"],
                 [116.412222,39.912345,"地址：北京市东城区正义路甲5号"]
-            ];
+            ];*/
             var opts = {
                 width : 250,     // 信息窗口宽度
                 height: 80,     // 信息窗口高度
                 title : "当前位置：" , // 信息窗口标题
                 enableMessage:true//设置允许信息窗发送短息
             };
-            for(var i=0;i<data_info.length;i++){
+        /*    for(var i=0;i<data_info.length;i++){
                 var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
                 var content = data_info[i][2];
                 map.addOverlay(marker);               // 将标注添加到地图中
                 addClickHandler(content,marker);
-            }
+            }*/
             function addClickHandler(content,marker){
                 marker.addEventListener("click",function(e){
                     openInfo(content,e)}

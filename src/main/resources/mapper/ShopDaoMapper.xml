@@ -99,5 +99,8 @@
         </foreach>
     </select>
 
+    <select id="searchAllShop" resultType="com.qr.entity.Shop">
+        select * from shoptable
+    </select>
 
 </mapper>

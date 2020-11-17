@@ -150,5 +150,13 @@ public class ShopServiceImpl implements ShopServicce {
         return list;
     }
 
+    /**
+     * 查询所有商铺的信息，用来生成点
+     * @return
+     */
+    public List<Shop> searchAllShop() {
+        return shopDao.searchAllShop();
+    }
+
 
 }
