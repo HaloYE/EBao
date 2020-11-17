@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qr.dao.IBusinessDao">
+    <select id="confirmBLogin" resultType="com.qr.entity.Business">
+        select * from businesstable where businessId=#{baccount}
+    </select>
+
+    <insert id="insertBAccount">
+        insert into businesstable (businessId,businessPassword) values (#{baccount},#{bpassword})
+    </insert>
+
+<!--    <update id="updateAccountInfo">-->
+<!--        update usertable set userImage=#{userImage},userName=#{userName},realName=#{realName},idCardNum=#{idCardNum},sex=#{sex},userTel=#{userTel},address=#{address} where userID=#{account}-->
+<!--    </update>-->
+</mapper>
