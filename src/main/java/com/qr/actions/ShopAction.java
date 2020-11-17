@@ -121,4 +121,9 @@ public class ShopAction {
         return false;
     }
 
+    @RequestMapping("/searchAllShopPoint.action")
+    public List<Shop> searchAllShopPoint(){
+        List<Shop> shops=shopServicce.searchAllShop();
+        return shops;
+    }
 }
