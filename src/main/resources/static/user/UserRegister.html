@@ -83,6 +83,7 @@
     </style>
     <script src="../js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="../layuiadmin/layui/css/layui.css">
+    <script src="../layer/layer.js"></script>
 </head>
 <iframe src="../index/navigation.html" width="100%" height="100%" style="height: 120px" frameborder="0" scrolling="no"
         name="headFrame"></iframe>
@@ -140,7 +141,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="button" name="register" id="register" class="layui-btn layui-btn-danger"
+                            <td><input type="button" name="register" class="layui-btn layui-btn-danger"
                                        id="register" value="同意以下协议并注册" style="border-radius: 10px"/></td>
                         </tr>
 <!--                        <tr>-->
@@ -183,30 +184,31 @@
             var conform_password=$("#confirm_password").val();
             var input  = /^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
             if(!account){
-                alert("请创建账号哦！")
+                layer.tips('请创建账号哦！', '#userID',{tips: [2,"#090909"]});
             }else if (!input.test(account)){
-                alert("账号只能包含数字或字母！")
+                layer.tips('账号只能包含数字或字母！', '#userID',{tips: [2,"#090909"]});
             } else if (account.length<6 || account.length>10) {
-                alert("账号长度不符合要求，请输入6-10位账号!");
+                layer.tips('账号长度不符合要求，请输入6-10位账号！', '#userID',{tips: [2,"#090909"]});
             }else if(!password){
-                alert("请输入密码哦！")
+                layer.tips('请输入密码哦！', '#password',{tips: [2,"#090909"]});
             }else if (!input.test(password)){
-                alert("密码只能包含数字或字母！")
+                layer.tips('密码只能包含数字或字母！', '#password',{tips: [2,"#090909"]});
             } else if (password.length<6 || password.length>10) {
-                alert("密码长度不符合要求，请输入6-10位密码!");
-            }else if(conform_password.length===0){
-                alert("请确认密码哦！")
+                layer.tips('密码长度不符合要求，请输入6-10位密码！', '#password',{tips: [2,"#090909"]});
+            }else if(!conform_password){
+                layer.tips('请确认密码哦！', '#confirm_password',{tips: [2,"#090909"]});
             }else if(conform_password!==password){
-                alert("两次密码不一致");
+                layer.tips('两次密码不一致！', '#confirm_password',{tips: [2,"#090909"]});
             }else {
                 $.ajax({
                     url: "../confirmRegister.action",
                     data: {account: account, password: password},
                     success: function (msg) {
                         if (msg === 0) {
-                            alert("账号已存在")
+                            layer.tips('账号已存在！', '#userID',{tips: [2,"#ff3300"]});
                         } else if (msg === 1) {
                             alert("注册成功，返回登录")
+                            // layer.alert('注册成功，返回登录', {icon: 6}).click({});
                             location.href = "UserLogin.html";
                         }
                     }
