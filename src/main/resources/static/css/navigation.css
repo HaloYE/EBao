@@ -1,4 +1,4 @@
-body{
+*{
     margin: 0;
     padding: 0;
 }
@@ -90,8 +90,93 @@ body{
     outline: none;
     cursor: pointer;
     float: right;
+    display: none;
 }
 .container_header_button:hover{
     background-color: #ffc001;
     color: white;
+}
+
+.typecon{
+    width: 230px;
+    height: 100%;
+    /*background-color: #FF5722;*/
+    float: right;
+}
+.typecontext{
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    display: initial;
+}
+.typecontext_piccon{
+    width: 100px;
+    height: 120px;
+    /*background-color: #f7e1b5;*/
+    /*line-height: 120px;*/
+    float: left;
+}
+.typecontext_pic{
+    position: relative;
+    top: 33px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    border:2px solid gray;
+    border-radius: 50%;
+    background-color: black;
+    overflow: hidden;
+}
+.typecontext_pic img{
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-user-drag: none;
+
+}
+.typecontext_textcon{
+    width: 130px;
+    height: 120px;
+    /*background-color: #ffc001;*/
+    float: left;
+}
+.typecontext_text{
+    position: relative;
+    top: 35px;
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    /*background-color: #FF5722;*/
+}
+
+.typecontext_textcon ul li{
+    /*font-family: ;*/
+    /*overflow: hidden;*/
+    user-select:none;
+    cursor: pointer;
+    list-style: none;
+    border-left: 3px solid #d0d1d2;
+    font-size: 16px;
+}
+
+.typecontext_textcon ul ul{
+    transition: all 0.25s;
+    /*background-color: #eeeff0;*/
+    /*border: none;*/
+    display: none;
+}
+.typecontext_textcon ul ul li{
+    /*transition: all 0.25s;*/
+    /*background-color: #eeeff0;*/
+    border: none;
+}
+
+.typecontext_textcon ul ul li:hover{
+    /*background-color: #eeeff0;*/
+    background-color: #ffc001 ;
+    color: #FFFFFF;
 }

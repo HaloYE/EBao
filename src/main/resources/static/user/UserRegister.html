@@ -144,6 +144,9 @@
                             <td><input type="button" name="register" class="layui-btn layui-btn-danger"
                                        id="register" value="同意以下协议并注册" style="border-radius: 10px"/></td>
                         </tr>
+                        <tr>
+                            <td class="layui-form-label" style="float: right;line-height: 40px"><a href="javascript:;" style="font-size: 15px;color: black" onclick="goBack()">返回登录</a></td>
+                        </tr>
 <!--                        <tr>-->
 <!--                            <td>-->
 <!--                                <div class="layui-collapse">-->
@@ -217,6 +220,13 @@
         })
     })
 </script>
+
+<script>
+    function goBack(){
+        window.history.go(-1);
+    }
+</script>
+
 <iframe src="../index/footer.html" width="100%" height="100%" frameborder="0" scrolling="no" style="height: 300px;display: block"></iframe>
 </body>
 </html>
