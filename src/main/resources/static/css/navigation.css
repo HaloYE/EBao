@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+iframe{
+    overflow: auto;
+}
+
 .eBaoIcon{
     display: inline-block;
     width: 40px;
@@ -90,7 +94,7 @@
     outline: none;
     cursor: pointer;
     float: right;
-    display: none;
+    display: initial;
 }
 .container_header_button:hover{
     background-color: #ffc001;
@@ -107,7 +111,7 @@
     width: 100%;
     height: 120px;
     line-height: 120px;
-    display: initial;
+    display: none;
 }
 .typecontext_piccon{
     width: 100px;
