@@ -34,30 +34,49 @@
                             <div class="vertical-tab" role="tabpanel">
                                 <!-- Nav tabs -->
 
-                                    <ul class="nav nav-tabs" role="tablist">
-<!--                                                th:href="@{/shoplist?&shopType=${shop.shopType}}"-->
-                                        <li value="1" class="shopType" role="presentation" >
-                                            <a aria-controls="home" role="tab" data-toggle="tab" >住房服务</a>                                            </a>
-                                        </li>
-                                        <li value="2" class="shopType" role="presentation"><a aria-controls="profile" role="traffic"
-                                                                   data-toggle="tab">交通工具</a></li>
-                                        <li value="3" class="shopType" role="presentation"><a  aria-controls="messages" role="family"
-                                                                   data-toggle="tab">居家生活</a></li>
-                                        <li value="4" class="shopType" role="presentation"><a  aria-controls="messages" role="equiment"
-                                                                   data-toggle="tab">设备仪器</a></li>
-                                        <li value="5" class="shopType" role="presentation"><a  aria-controls="messages" role="machine"
-                                                                   data-toggle="tab">机械设备</a></li>
-                                        <li value="6" class="shopType" role="presentation"><a  aria-controls="messages" role=""
-                                                                   data-toggle="tab">建材物资</a></li>
-                                        <li value="7" class="shopType" role="presentation"><a  aria-controls="messages" role="tab"
-                                                                   data-toggle="tab">文体用品</a></li>
-                                        <li value="8" class="shopType" role="presentation"><a aria-controls="messages" role="tab"
-                                                                   data-toggle="tab">办公用品</a></li>
-                                        <li value="9" class="shopType" role="presentation"><a  aria-controls="messages" role="tab"
-                                                                   data-toggle="tab">婚庆用品</a></li>
-                                        <li value="10" class="shopType" role="presentation"><a aria-controls="messages" role="tab"
-                                                                   data-toggle="tab">节日用品</a></li>
-                                    </ul>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <!--                                                th:href="@{/shoplist?&shopType=${shop.shopType}}"-->
+                                    <li value="1" class="shopType" role="presentation">
+                                        <a aria-controls="home" role="tab"
+                                           data-toggle="tab">住房服务</a>                                            </a>
+                                    </li>
+                                    <li value="2" class="shopType" role="presentation"><a aria-controls="profile"
+                                                                                          role="traffic"
+                                                                                          data-toggle="tab">交通工具</a>
+                                    </li>
+                                    <li value="3" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                          role="family"
+                                                                                          data-toggle="tab">居家生活</a>
+                                    </li>
+                                    <li value="4" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                          role="equiment"
+                                                                                          data-toggle="tab">设备仪器</a>
+                                    </li>
+                                    <li value="5" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                          role="machine"
+                                                                                          data-toggle="tab">机械设备</a>
+                                    </li>
+                                    <li value="6" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                          role=""
+                                                                                          data-toggle="tab">建材物资</a>
+                                    </li>
+                                    <li value="7" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                          role="tab"
+                                                                                          data-toggle="tab">文体用品</a>
+                                    </li>
+                                    <li value="8" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                          role="tab"
+                                                                                          data-toggle="tab">办公用品</a>
+                                    </li>
+                                    <li value="9" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                          role="tab"
+                                                                                          data-toggle="tab">婚庆用品</a>
+                                    </li>
+                                    <li value="10" class="shopType" role="presentation"><a aria-controls="messages"
+                                                                                           role="tab"
+                                                                                           data-toggle="tab">节日用品</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -98,9 +117,10 @@
                                 </div>
                                 <div class="list_cover">
                                     <div class="shop_detail">
-                                        <input type="button" class="detail" value="查看详情" th:data-id="${shop.shopId}" onclick="toSecondKind(this.getAttribute('data-id'))">
-<!--&lt;!&ndash;                                        th:data-id="${user.username}" onclick="goUserinfo(this.getAttribute('data-id'))"-->
-<!--                                        th:onclick="|javascript:toSecondKind('${shop.shopId}')|"-->
+                                        <input type="button" class="detail" value="查看详情" th:data-id="${shop.shopId}"
+                                               onclick="toSecondKind(this.getAttribute('data-id'))">
+                                        <!--&lt;!&ndash;                                        th:data-id="${user.username}" onclick="goUserinfo(this.getAttribute('data-id'))"-->
+                                        <!--                                        th:onclick="|javascript:toSecondKind('${shop.shopId}')|"-->
                                     </div>
                                 </div>
                             </div>
@@ -218,73 +238,101 @@
         $(".shopType").click(function () {
             var shopType = $(this).attr("value");
             console.log(shopType)
-            if (shopType==1) {
+            if (shopType == 1) {
                 // alert(shopType)
-                var goodsFirstKind="住房"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==2){
+                var goodsFirstKind = "住房"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 2) {
                 // alert(shopType)
-                var goodsFirstKind="交通工具"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==3){
+                var goodsFirstKind = "交通工具"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 3) {
                 // alert(shopType)
-                var goodsFirstKind="居家"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==4){
+                var goodsFirstKind = "居家"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 4) {
                 // alert(shopType)
-                var goodsFirstKind="设备仪器"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==5){
+                var goodsFirstKind = "设备仪器"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 5) {
                 // alert(shopType)
-                var goodsFirstKind="机械"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==6){
+                var goodsFirstKind = "机械"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 6) {
                 // alert(shopType)
-                var goodsFirstKind="建材"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==7){
+                var goodsFirstKind = "建材"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 7) {
                 // alert(shopType)
-                var goodsFirstKind="文体"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==8){
+                var goodsFirstKind = "文体"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 8) {
                 // alert(shopType)
-                var goodsFirstKind="办公"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==9){
+                var goodsFirstKind = "办公"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 9) {
                 // alert(shopType)
-                var goodsFirstKind="婚庆"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
-            } else if (shopType==10){
+                var goodsFirstKind = "婚庆"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
+            } else if (shopType == 10) {
                 // alert(shopType)
-                var goodsFirstKind="节日"
-                localStorage.setItem("TheShopFirstKind",goodsFirstKind);
-                location.href="../eBao/shopList?goodsFirstKind="+goodsFirstKind
+                var goodsFirstKind = "节日"
+                localStorage.setItem("TheShopFirstKind", goodsFirstKind);
+                location.href = "../eBao/shopList?goodsFirstKind=" + goodsFirstKind
             }
         })
 
 
     })
 
-    function toSecondKind(shopId){
-        var goodsFirstKind= localStorage.getItem("TheShopFirstKind");
-        var theGoodsFirstKind=$.trim(goodsFirstKind);
-        localStorage.setItem("theShopId",shopId)
+    function toSecondKind(shopId) {
+        var goodsFirstKind = localStorage.getItem("TheShopFirstKind");
+        var theGoodsFirstKind = $.trim(goodsFirstKind);
+        localStorage.setItem("theShopId", shopId)
         console.log(shopId);
         console.log(goodsFirstKind);
         console.log(theGoodsFirstKind);
-        switch (theGoodsFirstKind){
-            case "交通工具":
-                location.href = "../eBao/shopindex/carshopindex.html";
+        switch (theGoodsFirstKind) {
+            case "住房":
+                location.href = "../eBao/housecommodityindex?shopId="+shopId;
                 break;
+            case "交通工具":
+                location.href = "../eBao/carcommodityindex?shopId="+shopId;
+                break;
+            case "居家":
+                location.href = "../eBao/homecommodityindex?shopId="+shopId;
+                break;
+            case "设备仪器":
+                location.href = "../eBao/equipcommodityindex?shopId="+shopId;
+                break;
+            case "机械":
+                location.href = "../eBao/machinecommodityindex?shopId="+shopId;
+                break;
+            case "建材":
+                location.href = "../eBao/buildcommodityindex?shopId="+shopId;
+                break;
+            case "文体":
+                location.href = "../eBao/recreationcommodityindex?shopId="+shopId;
+                break;
+            case "办公":
+                location.href = "../eBao/officecommodityindex?shopId="+shopId;
+                break;
+            case "婚庆":
+                location.href = "../eBao/weddingcommodityindex?shopId="+shopId;
+                break;
+            case "节日":
+                location.href = "../eBao/festivalcommodityindex?shopId="+shopId;
+                break;
+
         }
     }
 </script>
