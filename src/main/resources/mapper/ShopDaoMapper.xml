@@ -100,7 +100,7 @@
     </select>
 
     <select id="searchAllShop" resultType="com.qr.entity.Shop">
-        select * from shoptable
+        select * from shoptable where shopId IN (SELECT shopId FROM goods WHERE goodsFirstKind=#{goodsFirstKind})
     </select>
 
 </mapper>

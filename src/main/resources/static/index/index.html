@@ -242,7 +242,7 @@
     function jump(obj,url,time){
         var name = $(obj).children(".container_body_category_pic").children(".container_body_category_pic_title").html();
         $.cookie('name',name);
-
+        localStorage.setItem("TheShopFirstKind",name);
         // $(obj).children(".container_body_category_pic").removeClass("slideInLeft");
         $(obj).fadeOut(800);
         // alert($(obj).children(".container_body_category_pic").attr("class"))
