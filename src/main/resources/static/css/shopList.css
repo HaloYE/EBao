@@ -168,13 +168,15 @@ body {
 }
 
 .page {
+    /*border: 1px solid red;*/
     height: 30px;
-    width: 100%;
-    float: right;
+    width: 650px;
+    float: left;
     position: relative;
-    top: -5px;
-    left: 520px;
-    bottom: 20px;
+    top: 520px;
+    left:250px;
+    /*bottom: 5px;*/
+    /*z-index: 999;*/
 }
 
 .page_text {
@@ -201,6 +203,9 @@ body {
     float: left;
     width: 200px;
     height: 800px;
+}
+.shopType{
+    cursor: pointer;
 }
 
 a:hover, a:focus {
