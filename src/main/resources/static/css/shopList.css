@@ -85,7 +85,6 @@ body {
     transition: width 0.5s;
 }
 
-
 .shop_pic {
     float: left;
     margin-top: 35px;
@@ -223,6 +222,7 @@ a:hover, a:focus {
 }
 
 .vertical-tab .nav-tabs li {
+    cursor: pointer;
     float: none;
     vertical-align: top;
 }

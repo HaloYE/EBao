@@ -25,9 +25,29 @@
             <div class="container_header_itemSep"></div>
             <div class="container_header_item">服务商挑选</div>
             <div class="container_header_itemSep"></div>
-            <div class="container_header_item">更多服务商</div>
+            <div class="container_header_item" id="cut">更多服务商</div>
         </div>
-        <button class="container_header_button" id="login" onclick="jumpToLogin()">免费注册登录</button>
+        <div class="typecon">
+            <button class="container_header_button" id="login" onclick="jumpToLogin()">免费注册登录</button>
+            <div class="typecontext">
+                <div class="typecontext_piccon">
+                    <div class="typecontext_pic">
+                        <img src="../images/category/office.jpg">
+                    </div>
+                </div>
+                <div class="typecontext_textcon">
+                    <ul>
+                        <li class="typecontext_text">
+                            唐淇烨abcdefgh
+                            <ul>
+                                <li>退出登录</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 
@@ -44,7 +64,15 @@
 </script>
 <script>
     $(function (){
+        $('.typecontext_text').click(function (){
+            $(this).children('ul').slideToggle('200');
+        })
 
+        $('#cut').click(function (){
+            $('.typecontext').css('display','none');
+            $('.container_header_button').css('display','initial');
+        })
     })
 </script>
+
 </html>
