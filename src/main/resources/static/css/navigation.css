@@ -154,7 +154,7 @@
 }
 
 .typecontext_textcon ul li{
-    /*font-family: ;*/
+    font-family: 微软雅黑;
     /*overflow: hidden;*/
     user-select:none;
     cursor: pointer;
@@ -164,14 +164,16 @@
 }
 
 .typecontext_textcon ul ul{
-    transition: all 0.25s;
+    transition: all 0.15s;
     /*background-color: #eeeff0;*/
     /*border: none;*/
     display: none;
 }
 .typecontext_textcon ul ul li{
     /*transition: all 0.25s;*/
-    /*background-color: #eeeff0;*/
+    line-height: 30px;
+    height: 30px;
+    background-color: #eeeff0;
     border: none;
 }
 
