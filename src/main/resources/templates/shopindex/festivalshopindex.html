@@ -2,51 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商家-居家</title>
-    <link rel="stylesheet" href="../css/shopindex.css">
+    <title>商家-节日</title>
+    <link rel="stylesheet" href="../../static/css/shopindex.css">
 </head>
 <body>
     <div class="container">
         <div class="container_main">
             <div class="container_main_head">
                 <div class="container_main_line"><hr></div>
-                <div class="container_main_title"><span>居&nbsp家</span></div>
+                <div class="container_main_title"><span>节&nbsp日</span></div>
                 <div class="container_main_line"><hr></div>
             </div>
-            <div class="container_main_body" style="background-image: url(../images/category/Home.jpg)">
+            <div class="container_main_body" style="background-image: url(../../static/images/category/festival.jpg)">
                 <ul class="vehicle-panel_list">
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idCode">
+                        <a href="javascript:void(0);" onclick="goSecond('#idInflatableModel')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">数码</span>
+                                <span class="vehicle-panel_item-text">气模</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idHomeAppliance">
+                        <a href="javascript:void(0);" onclick="goSecond('#idRainbow')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">家电</span>
+                                <span class="vehicle-panel_item-text">彩虹/彩带机</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idCommunity">
+                        <a href="javascript:void(0);" onclick="goSecond('#idBubbleMachine')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">通讯</span>
+                                <span class="vehicle-panel_item-text">泡泡机</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idDaily">
+                        <a href="javascript:void(0);" onclick="goSecond('#idBalloon')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">日用</span>
+                                <span class="vehicle-panel_item-text">气球</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idCostume">
+                        <a href="javascript:void(0);" onclick="goSecond('#idSnow')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">服装</span>
+                                <span class="vehicle-panel_item-text">雪花机</span>
                             </div>
                         </a>
                     </li>
@@ -54,5 +54,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function goSecond(second){
+            var theShopId=localStorage.getItem("theShopId");
+            location.href = "../eBao/festivalcommodityindex2?shopId="+ theShopId;
+        }
+    </script>
 </body>
 </html>
