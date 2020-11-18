@@ -117,10 +117,11 @@
                 searchInfoWindow.open(marker);
             })
             map.addOverlay(marker); //在地图中添加marker*/
-
-
+            // "../eBao/deleteOneGoods.action?goodsId="+data.goodsId,
+           var TheShopFirstKind=localStorage.getItem("TheShopFirstKind");
+           console.log(TheShopFirstKind)
             $.ajax({
-                url:"../eBao/searchAllShopPoint.action",
+                url:"../eBao/searchAllShopPoint.action?goodsFirstKind="+TheShopFirstKind,
                 success:function (msg){
                     for (const msgElement of msg) {
                         var marker = new BMap.Marker(new BMap.Point(msgElement.longitude,msgElement.latitude));  // 创建标注

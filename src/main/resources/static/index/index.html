@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>E宝租赁网</title>
+    <link rel="icon" href="../images/logo.png" type="/image/x-icon">
     <link rel="stylesheet" href="../css/index.css" type="text/css">
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/jquery.cookie.js"></script>
@@ -36,7 +37,7 @@
         </div>
         <div class="container_body_category_m_picContainer">
             <!--住房跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'住房服务',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'住房',500)">
                 <div class="container_body_category_pic wow slideInLeft" data-wow-duration="2s">
                     <div class="container_body_category_pic_img">
                         <img src="../images/img_house.png">
@@ -64,7 +65,7 @@
             </div>
             </a>
             <!--居家跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'居家生活',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'居家',500)">
                 <div class="container_body_category_pic wow slideInLeft" data-wow-duration="1.6s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_camera.png">
@@ -78,7 +79,7 @@
             </div>
             </a>
             <!--设备仪器跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'设备仪器',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'设备',500)">
                 <div class="container_body_category_pic wow slideInLeft" data-wow-duration="1.4s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_equipment.png">
@@ -92,7 +93,7 @@
             </div>
             </a>
             <!--机械跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'机械设备',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'机械',500)">
                 <div class="container_body_category_pic wow slideInLeft" data-wow-duration="1.2s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_machine.png">
@@ -106,7 +107,7 @@
             </div>
             </a>
             <!--建材跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'建材物资',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'建材',500)">
                 <div class="container_body_category_pic wow slideInRight" data-wow-duration="1.2s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_buildingmaterial.png">
@@ -120,7 +121,7 @@
             </div>
             </a>
             <!--文体跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'文体用品',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'文体',500)">
                 <div class="container_body_category_pic wow slideInRight" data-wow-duration="1.4s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_recreationandsports.png">
@@ -134,7 +135,7 @@
             </div>
             </a>
             <!--办公跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'办公用品',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'办公',500)">
                 <div class="container_body_category_pic wow slideInRight" data-wow-duration="1.6s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_officework.png">
@@ -148,7 +149,7 @@
             </div>
             </a>
             <!--婚庆跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'婚庆用品',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'婚庆',500)">
                 <div class="container_body_category_pic wow slideInRight" data-wow-duration="1.8s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_wedding.png">
@@ -162,7 +163,7 @@
             </div>
             </a>
             <!--节日跳转-->
-            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'节日用品',500)">
+            <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'节日',500)">
                 <div class="container_body_category_pic wow slideInRight" data-wow-duration="2s">
                 <div class="container_body_category_pic_img">
                     <img src="../images/img_fetival.png">
@@ -241,7 +242,7 @@
     function jump(obj,url,time){
         var name = $(obj).children(".container_body_category_pic").children(".container_body_category_pic_title").html();
         $.cookie('name',name);
-
+        localStorage.setItem("TheShopFirstKind",name);
         // $(obj).children(".container_body_category_pic").removeClass("slideInLeft");
         $(obj).fadeOut(800);
         // alert($(obj).children(".container_body_category_pic").attr("class"))

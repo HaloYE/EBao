@@ -5,23 +5,32 @@
     <title>E宝租赁网</title>
     <link rel="stylesheet" href="../css/navigationBusiness.css" type="text/css">
     <script th:src="@{../../static/js/jquery-3.5.1.min.js}"></script>
+
 </head>
 <body>
 <div class="container">
     <div class="container_header">
-        <!--        <div class="container_header_logo">-->
-        <!--            <img src="../images/logo.png"height="10%"width="10%">-->
-        <!--            <i style="color: darkred">E宝租赁网</i>-->
         <div class="container_header_logo" onclick="jumpToIndex()">
             <i class="eBaoIcon"></i>E宝租赁网
         </div>
         <div class="container_header_itemcontainer">
-            <div class="container_header_item">店铺管理</div>
-<!--            <div class="container_header_itemSep"></div>-->
-            <div class="container_header_item">商品管理</div>
+            <div class="container_header_item" onclick="jumpToBusinessMain()">店铺管理</div>
+            <div class="container_header_item" onclick="jumpToShowShopGoods()">商品管理</div>
         </div>
-<!--        <button class="container_header_button" id="login" onclick="jumpToLogin()">免费注册登录</button>-->
+<!--        <button class="container_header_button" id="login" onclick="jumpToLogin()">免费注册登录</button>&ndash;&gt;-->
     </div>
 </div>
 </body>
+<script>
+    function jumpToBusinessMain(){
+        window.open('../BusinessMain.html','_parent');
+    }
+    function  jumpToShowShopGoods(){
+        window.open('../showShopGoods.html','_parent');
+    }
+    function jumpToLogin(){
+        window.open('../user/UserLogin.html','_parent');
+    }
+
+</script>
 </html>
