@@ -35,7 +35,6 @@
                                 <!-- Nav tabs -->
 
                                     <ul class="nav nav-tabs" role="tablist">
-<!--                                                th:href="@{/shoplist?&shopType=${shop.shopType}}"-->
                                         <li value="1" class="shopType" role="presentation" >
                                             <a aria-controls="home" role="tab" data-toggle="tab" >住房服务</a>                                            </a>
                                         </li>
@@ -99,8 +98,6 @@
                                 <div class="list_cover">
                                     <div class="shop_detail">
                                         <input type="button" class="detail" value="查看详情" th:data-id="${shop.shopId}" onclick="toSecondKind(this.getAttribute('data-id'))">
-<!--&lt;!&ndash;                                        th:data-id="${user.username}" onclick="goUserinfo(this.getAttribute('data-id'))"-->
-<!--                                        th:onclick="|javascript:toSecondKind('${shop.shopId}')|"-->
                                     </div>
                                 </div>
                             </div>
