@@ -44,7 +44,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '轿车'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{ ${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -90,7 +90,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '电动车'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{ ${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -114,9 +114,9 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
-                                        <li><a href="javascript:">规格</a></li>
-                                        <li><a href="javascript:">工具</a></li>
+                                        <!--                                        <li><a href="javascript:void(0);" th:onclick="'javascript:goDetial(\''+${carGoods.goodsId}+'\');'">查看详情</a></li>-->
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '自行车'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -180,7 +180,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '机车'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{ ${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -204,9 +204,9 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
-                                        <li><a href="javascript:">规格</a></li>
-                                        <li><a href="javascript:">工具</a></li>
+                                        <!--                                        <li><a href="javascript:void(0);" th:onclick="'javascript:goDetial(\''+${carGoods.goodsId}+'\');'">查看详情</a></li>-->
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '货车'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{ ${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -249,9 +249,9 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
-                                        <li><a href="javascript:">规格</a></li>
-                                        <li><a href="javascript:">工具</a></li>
+                                        <!--                                        <li><a href="javascript:void(0);" th:onclick="'javascript:goDetial(\''+${carGoods.goodsId}+'\');'">查看详情</a></li>-->
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
     </div>
 </div>
 
-<!--<iframe th:src="@{../../index/footer.html}" id="ideaForm" width="100%" height="100%" style="height: 300px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>-->
+<iframe th:src="@{../eBao/index/footer.html}" id="ideaForm" width="100%" height="100%" style="height: 300px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>
 <!--
 
 <script>
@@ -302,7 +302,7 @@
 -->
 <script>
     function goDetial(goodsId){
-        alert("???")
+        // alert("???")
         location.href = "../eBao/goDetials?goodsId="+ goodsId;
     }
 </script>
