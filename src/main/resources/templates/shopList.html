@@ -135,20 +135,20 @@
                         <span th:text="'第'+(${pageNo})+'页'" class="page_text"></span>
                     </div>
                     <div class="page_context">
-                        <a th:href="@{/shopList(pageNo=1)}" class="page_text">首页</a>
+                        <a th:href="@{/shopList(pageNo=1,goodsFirstKind=${goodsfirstkind})}" class="page_text">首页</a>
                     </div>
                     <div class="page_context">
-                        <span id="firstPage" class="page_text"><a th:href="@{/shopList(pageNo=${pageNo}-1)}"
+                        <span id="firstPage" class="page_text"><a th:href="@{/shopList(pageNo=${pageNo}-1,goodsFirstKind=${goodsfirstkind})}"
                                                                   class="page_text">上一页</a></span>
                         <!--                         th:if="${pageNo}!=1"class="page_text"-->
                     </div>
                     <div class="page_context">
                         <span id="lastPage" class="page_text"><a
-                                th:href="@{/shopList(pageNo=${pageNo}+1)}">下一页</a></span>
+                                th:href="@{/shopList(pageNo=${pageNo}+1,goodsFirstKind=${goodsfirstkind})}">下一页</a></span>
                         <!--                         th:if="${pageNo}!=${pages}"-->
                     </div>
                     <div class="page_context">
-                        <a th:href="@{/shopList(pageNo=${pages})}" class="page_text">尾页</a>
+                        <a th:href="@{/shopList(pageNo=${pages},goodsFirstKind=${goodsfirstkind})}" class="page_text">尾页</a>
                     </div>
                     <div class="page_context">
                         <span th:text="'共'+(${pages})+'页'|" class="page_text"></span>

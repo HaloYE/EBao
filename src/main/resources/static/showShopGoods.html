@@ -105,6 +105,8 @@
             elem:'#showGoodsTab',
             url:'../eBao/selectShopGoods.action?shopId='+shopId,
             page:true,
+            limit:6,
+            limits:[6,12,18,24],
             cols:[[
                 // {type:'checkbox', fixed: 'left'}
                 {field: 'goodsId', title: 'ID',width: 110}

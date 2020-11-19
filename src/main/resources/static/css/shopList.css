@@ -167,13 +167,13 @@ body {
 }
 
 .page {
-    /*border: 1px solid red;*/
+    /*border: 1px solid solid red;*/
     height: 30px;
     width: 650px;
     float: left;
-    position: relative;
-    top: 520px;
-    left:250px;
+    /*position: absolute;*/
+    /*top: 980px;*/
+    margin-left:400px;
     /*bottom: 5px;*/
     /*z-index: 999;*/
 }
