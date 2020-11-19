@@ -25,7 +25,7 @@ public class ShopAction {
     @RequestMapping("/selectShop.action")
     public Map selectShop(int page, int limit, HttpServletRequest request,String shopName,String shopId,String address){
         HttpSession session=request.getSession();
-        session.setAttribute("businessId","bs001");
+//        session.setAttribute("businessId","bs001");
         String businessId=(String) session.getAttribute("businessId");
         List shoplist=shopServicce.findAllShop(page, limit, businessId,shopName,shopId,address);
         Integer count=shopServicce.selectShopNum(businessId,shopName,shopId,address);

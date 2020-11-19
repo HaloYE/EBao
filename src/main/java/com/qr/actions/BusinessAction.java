@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,8 +18,10 @@ public class BusinessAction {
     private IBusinessService businessService;
 
     @RequestMapping("/confirmBLogin.action")
-    public int confirmBLogin(String baccount, String bpassword){
+    public int confirmBLogin(String baccount, String bpassword, HttpServletRequest request){
         Business business =businessService.confirmbusiness(baccount);
+        HttpSession session=request.getSession();
+        session.setAttribute("businessId",business.getBusinessId());
         int m;
         if (business==null){
             m=0;
