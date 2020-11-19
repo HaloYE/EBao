@@ -102,7 +102,7 @@ iframe{
 }
 
 .typecon{
-    width: 230px;
+    width: 260px;
     height: 100%;
     /*background-color: #FF5722;*/
     float: right;
@@ -142,7 +142,7 @@ iframe{
 
 }
 .typecontext_textcon{
-    width: 130px;
+    width: 160px;
     height: 120px;
     /*background-color: #ffc001;*/
     float: left;
@@ -150,7 +150,7 @@ iframe{
 .typecontext_text{
     position: relative;
     top: 35px;
-    width: 130px;
+    width: 160px;
     height: 50px;
     line-height: 50px;
     text-align: center;
@@ -159,7 +159,7 @@ iframe{
 
 .typecontext_textcon ul li{
     font-family: 微软雅黑;
-    /*overflow: hidden;*/
+    overflow: visible;
     user-select:none;
     cursor: pointer;
     list-style: none;
