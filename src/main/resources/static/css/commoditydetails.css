@@ -151,7 +151,7 @@ text{
 .container_main_pic_image{
     width: 400px;
     height: 400px;
-    /*background-color: #f7e1b5;*/
+    background-color: #f7e1b5;
     position: relative;
     overflow: hidden;
 }
@@ -179,7 +179,7 @@ text{
     margin: 0 19px 0 0;
     border: 2px solid transparent;
 
-    /*background-color: #f7e1b5;*/
+    background-color: #f7e1b5;
     transition: all 0.2s;
     float: left;
     display: block;
