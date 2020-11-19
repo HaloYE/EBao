@@ -11,7 +11,7 @@
             th:src="@{http://api.map.baidu.com/api?v=2.0&ak=LQq0W9wA7A54GQ2fRd6YgpvDG14nX1K7}"></script>
     <script type="text/javascript" th:src="@{http://developer.baidu.com/map/jsdemo/demo/convertor.js}"></script>
     <script type="text/javascript" th:src="@{/js/jquery.cookie.js}"></script>
-    <script th:src="@{../static/js/jquery-1.11.0.min.js}"></script>
+<!--    <script th:src="@{../static/js/jquery-1.11.0.min.js}"></script>-->
     <link rel="stylesheet" th:href="@{https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{http://jrain.oscitas.netdna-cdn.com/tutorial/css/fontawesome-all.min.css}">
     <script th:src="@{https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js}"></script>
@@ -36,7 +36,7 @@
 
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li value="1" class="shopType" role="presentation" >
-                                            <a aria-controls="home" role="tab" data-toggle="tab" >住房服务</a>                                            </a>
+                                            <a aria-controls="home" role="tab" data-toggle="tab" >住房服务</a> </a>
                                         </li>
                                         <li value="2" class="shopType" role="presentation"><a aria-controls="profile" role="traffic"
                                                                    data-toggle="tab">交通工具</a></li>
@@ -115,7 +115,7 @@
                         <a th:href="@{/shopList(pageNo=1)}" class="page_text">首页</a>
                     </div>
                     <div class="page_context">
-                        <span id="firstPage" class="page_text"><a th:href="@{/shopList(pageNo=${pageNo}-1)}"
+                        <span id="firstPage" class="page_text"><a th:href="@{/shopList(pageNo=${pageNo}-1,goodsFirstKind=${})}"
                                                                   class="page_text">上一页</a></span>
                         <!--                         th:if="${pageNo}!=1"class="page_text"-->
                     </div>
