@@ -24,5 +24,42 @@
         111111111111111111111111111111111111111111111111111111
     </div>
 </div>
+
+<p>起始时间：</p>
+<input type="datetime-local" name="begdate" id="begdate">
+<p>结束时间：</p>
+<input type="datetime-local" name="enddate" id="enddate">
+
+<script>
+    function getbegtime() {
+        var today = new Date();
+        var yyyy = today.getFullYear();
+        var MM = today.getMonth() + 1;
+        var dd = today.getDate();
+        var hh = today.getHours();
+        var mm = today.getMinutes();
+        MM = checkTime(MM);
+        dd = checkTime(dd);
+        hh = checkTime(hh);
+        mm = checkTime(mm);
+        var time = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
+
+        var dateControl = document.querySelector("#begdate");
+        dateControl.value = time;
+
+        dateControl = document.querySelector("#enddate");
+        dateControl.value = time;
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    }
+
+    window.onload = getbegtime();
+
+</script>
 </body>
 </html>

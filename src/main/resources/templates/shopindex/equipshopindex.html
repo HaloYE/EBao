@@ -2,51 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商家-机械</title>
-    <link rel="stylesheet" href="../css/shopindex.css">
+    <title>商家-设备仪器</title>
+    <link rel="stylesheet" href="../../static/css/shopindex.css">
 </head>
 <body>
     <div class="container">
         <div class="container_main">
             <div class="container_main_head">
                 <div class="container_main_line"><hr></div>
-                <div class="container_main_title"><span>全&nbsp部&nbsp机&nbsp械</span></div>
+                <div class="container_main_title"><span>全&nbsp部&nbsp设&nbsp备</span></div>
                 <div class="container_main_line"><hr></div>
             </div>
-            <div class="container_main_body" style="background-image: url(../images/category/machine.jpg)">
+            <div class="container_main_body" style="background-image: url(../../static/images/category/equip.jpg)">
                 <ul class="vehicle-panel_list">
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/machinecommodityindex.html#idContainer">
+                        <a href="javascript:void(0);" onclick="goSecond('#idMedical')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">集装箱</span>
+                                <span class="vehicle-panel_item-text">医疗器械</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/machinecommodityindex.html#idLargeMachine">
+                        <a href="javascript:void(0);" onclick="goSecond('#idHealth')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">大型机械</span>
+                                <span class="vehicle-panel_item-text">健身器械</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/machinecommodityindex.html#idHoisting">
+                        <a href="javascript:void(0);" onclick="goSecond('#idStage')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">起重机械</span>
+                                <span class="vehicle-panel_item-text">舞台设备</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/machinecommodityindex.html#idFarmMachine">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCamera')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">农用机械</span>
+                                <span class="vehicle-panel_item-text">照相器材</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/machinecommodityindex.html#idLoader-Digger">
+                        <a href="javascript:void(0);" onclick="goSecond('#idMechanical')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">挖掘装载机械</span>
+                                <span class="vehicle-panel_item-text">机械设备</span>
                             </div>
                         </a>
                     </li>
@@ -54,5 +54,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function goSecond(second){
+            var theShopId=localStorage.getItem("theShopId");
+            location.href = "../eBao/equipcommodityindex2?shopId="+ theShopId;
+        }
+    </script>
 </body>
 </html>

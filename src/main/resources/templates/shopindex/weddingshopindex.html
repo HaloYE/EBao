@@ -2,51 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商家-办公</title>
-    <link rel="stylesheet" href="../css/shopindex.css">
+    <title>商家-婚庆</title>
+    <link rel="stylesheet" href="../../static/css/shopindex.css">
 </head>
 <body>
     <div class="container">
         <div class="container_main">
             <div class="container_main_head">
                 <div class="container_main_line"><hr></div>
-                <div class="container_main_title"><span>办&nbsp公</span></div>
+                <div class="container_main_title"><span>婚&nbsp庆</span></div>
                 <div class="container_main_line"><hr></div>
             </div>
-            <div class="container_main_body" style="background-image: url(../images/category/office.jpg)">
+            <div class="container_main_body" style="background-image: url(../../static/images/category/wedding.jpg)">
                 <ul class="vehicle-panel_list">
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/officecommodityindex.html#idOffice">
+                        <a href="javascript:void(0);" onclick="goSecond('#idPlace')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">办公家具</span>
+                                <span class="vehicle-panel_item-text">婚庆场地</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/officecommodityindex.html#idPrint">
+                        <a href="javascript:void(0);" onclick="goSecond('#idWeddingCar')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">打印</span>
+                                <span class="vehicle-panel_item-text">婚车</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/officecommodityindex.html#idCopy">
+                        <a href="javascript:void(0);" onclick="goSecond('#idWeddingDress')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">复印</span>
+                                <span class="vehicle-panel_item-text">婚纱礼服</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/officecommodityindex.html#idScan">
+                        <a href="javascript:void(0);" onclick="goSecond('#idSalute')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">扫描</span>
+                                <span class="vehicle-panel_item-text">礼炮</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/officecommodityindex.html#idIntegration">
+                        <a href="javascript:void(0);" onclick="goSecond('#idLighting')">
                             <div class="vehicle-panel_item-textcon">
-                                <span class="vehicle-panel_item-text">一体</span>
+                                <span class="vehicle-panel_item-text">舞台灯具</span>
                             </div>
                         </a>
                     </li>
@@ -54,5 +54,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function goSecond(second){
+            var theShopId=localStorage.getItem("theShopId");
+            location.href = "../eBao/weddingcommodityindex2?shopId="+ theShopId;
+        }
+    </script>
 </body>
 </html>

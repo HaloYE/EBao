@@ -57,4 +57,12 @@ public class UserAction {
         userService.updateUserInfo(userImage,account,userName,realName,idCardNum,sex,userTel,address);
         return 1;
     }
+
+    @RequestMapping("/head.action")
+    public User head(HttpServletRequest req){
+        HttpSession session=req.getSession();
+        User u= (User) session.getAttribute("U");
+        System.out.println(u);
+        return u;
+    }
 }

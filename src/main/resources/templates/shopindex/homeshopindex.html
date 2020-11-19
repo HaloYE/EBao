@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>商家-居家</title>
-    <link rel="stylesheet" href="../css/shopindex.css">
+    <link rel="stylesheet" href="../../static/css/shopindex.css">
 </head>
 <body>
     <div class="container">
@@ -13,38 +13,38 @@
                 <div class="container_main_title"><span>居&nbsp家</span></div>
                 <div class="container_main_line"><hr></div>
             </div>
-            <div class="container_main_body" style="background-image: url(../images/category/Home.jpg)">
+            <div class="container_main_body" style="background-image: url(../../static/images/category/Home.jpg)">
                 <ul class="vehicle-panel_list">
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idCode">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCode')">
                             <div class="vehicle-panel_item-textcon">
                                 <span class="vehicle-panel_item-text">数码</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idHomeAppliance">
+                        <a href="javascript:void(0);" onclick="goSecond('#idHomeAppliance')">
                             <div class="vehicle-panel_item-textcon">
                                 <span class="vehicle-panel_item-text">家电</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idCommunity">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCommunity')">
                             <div class="vehicle-panel_item-textcon">
                                 <span class="vehicle-panel_item-text">通讯</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idDaily">
+                        <a href="javascript:void(0);" onclick="goSecond('#idDaily')">
                             <div class="vehicle-panel_item-textcon">
                                 <span class="vehicle-panel_item-text">日用</span>
                             </div>
                         </a>
                     </li>
                     <li class="vehicle-panel_item">
-                        <a href="../commodityindex/homecommodityindex.html#idCostume">
+                        <a href="javascript:void(0);" onclick="goSecond('#idCostume')">
                             <div class="vehicle-panel_item-textcon">
                                 <span class="vehicle-panel_item-text">服装</span>
                             </div>
@@ -54,5 +54,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function goSecond(second){
+            var theShopId=localStorage.getItem("theShopId");
+            location.href = "../eBao/homecommodityindex2?shopId="+ theShopId;
+        }
+    </script>
 </body>
 </html>

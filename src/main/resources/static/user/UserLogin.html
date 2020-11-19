@@ -134,6 +134,7 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="layui-form-label" ><a href="../business/BusinessLogin.html" style="font-size: 15px;color: black">商家登录</a></td>
                             <td class="layui-form-label" id="forget"><a href="" style="font-size: 15px;color: black">忘记/修改密码?</a>
                             </td>
                         </tr>
@@ -142,7 +143,7 @@
                                        id="login" value="登录" style="border-radius: 10px"/></td>
                         </tr>
                         <tr>
-                            <td>还没有账号？<a href="UserRegister.html">免费注册</a></td>
+                            <td style="line-height: 40px">还没有账号？<a href="UserRegister.html">免费注册</a></td>
                         </tr>
                     </table>
                 </form>
@@ -178,7 +179,7 @@
                             localStorage.setItem("sex", user.sex);
                             localStorage.setItem("userTel", user.userTel);
                             localStorage.setItem("address", user.address);
-                            location.href = "UserInfo.html";
+                            location.href = "../index/index.html";
                         } else if (msg.r ==2) {
                             layer.tips('密码不正确！', '#password',{tips: [2,"#ff3300"]});
                         }
