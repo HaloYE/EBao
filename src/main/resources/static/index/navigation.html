@@ -38,8 +38,9 @@
                 <div class="typecontext_textcon">
                     <ul>
                         <li class="typecontext_text">
-                            巫杰abcdefgh
+                            <span id="head"></span>
                             <ul>
+                                <li>个人中心</li>
                                 <li>退出登录</li>
                             </ul>
                         </li>
@@ -68,9 +69,30 @@
             $(this).children('ul').slideToggle('200');
         })
 
-        $('#cut').click(function (){
+        /*$('#cut').click(function (){
             $('.typecontext').css('display','none');
             $('.container_header_button').css('display','initial');
+        })*/
+
+        $.ajax({
+            url:"../head.action",
+            success:function (msg){
+                if (msg==""){
+                    // $('.container_header_button').css('display','initial');
+                    // console.log(msg)
+                }else if (msg.userName==""){
+                    $('.container_header_button').css('display','none');
+                    $('.typecontext').css('display','block');
+                    $("#head").html(msg.userID+"，欢迎你");
+
+                    // console.log(msg)
+                }else{
+                    $('.container_header_button').css('display','block');
+                    $('.typecontext').css('display','initial');
+                    $("#head").html(msg.userName+"，欢迎你");
+                    console.log(msg)
+                }
+            }
         })
     })
 </script>
