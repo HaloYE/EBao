@@ -84,7 +84,7 @@
                     </div>
                     <div class="container_detail_btncon">
                         <div class="container_detail_btn">
-                            <div class="commitBtn">确认租赁</div>
+                            <div class="commitBtn" id="commitBtn" onclick="goOrder()">确认租赁</div>
                         </div>
                     </div>
                 </div>
@@ -112,6 +112,12 @@
             $('.container_main_pic_image img').attr('src', src);
         });
     })
+</script>
+
+<script>
+    function goOrder(){
+        location.href="../eBao/user/UserCenter.html";
+    }
 </script>
 
 <script>
