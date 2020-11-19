@@ -118,8 +118,11 @@
             })
             map.addOverlay(marker); //在地图中添加marker*/
             // "../eBao/deleteOneGoods.action?goodsId="+data.goodsId,
-           var TheShopFirstKind=localStorage.getItem("TheShopFirstKind");
-           console.log(TheShopFirstKind)
+
+            var searchInfoWindow = null;
+
+            var TheShopFirstKind=localStorage.getItem("TheShopFirstKind");
+            console.log(TheShopFirstKind)
             $.ajax({
                 url:"../eBao/searchAllShopPoint.action?goodsFirstKind="+TheShopFirstKind,
                 success:function (msg){
@@ -127,9 +130,15 @@
                         var marker = new BMap.Marker(new BMap.Point(msgElement.longitude,msgElement.latitude));  // 创建标注
                         // console.log(msgElement.longitude+"+"+msgElement.latitude)
                         // console.log(msgElement.address)
-                        var content = msgElement.address;
+                        var content = "商铺名称：" + msgElement.shopName;
+                        var content1 = '<div style="margin:0;line-height:20px;padding:20px 2px 20px 2px;">' +
+                        '<img src="images/logo.png" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+                            '商铺名称：' + msgElement.shopName + '<br>' +
+                            '商铺地址：'+ msgElement.address +
+                        '</div>';
+                        content += "/n" + "商铺地址：" + msgElement.address;
                         map.addOverlay(marker);               // 将标注添加到地图中
-                        addClickHandler(content,marker);
+                        addClickHandler(content1,marker);
                     }
                 }
             })
@@ -142,9 +151,9 @@
                 [116.412222,39.912345,"地址：北京市东城区正义路甲5号"]
             ];*/
             var opts = {
-                width : 250,     // 信息窗口宽度
-                height: 80,     // 信息窗口高度
-                title : "当前位置：" , // 信息窗口标题
+                width : 290,     // 信息窗口宽度
+                height: 155,     // 信息窗口高度
+                title : "商铺信息：" , // 信息窗口标题
                 enableMessage:true//设置允许信息窗发送短息
             };
         /*    for(var i=0;i<data_info.length;i++){
@@ -203,7 +212,7 @@
 
                     var searchInfoWindow = null;
                     searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
-                        title  : "百度大厦",      //标题
+                        title  : "你的位置",      //标题
                         width  : 290,             //宽度
                         height : 105,              //高度
                         panel  : "panel",         //检索结果面板
@@ -220,7 +229,7 @@
                     })
                     searchInfoWindow.open(marker);
 
-                    var count = 0;
+/*                    var count = 0;
                     var oldlng = "";
                     var oldlat = "";
 
@@ -240,8 +249,9 @@
                         onSearchComplete: searchComplete,
                         onPolylinesSet: function(){
                             setTimeout(function(){alert(output)},"1000");
-                        }});
+                        }});*/
                     //点击地图标记新点并且获取地址
+/*
                     map.addEventListener("click",function(e){
                         if (e.overlay){
                             return ;
@@ -382,6 +392,7 @@
                         }
 
                     });
+*/
                     // addClickHandler(sContent,marker); //添加点击事件
 
 /*                    function addClickHandler(content,marker){
