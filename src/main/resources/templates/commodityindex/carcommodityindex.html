@@ -159,9 +159,9 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
-                                        <li><a href="javascript:">规格</a></li>
-                                        <li><a href="javascript:">工具</a></li>
+<!--                                        <li><a href="javascript:void(0);" th:onclick="'javascript:goDetial(\''+${carGoods.goodsId}+'\');'">查看详情</a></li>-->
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -300,8 +300,11 @@
     });
 </script>
 -->
-
-
+<script>
+    function goDetial(goodsId){
+        alert("???")
+        location.href = "../eBao/goDetials?goodsId="+ goodsId;
+    }
+</script>
 </body>
-
 </html>
