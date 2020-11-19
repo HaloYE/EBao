@@ -14,6 +14,7 @@
         <div class="navigation_header_container">
             <div class="navigation_header">
                 <div class="navigation_header_title">
+
                 </div>
             </div>
         </div>
@@ -49,7 +50,7 @@
             </div>
             <div class="container_main_detail">
                 <div class="container_detail_name">
-                    <span></span>
+                    <span th:text="${goodsInfo.goodsName}"></span>
                 </div>
                 <div class="container_detail_pricecon">
                     <div class="container_detail_price">
@@ -83,7 +84,7 @@
                     </div>
                     <div class="container_detail_btncon">
                         <div class="container_detail_btn">
-                            <div class="commitBtn">确认租赁</div>
+                            <div class="commitBtn" id="commitBtn" onclick="goOrder()">确认租赁</div>
                         </div>
                     </div>
                 </div>
@@ -111,6 +112,12 @@
             $('.container_main_pic_image img').attr('src', src);
         });
     })
+</script>
+
+<script>
+    function goOrder(){
+        location.href="../eBao/user/UserCenter.html";
+    }
 </script>
 
 <script>
