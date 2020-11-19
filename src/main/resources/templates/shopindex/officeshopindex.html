@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org">
 <head>
     <meta charset="UTF-8">
     <title>商家-办公</title>
-    <link rel="stylesheet" href="../../static/css/shopindex.css">
-</head>
+    <link rel="stylesheet" th:href="@{../eBao/css/shopindex.css}">
+    <link rel="stylesheet" th:href="@{../eBao/css/category/category.css}"></head>
 <body>
     <div class="container">
         <div class="container_main">
@@ -13,7 +13,7 @@
                 <div class="container_main_title"><span>办&nbsp公</span></div>
                 <div class="container_main_line"><hr></div>
             </div>
-            <div class="container_main_body" style="background-image: url(../../static/images/category/office.jpg)">
+            <div class="container_main_body bgOffice">
                 <ul class="vehicle-panel_list">
                     <li class="vehicle-panel_item">
                         <a href="javascript:void(0);" onclick="goSecond('#idOffice')">

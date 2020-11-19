@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org">
 <head>
     <meta charset="UTF-8">
     <title>商家-住房</title>
-    <link rel="stylesheet" href="../../static/css/shopindex.css">
+    <link rel="stylesheet" th:href="@{../eBao/css/shopindex.css}">
+    <link rel="stylesheet" th:href="@{../eBao/css/category/category.css}">
 </head>
 <body>
     <div class="container">
@@ -13,7 +14,7 @@
                 <div class="container_main_title"><span>全&nbsp部&nbsp房&nbsp型</span></div>
                 <div class="container_main_line"><hr></div>
             </div>
-            <div class="container_main_body" style="background-image: url(../../static/images/category/House.jpg)">
+            <div class="container_main_body bgHouse">
                 <ul class="vehicle-panel_list">
                     <li class="vehicle-panel_item">
                         <a href="javascript:void(0);" onclick="goSecond('#idHouse')">
