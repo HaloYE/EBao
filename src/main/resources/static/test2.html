@@ -182,13 +182,13 @@
                 map.centerAndZoom(point,19); //设置地图中心点为自身定位
 
                 //创建一个以自身位置为中心的半径为5km的圆
-                /*var circle = new BMap.Circle(point, 5000, {
+                var circle = new BMap.Circle(point, 5000, {
                     strokeColor: 'blue',
                     strokeWeight: 6,
                     strokeOpacity: 0.5
                 });
                 circle.disableMassClear();
-                map.addOverlay(circle);*/
+                map.addOverlay(circle);
 
                 gc.getLocation(point, function(rs){
                     var addComp = rs.addressComponents;
