@@ -165,15 +165,15 @@
             <!--节日跳转-->
             <a href="javascript:" onclick="jump(this,'../shopList?goodsFirstKind='+'节日',500)">
                 <div class="container_body_category_pic wow slideInRight" data-wow-duration="2s">
-                <div class="container_body_category_pic_img">
-                    <img src="../images/img_fetival.png">
-                </div>
-                <div class="container_body_category_pic_title">
-                    节日
-                </div>
-                <div class="container_body_category_pic_text">
-                    FESTIVAL
-                </div>
+                    <div class="container_body_category_pic_img">
+                        <img src="../images/img_fetival.png">
+                    </div>
+                    <div class="container_body_category_pic_title">
+                        节日
+                    </div>
+                    <div class="container_body_category_pic_text">
+                        FESTIVAL
+                    </div>
                 </div>
             </a>
         </div>
@@ -244,10 +244,9 @@
         $.cookie('name',name);
         localStorage.setItem("TheShopFirstKind",name);
         // $(obj).children(".container_body_category_pic").removeClass("slideInLeft");
-        $(obj).fadeOut(800);
+        // $(obj).fadeOut(800);
         // alert($(obj).children(".container_body_category_pic").attr("class"))
         setTimeout("location.href = '" + url + "'",time);
-
     }
     // top.location.href = '" + url + "?goodsFirstKind='+"住房服务"
 </script>
@@ -270,6 +269,23 @@
             $('html,body').animate({scrollTop: ($($(this).attr('href')).offset().top -90 )},900);
         });
     });
+</script>
+
+<script>
+    $(function (){
+        $(".container_body_category_pic").bind("click",function(event) {
+            // $(this).removeClass('wow');
+            $(this).css('animation', 'gelatine 0.5s');
+        });
+        /*$(".container_body_category_pic").bind("webkitAnimationEnd",function(event) {
+            $(this).removeClass('wow');
+        });*/
+    })
+/*    $(".container_body_category_pic").each(function() {
+        $(this)[0].addEventListener("animationend",function(){
+            // $(this).css("animation","");
+        });
+    });*/
 </script>
 
 <script>
