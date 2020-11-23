@@ -14,7 +14,6 @@
         <div class="navigation_header_container">
             <div class="navigation_header">
                 <div class="navigation_header_title">
-
                 </div>
             </div>
         </div>
@@ -56,7 +55,7 @@
                     <div class="container_detail_price">
                         租价：
                         <span class="container_detail_price-span" th:text="${goodsInfo.goodsPrice}">￥660</span>
-                        /小时
+                        元/小时
                     </div>
                 </div>
                 <div class="container_detail_pricecon">
@@ -84,7 +83,7 @@
                     </div>
                     <div class="container_detail_btncon">
                         <div class="container_detail_btn">
-                            <div class="commitBtn" id="commitBtn" onclick="goOrder()">确认租赁</div>
+                            <div class="commitBtn" id="commitBtn" th:onclick="goOrder([[${goodsInfo.goodsId}]])">确认租赁</div>
                         </div>
                     </div>
                 </div>
@@ -98,25 +97,22 @@
     $(function (){
         $('#goback').click(function(){
             window.history.back(-1);
-            // $('.navigation_header_title').html("巫杰的店")
         });
     })
 </script>
 <script>
     $(function (){
         $('.container_main_pic_littleimage').hover(function(){
-            // window.history.back(-1);
-            // $('.navigation_header_title').html("巫杰的店")
             var src = $(this).children('img').attr('src');
-            // alert(src)
             $('.container_main_pic_image img').attr('src', src);
         });
     })
 </script>
 
 <script>
-    function goOrder(){
-        location.href="../eBao/user/UserCenter.html";
+    function goOrder(goodsId){
+        var begintime=$("#begintime").val();
+        location.href="../eBao/insertOrder?goodsId="+ goodsId+"&begintime="+begintime;
     }
 </script>
 
@@ -132,7 +128,7 @@
         dd = checkTime(dd);
         hh = checkTime(hh);
         mm = checkTime(mm);
-        var time = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
+        var time = yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm;
 
         var dateControl = document.querySelector("#begintime");
         dateControl.value = time;

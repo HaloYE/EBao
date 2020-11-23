@@ -9,6 +9,6 @@ public class Lease {
     private String leaseId;
     private String goodsId;
     private String userId;
-    private Date leaseTime;
-    private Date returnTime;
+    private String leaseTime;
+    private String returnTime;
 }

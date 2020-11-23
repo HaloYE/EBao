@@ -58,13 +58,19 @@ public class FileAction {
     private String getUploadPath() {
         File path = null;
         try {
-            path = new File(ResourceUtils.getURL("classpath:").getPath());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+//            path = new File(ResourceUtils.getURL("classpath:").getPath());
+            path = new File(System.getProperty("user.dir"));
+            System.out.println(path);
         }
+        catch (Exception exception){
+            exception.printStackTrace();
+        }
+/*        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }*/
         if (!path.exists())
             path = new File("");
-        File upload = new File(path.getAbsolutePath(), "static/upload/");
+        File upload = new File(path.getAbsolutePath(), "src/main/resources/static/upload/");
         if (!upload.exists())
             upload.mkdirs();
         return upload.getAbsolutePath();

@@ -26,7 +26,6 @@ public class SecondGoodsAction {
     public String showBuildSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/buildcommodityindex";
     }
 
@@ -36,7 +35,6 @@ public class SecondGoodsAction {
     public String showCarSecondInfo(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "shopindex/carshopindex";
     }
 
@@ -45,7 +43,6 @@ public class SecondGoodsAction {
     public String showCarSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/carcommodityindex";
     }
 
@@ -64,7 +61,6 @@ public class SecondGoodsAction {
     public String showEquipSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/equipcommodityindex";
     }
 
@@ -80,7 +76,6 @@ public class SecondGoodsAction {
     public String showFestivalSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/festivalcommodityindex";
     }
 
@@ -97,7 +92,6 @@ public class SecondGoodsAction {
     public String showHomeSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/homecommodityindex";
     }
 
@@ -116,7 +110,6 @@ public class SecondGoodsAction {
     public String showHouseSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/housecommodityindex";
     }
 
@@ -133,7 +126,6 @@ public class SecondGoodsAction {
     public String showMachineSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/machinecommodityindex";
     }
 
@@ -149,7 +141,6 @@ public class SecondGoodsAction {
     public String showOfficeSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/officecommodityindex";
     }
 
@@ -165,7 +156,6 @@ public class SecondGoodsAction {
     public String showRecreationSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/recreationcommodityindex";
     }
 
@@ -180,8 +170,6 @@ public class SecondGoodsAction {
     public String showWeddingSecondInfo2(String shopId, HttpSession session){
         List<Goods> list=secondGoodsService.findSecondGoodsInfo(shopId);
         session.setAttribute("SecondInfo",list);
-        System.out.println(list);
         return "commodityindex/weddingcommodityindex";
     }
-
 }
