@@ -114,7 +114,6 @@ public class ShopAction {
         System.out.println(shopIds);
         String arr[]=shopIds.split(",");
         List list = Arrays.asList(arr);
-        System.out.println(list);
         if (shopServicce.hasleased(list)){
             return shopServicce.deleteShopList(list);
         }
@@ -128,7 +127,6 @@ public class ShopAction {
         String newGoodsFirstKind=goodsFirstKind.replaceAll(" ","");
         System.out.println(newGoodsFirstKind);
         List<Shop> shops=shopServicce.searchAllShop(newGoodsFirstKind);
-        System.out.println(shops);
         return shops;
     }
 }

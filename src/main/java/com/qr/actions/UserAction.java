@@ -62,7 +62,6 @@ public class UserAction {
     public User head(HttpServletRequest req){
         HttpSession session=req.getSession();
         User u= (User) session.getAttribute("U");
-        System.out.println(u);
         return u;
     }
 }

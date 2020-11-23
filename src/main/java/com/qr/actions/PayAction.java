@@ -24,9 +24,9 @@ public class PayAction {
         alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 
         //商户订单号，商户网站订单系统中唯一订单号，必填
-        String out_trade_no = "sp1000";
+        String out_trade_no = orderId;
         //付款金额，必填
-        String total_amount = "1000";
+        String total_amount = orderAmount;
         //订单名称，必填
         String subject = "名称";
         //商品描述，可空
