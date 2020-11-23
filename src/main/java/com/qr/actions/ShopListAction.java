@@ -31,7 +31,6 @@ public class ShopListAction {
     @RequestMapping("/shopList")
     public String  findShop(HttpServletRequest request, Model model,String goodsFirstKind){
         log.debug(goodsFirstKind,model);
-//        System.out.println(goodsFirstKind);
         Integer pageNo=request.getParameter("pageNo")==null?1:Integer.valueOf(request.getParameter("pageNo"));
         PageInfo<Shop> pageInfo= (PageInfo<Shop>) shopServicce.findShop(pageNo,4,goodsFirstKind);
         model.addAttribute("goodsfirstkind",goodsFirstKind);
