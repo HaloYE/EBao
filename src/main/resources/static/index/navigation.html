@@ -39,13 +39,14 @@
                     <ul>
                         <li class="typecontext_text">
                             <span id="head"></span>
-                            <ul>
-                                <li>个人中心</li>
-                                <li>退出登录</li>
-                            </ul>
                         </li>
                     </ul>
-
+                </div>
+                <div class="typecontext_textcon_expend">
+                    <ul>
+                        <li id="toUserCenter">个人中心</li>
+                        <li id="exitLogin">退出登录</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -63,11 +64,32 @@
     }
 
 </script>
+
+<script>
+    $('#toUserCenter').click(function (){
+        window.location = '../user/UserCenter.html';
+    })
+    $('#exitLogin').click(function (){
+        // window.location = '../user/UserCenter.html';
+    })
+</script>
+
 <script>
     $(function (){
+        var i = 0;
         $('.typecontext_text').click(function (){
-            $(this).children('ul').slideToggle('200');
+            if (i == 0){
+                // $('.typecontext_textcon_expend').children('ul').slideToggle('200');
+                $('.typecontext_textcon_expend').css('width','124px');
+                i++;
+            }else {
+                $('.typecontext_textcon_expend').css('width','0');
+                i--;
+            }
         })
+/*        $('.typecontext_textcon_expend').click(function (){
+            $(this).children('ul').slideToggle('200');
+        })*/
 
         /*$('#cut').click(function (){
             $('.typecontext').css('display','none');

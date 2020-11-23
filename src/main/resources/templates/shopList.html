@@ -119,8 +119,6 @@
                                     <div class="shop_detail">
                                         <input type="button" class="detail" value="查看详情" th:data-id="${shop.shopId}"
                                                onclick="toSecondKind(this.getAttribute('data-id'))">
-                                        <!--&lt;!&ndash;                                        th:data-id="${user.username}" onclick="goUserinfo(this.getAttribute('data-id'))"-->
-                                        <!--                                        th:onclick="|javascript:toSecondKind('${shop.shopId}')|"-->
                                     </div>
                                 </div>
                             </div>
@@ -140,12 +138,10 @@
                     <div class="page_context">
                         <span id="firstPage" class="page_text"><a th:href="@{/shopList(pageNo=${pageNo}-1)}"
                                                                   class="page_text">上一页</a></span>
-                        <!--                         th:if="${pageNo}!=1"class="page_text"-->
                     </div>
                     <div class="page_context">
                         <span id="lastPage" class="page_text"><a
                                 th:href="@{/shopList(pageNo=${pageNo}+1)}">下一页</a></span>
-                        <!--                         th:if="${pageNo}!=${pages}"-->
                     </div>
                     <div class="page_context">
                         <a th:href="@{/shopList(pageNo=${pages})}" class="page_text">尾页</a>
@@ -167,19 +163,8 @@
         style="height: 300px;display: block"></iframe>
 </div>
 
-<!--首页后分类商铺界面定位-->
-<!--<script th:src="@{/js/categoriesLocation.js}" th:inline="javascript"></script>-->
 <script>
     $(function () {
-        /*        if(supportsGeoLocation()){
-                    alert("你的浏览器支持 GeoLocation.");
-                }else{
-                    alert("不支持 GeoLocation.")
-                }
-                // 检测浏览器是否支持HTML5
-                function supportsGeoLocation(){
-                    return !!navigator.geolocation;
-                }*/
 
         // 单次位置请求执行的函数
         function getLocation() {
@@ -335,10 +320,6 @@
 
         }
     }
-</script>
-<script>
-    // var name = $.cookie('name');
-    // alert(name);
 </script>
 </body>
 </html>
