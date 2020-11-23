@@ -33,6 +33,7 @@ public class ShopListAction {
         log.debug(goodsFirstKind,model);
         Integer pageNo=request.getParameter("pageNo")==null?1:Integer.valueOf(request.getParameter("pageNo"));
         PageInfo<Shop> pageInfo= (PageInfo<Shop>) shopServicce.findShop(pageNo,4,goodsFirstKind);
+        model.addAttribute("goodsfirstkind",goodsFirstKind);
         model.addAttribute("shoplist",pageInfo.getList());
         model.addAttribute("pages",pageInfo.getPages());
         model.addAttribute("pageNo",pageInfo.getPageNum());
