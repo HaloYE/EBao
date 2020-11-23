@@ -94,7 +94,7 @@ iframe{
     outline: none;
     cursor: pointer;
     float: right;
-    display: none;
+    display: initial;
 }
 .container_header_button:hover{
     background-color: #ffc001;
@@ -111,7 +111,7 @@ iframe{
     width: 100%;
     height: 120px;
     line-height: 120px;
-    display: initial;
+    display: none;
     position: relative;
 }
 .typecontext_piccon{
