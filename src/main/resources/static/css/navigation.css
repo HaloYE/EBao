@@ -176,7 +176,7 @@ iframe{
     /*background-color: black;*/
     position: absolute;
     top:30px;
-    left: 0;
+    right: -124px;
 
     overflow: hidden;
     white-space:nowrap;
