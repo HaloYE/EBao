@@ -14,7 +14,7 @@ public class GoDetialsAction {
     @RequestMapping("/goDetials")
     public String GoDetials(String goodsId, Model model){
         Goods goods =IGoDetialsService.queryGoodsInfo(goodsId);
-        System.out.println("aaaaaaa");
+//        System.out.println("aaaaaaa");
         model.addAttribute("goodsInfo",goods);
         return "commoditydetails/commoditydetails";
     }
