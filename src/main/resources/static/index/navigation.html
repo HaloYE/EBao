@@ -71,7 +71,12 @@
         window.open('../user/UserCenter.html','_parent');
     })
     $('#exitLogin').click(function (){
-        // window.location = '../user/UserCenter.html';
+        $.ajax({
+            url:"../LoginOut.action",
+            success:function (msg) {
+                window.location.reload(true);
+            }
+        })
     })
 </script>
 
@@ -105,12 +110,12 @@
                     // console.log(msg)
                 }else if (msg.userName==""){
                     $('.container_header_button').css('display','none');
-                    $('.typecontext').css('display','block');
+                    $('.typecontext').css('display','initial');
                     $("#head").html(msg.userID+"，欢迎你");
 
                     // console.log(msg)
                 }else{
-                    $('.container_header_button').css('display','block');
+                    $('.container_header_button').css('display','none');
                     $('.typecontext').css('display','initial');
                     $("#head").html(msg.userName+"，欢迎你");
                     console.log(msg)

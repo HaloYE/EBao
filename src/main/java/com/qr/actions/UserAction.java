@@ -64,4 +64,12 @@ public class UserAction {
         User u= (User) session.getAttribute("U");
         return u;
     }
+
+    @RequestMapping("/LoginOut.action")
+    public void exitLogin(HttpServletRequest req){
+        HttpSession session=req.getSession();
+        session.removeAttribute("U");
+        User us= (User) session.getAttribute("U");
+        System.out.println(us);
+    }
 }

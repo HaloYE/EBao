@@ -104,27 +104,9 @@
         var sex = localStorage.getItem("sex");
         var usertel = localStorage.getItem("userTel");
         var address = localStorage.getItem("address");
-        //
-        // if (userImage == null) {
-        //     userImage = "";
-        // }
-        // if (userName == null) {
-        //     userName = "";
-        // }
-        // if (realName == null) {
-        //     realName = "";
-        // }
-        // if (idCardNum == null) {
-        //     idCardNum = "";
-        // }
-        // if (usertel == null) {
-        //     usertel = "";
-        // }
-        // if (address == null) {
-        //     address = "";
-        // }
 
-        $('#userimg').attr('src', '../' + userImage);
+
+        $('#userimg').attr('src','../'+userImage);
         $("#userImage").val(userImage);
         $('#userID').val(userid);
         $('#userName').val(userName);

@@ -6,6 +6,7 @@
     <title>商品详情</title>
     <link rel="stylesheet" th:href="@{../eBao/css/commoditydetails.css}">
     <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/layer/layer.js}"></script>
 </head>
 <body>
 <iframe th:src="@{../eBao/index/navigation.html}" width="100%" height="100%" style="height: 120px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>
@@ -109,10 +110,15 @@
     })
 </script>
 
-<script>
+<script  type="text/javascript" th:inline="javascript">
     function goOrder(goodsId){
-        var begintime=$("#begintime").val();
-        location.href="../eBao/insertOrder?goodsId="+ goodsId+"&begintime="+begintime;
+        var single = [[${user}]];
+                if(single==null){
+                    layer.alert('您没有登录，请登录之后操作！', {icon: 6});
+                }else{
+                    var begintime=$("#begintime").val();
+                    location.href="../eBao/insertOrder?goodsId="+ goodsId+"&begintime="+begintime;
+        }
     }
 </script>
 
