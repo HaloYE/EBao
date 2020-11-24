@@ -5,8 +5,6 @@ import com.qr.entity.Lease;
 import com.qr.entity.User;
 import com.qr.service.IAddOrderService;
 import com.qr.service.IGoDetialsService;
-import javafx.scene.chart.PieChart;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
