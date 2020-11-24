@@ -112,7 +112,7 @@
 
 <script  type="text/javascript" th:inline="javascript">
     function goOrder(goodsId){
-        var single = [[${user}]];
+        var single = [[${islogin}]];
                 if(single==null){
                     layer.alert('您没有登录，请登录之后操作！', {icon: 6});
                 }else{
@@ -134,7 +134,7 @@
         dd = checkTime(dd);
         hh = checkTime(hh);
         mm = checkTime(mm);
-        var time = yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm;
+        var time = yyyy + "-" + MM + "-" + dd + "T" + hh + ":" + mm;
 
         var dateControl = document.querySelector("#begintime");
         dateControl.value = time;

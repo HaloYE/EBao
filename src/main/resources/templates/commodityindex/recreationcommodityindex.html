@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
                                         <li><a href="javascript:">规格</a></li>
                                         <li><a href="javascript:">工具</a></li>
                                     </ul>
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
                                         <li><a href="javascript:">规格</a></li>
                                         <li><a href="javascript:">工具</a></li>
                                     </ul>
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
                                         <li><a href="javascript:">规格</a></li>
                                         <li><a href="javascript:">工具</a></li>
                                     </ul>
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
                                         <li><a href="javascript:">规格</a></li>
                                         <li><a href="javascript:">工具</a></li>
                                     </ul>
@@ -251,7 +251,7 @@
                                 </div>
                                 <div class="secondcategory_item_footer">
                                     <ul>
-                                        <li><a href="javascript:">查看详情</a></li>
+                                        <li><a href="javascript:void(0);" th:onclick="goDetial([[${carGoods.goodsId}]]);">查看详情</a></li>
                                         <li><a href="javascript:">规格</a></li>
                                         <li><a href="javascript:">工具</a></li>
                                     </ul>
@@ -301,6 +301,11 @@
             $('html,body').animate({scrollTop: 0},900);
         });
     });
+</script>
+<script>
+    function goDetial(goodsId){
+        location.href = "../eBao/goDetials?goodsId="+ goodsId;
+    }
 </script>
 </body>
 </html>

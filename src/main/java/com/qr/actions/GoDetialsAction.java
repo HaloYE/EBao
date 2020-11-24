@@ -24,6 +24,4 @@ public class GoDetialsAction {
         model.addAttribute("goodsInfo",goods);
         return "commoditydetails/commoditydetails";
     }
-
-
 }
