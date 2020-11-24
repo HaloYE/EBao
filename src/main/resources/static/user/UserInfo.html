@@ -106,7 +106,11 @@
         var address = localStorage.getItem("address");
 
 
-        $('#userimg').attr('src','../'+userImage);
+        if (userImage==""){
+            $('#userimg').attr('src','../images/headimg.jpg');
+        }else {
+            $('#userimg').attr('src',userImage);
+        }
         $("#userImage").val(userImage);
         $('#userID').val(userid);
         $('#userName').val(userName);

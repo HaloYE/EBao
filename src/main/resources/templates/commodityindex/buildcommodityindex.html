@@ -42,7 +42,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '建筑仪器'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -88,7 +88,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '建筑扣件'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -135,7 +135,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '结构材料'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -182,7 +182,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '装饰材料'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -229,7 +229,7 @@
                         <div class="secondcategory_item"  th:if="${carGoods.goodsSecondKind} eq '专用材料'" >
                             <div class="secondcategory_item_main_container">
                                 <div class="secondcategory_item_pic">
-                                    <img th:src="@{'../' + ${carGoods.goodsPicture}}">
+                                    <img th:src="@{${carGoods.goodsPicture}}">
                                 </div>
                                 <div class="secondcategory_item_text">
                                     <div class="secondcategory_item_name">
@@ -267,7 +267,7 @@
     </div>
 </div>
 
-<iframe src="../../static/index/footer.html" id="ideaForm" width="100%" height="100%" style="height: 300px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>
+<iframe th:src="@{../eBao/index/footer.html}" id="ideaForm" width="100%" height="100%" style="height: 300px;display: block" frameborder="0" scrolling="no" name="headFrame"></iframe>
 
 <script>
     $(function(){
