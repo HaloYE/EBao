@@ -1,5 +1,6 @@
 package com.qr.actions;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,34 +17,20 @@ import java.util.Map;
 
 @RestController
 public class FileAction {
-
+    @Value("${file.path}")
+    private String filepath;
 
     @RequestMapping("/upload.action")
     public Map upload(MultipartFile file){
-//        如何获取服务器路径
-        String path=getUploadPath();
-
-//        System.out.println(path);
-
-//        文件的原始名称
-        String fileName=file.getOriginalFilename();
-//        加上时间戳，防止覆盖图片的发生
         Date date=new Date();
-        long time=date.getTime();
-        String newfileName=time+fileName;
-
-//        System.out.println(newfileName);
-
-//      获取服务器upload文件夹的路径
-//        File f=new File(path);
-//        String uploadFile=f.getParentFile().getParent()+"/upload";
-
-        Map map=new HashMap();
+        String time= String.valueOf(date.getTime());
+//        如何获取服务器路径
+        Map map =new HashMap();
         try {
-//            file.transferTo(new File(uploadFile+"/"+newfileName));
-            file.transferTo(new File(path+"/"+newfileName));
+            File file1 =new File(filepath+time+file.getOriginalFilename());
+            file.transferTo(file1);
             map.put("code",0);
-            map.put("goodsPicture","upload/"+newfileName);
+            map.put("goodsPicture","/eBao/upload/image/"+time+file.getOriginalFilename());
         } catch (IOException e) {
             map.put("code",-1);
             e.printStackTrace();
@@ -55,7 +42,7 @@ public class FileAction {
     /**
      * 获取当前系统路径
      */
-    private String getUploadPath() {
+    /*private String getUploadPath() {
         File path = null;
         try {
 //            path = new File(ResourceUtils.getURL("classpath:").getPath());
@@ -65,16 +52,16 @@ public class FileAction {
         catch (Exception exception){
             exception.printStackTrace();
         }
-/*        catch (FileNotFoundException e) {
+*//*        catch (FileNotFoundException e) {
             e.printStackTrace();
-        }*/
+        }*//*
         if (!path.exists())
-            path = new File("");
-        File upload = new File(path.getAbsolutePath(), "src/main/resources/static/upload/");
+            path = new File("");src/main/resources/
+        File upload = new File(path.getAbsolutePath(), "static/upload/");
         if (!upload.exists())
             upload.mkdirs();
         return upload.getAbsolutePath();
-    }
+    }*/
 
 
 
